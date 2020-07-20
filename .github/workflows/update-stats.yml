@@ -1,14 +1,14 @@
   name: Update stats
 
   on:
-    watch:
-      types: started
+    schedule:
+      # Runs at 12am UTC
+      - cron: '0 0 * * *'
 
   jobs:
     update-readme:
       name: Update Readme with Metrics
       runs-on: ubuntu-latest
-      if: github.event.repository.owner.id == github.event.sender.id
       steps:
         - uses: athul/waka-readme@master
           with:
