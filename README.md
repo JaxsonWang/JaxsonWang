@@ -24,12 +24,13 @@ I am just a web front-end developer and I am glad to meet you!
 
 <!--START_SECTION:waka-->
 ```text
-Week: 12 July, 2020 - 19 July, 2020
+Week: 13 July, 2020 - 20 July, 2020
 
-YAML        24 mins             ███████████████████░░░░░░   75.66 % 
-Markdown    3 mins              ███░░░░░░░░░░░░░░░░░░░░░░   12.09 % 
-TypeScript  3 mins              ██░░░░░░░░░░░░░░░░░░░░░░░   10.95 % 
-Other       0 secs              ░░░░░░░░░░░░░░░░░░░░░░░░░   01.30 %
+Vue.js      6 hrs 18 mins       ██████████████████░░░░░░░   74.36 % 
+JavaScript  1 hr 14 mins        ███░░░░░░░░░░░░░░░░░░░░░░   14.56 % 
+YAML        33 mins             █░░░░░░░░░░░░░░░░░░░░░░░░   06.54 % 
+JSON        9 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   01.90 % 
+TypeScript  4 mins              ░░░░░░░░░░░░░░░░░░░░░░░░░   00.79 %
 ```
 <!--END_SECTION:waka-->
 
