@@ -7,18 +7,18 @@ I am just a web front-end developer and I am glad to meet you!
 
 ### 📝 Worked language
 
-- ✅ JavaScript / TypeScript
+- ✅ JavaScript / TypeScript / ...
 - ✅ React Native / Flutter / UNI-App / Tora / ...
 - ✅ Vue.js / React.js / ...
-- ✅ Node.js / PHP
+- ✅ Node.js / PHP / ...
 
 ### 📮 Contact Me
 
-- [✉️ Email](mailto:i@iiong.com)
+- [✉️ Email - i@iiong.com](mailto:i@iiong.com)
 
 ### 🤪 Other
 
-- [📌 My Blog](https://iiong.com)
+- [📌 My Blog - 淮城一只猫](https://iiong.com)
 
 ### 📊 This week I spent my time on
 
