@@ -14,7 +14,9 @@ I am just a web front-end developer and I am glad to meet you!
 
 ### 📮 Contact Me
 
-- [✉️ Email - i@iiong.com](mailto:i@iiong.com)
+[🏷 Email - i@iiong.com](mailto:i@iiong.com)
+
+[Twitter - @JaxsonWangChina](https://twitter.com/JaxsonWangChina)
 
 ### 🤪 Other
 
