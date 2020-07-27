@@ -14,13 +14,13 @@ I am just a web front-end developer and I am glad to meet you!
 
 ### 📮 Contact Me
 
-[🏷 Email - i@iiong.com](mailto:i@iiong.com)
+- [Email - i@iiong.com](mailto:i@iiong.com)
 
-[Twitter - @JaxsonWangChina](https://twitter.com/JaxsonWangChina)
+- [Twitter - @JaxsonWangChina](https://twitter.com/JaxsonWangChina)
 
 ### 🤪 Other
 
-- [📌 My Blog - 淮城一只猫](https://iiong.com)
+[📌 My Blog - 淮城一只猫](https://iiong.com)
 
 ### 📊 This week I spent my time on
 
