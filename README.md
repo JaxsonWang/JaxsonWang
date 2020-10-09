@@ -26,12 +26,10 @@ I am just a web front-end developer and I am glad to meet you!
 
 <!--START_SECTION:waka-->
 ```text
-Week: 30 September, 2020 - 07 October, 2020
+Week: 01 October, 2020 - 08 October, 2020
 
-Bash         16 mins         ██████████▒░░░░░░░░░░░░░░   41.90 % 
-JSX          11 mins         ███████░░░░░░░░░░░░░░░░░░   28.64 % 
-JavaScript   10 mins         ██████▒░░░░░░░░░░░░░░░░░░   25.96 % 
-Other        1 min           █░░░░░░░░░░░░░░░░░░░░░░░░   03.50 % 
+Bash    16 mins         ███████████████████████░░   92.29 % 
+Other   1 min           ██░░░░░░░░░░░░░░░░░░░░░░░   07.71 % 
 ```
 <!--END_SECTION:waka-->
 
