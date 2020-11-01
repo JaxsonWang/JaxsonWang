@@ -26,7 +26,7 @@ I am just a web front-end developer and I am glad to meet you!
 
 <!--START_SECTION:waka-->
 ```text
-Week: 23 October, 2020 - 30 October, 2020
+Week: 24 October, 2020 - 31 October, 2020
 
 Vue.js       12 hrs 10 mins  █████████▓░░░░░░░░░░░░░░░   38.36 % 
 JavaScript   11 hrs 17 mins  █████████░░░░░░░░░░░░░░░░   35.60 % 
