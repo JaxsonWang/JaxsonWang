@@ -26,7 +26,11 @@ I am just a web front-end developer and I am glad to meet you!
 
 <!--START_SECTION:waka-->
 ```text
-No Activity tracked this Week
+Week: 09 May, 2021 - 16 May, 2021
+
+Java         29 mins         █████████████████▓░░░░░░░   70.75 % 
+Groovy       8 mins          █████░░░░░░░░░░░░░░░░░░░░   19.86 % 
+HTML         3 mins          ██▒░░░░░░░░░░░░░░░░░░░░░░   08.72 % 
 ```
 <!--END_SECTION:waka-->
 
