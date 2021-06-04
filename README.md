@@ -26,13 +26,13 @@ I am just a web front-end developer and I am glad to meet you!
 
 <!--START_SECTION:waka-->
 ```text
-Week: 26 May, 2021 - 02 June, 2021
+Week: 27 May, 2021 - 03 June, 2021
 
-Java         4 hrs 4 mins    ██████████████████████░░░   88.25 % 
-XML          19 mins         █▓░░░░░░░░░░░░░░░░░░░░░░░   06.89 % 
-TypeScript   6 mins          ▓░░░░░░░░░░░░░░░░░░░░░░░░   02.40 % 
-Other        4 mins          ▒░░░░░░░░░░░░░░░░░░░░░░░░   01.51 % 
-YAML         1 min           ░░░░░░░░░░░░░░░░░░░░░░░░░   00.39 % 
+Java         2 hrs 43 mins   █████████████████████▒░░░   85.65 % 
+XML          14 mins         ██░░░░░░░░░░░░░░░░░░░░░░░   07.42 % 
+TypeScript   6 mins          █░░░░░░░░░░░░░░░░░░░░░░░░   03.47 % 
+Other        3 mins          ▓░░░░░░░░░░░░░░░░░░░░░░░░   02.08 % 
+YAML         1 min           ░░░░░░░░░░░░░░░░░░░░░░░░░   00.57 % 
 ```
 <!--END_SECTION:waka-->
 
