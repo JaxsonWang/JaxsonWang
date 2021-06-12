@@ -26,7 +26,7 @@ I am just a web front-end developer and I am glad to meet you!
 
 <!--START_SECTION:waka-->
 ```text
-Week: 03 June, 2021 - 10 June, 2021
+Week: 04 June, 2021 - 11 June, 2021
 
 JavaScript   46 mins         ████████████▓░░░░░░░░░░░░   50.02 % 
 HTML         34 mins         █████████▒░░░░░░░░░░░░░░░   37.61 % 
