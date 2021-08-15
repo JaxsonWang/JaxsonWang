@@ -26,13 +26,13 @@ I am just a web front-end developer and I am glad to meet you!
 
 <!--START_SECTION:waka-->
 ```text
-Week: 07 August, 2021 - 13 August, 2021
+Week: 08 August, 2021 - 14 August, 2021
 
-Vue.js       32 hrs 32 mins  ███████████████████▓░░░░░   78.68 % 
-JavaScript   4 hrs 15 mins   ██▓░░░░░░░░░░░░░░░░░░░░░░   10.29 % 
-JSON         2 hrs 14 mins   █▒░░░░░░░░░░░░░░░░░░░░░░░   05.44 % 
-HTML         45 mins         ▒░░░░░░░░░░░░░░░░░░░░░░░░   01.83 % 
-Markdown     40 mins         ▒░░░░░░░░░░░░░░░░░░░░░░░░   01.64 % 
+Vue.js       32 hrs 58 mins  ███████████████████▓░░░░░   78.36 % 
+JavaScript   4 hrs 25 mins   ██▓░░░░░░░░░░░░░░░░░░░░░░   10.53 % 
+JSON         2 hrs 14 mins   █▒░░░░░░░░░░░░░░░░░░░░░░░   05.35 % 
+HTML         45 mins         ▒░░░░░░░░░░░░░░░░░░░░░░░░   01.80 % 
+Markdown     40 mins         ▒░░░░░░░░░░░░░░░░░░░░░░░░   01.62 % 
 ```
 <!--END_SECTION:waka-->
 
