@@ -26,7 +26,7 @@ I am just a web front-end developer and I am glad to meet you!
 
 <!--START_SECTION:waka-->
 ```text
-Week: 07 November, 2021 - 13 November, 2021
+Week: 08 November, 2021 - 14 November, 2021
 
 Vue.js       16 hrs 24 mins  ███████████▓░░░░░░░░░░░░░   46.52 % 
 JavaScript   8 hrs 54 mins   ██████▒░░░░░░░░░░░░░░░░░░   25.25 % 
