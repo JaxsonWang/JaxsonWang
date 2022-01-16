@@ -26,13 +26,13 @@ I am just a web front-end developer and I am glad to meet you!
 
 <!--START_SECTION:waka-->
 ```text
-Week: 08 January, 2022 - 14 January, 2022
+Week: 09 January, 2022 - 15 January, 2022
 
-JavaScript   28 hrs 34 mins  ████████████▓░░░░░░░░░░░░   51.00 % 
-Vue.js       18 hrs 2 mins   ████████░░░░░░░░░░░░░░░░░   32.19 % 
-JSON         2 hrs 14 mins   █░░░░░░░░░░░░░░░░░░░░░░░░   04.00 % 
-Java         1 hr 30 mins    ▓░░░░░░░░░░░░░░░░░░░░░░░░   02.69 % 
-CSS          1 hr 20 mins    ▓░░░░░░░░░░░░░░░░░░░░░░░░   02.39 % 
+JavaScript   27 hrs 49 mins  ████████████▓░░░░░░░░░░░░   50.34 % 
+Vue.js       18 hrs 2 mins   ████████░░░░░░░░░░░░░░░░░   32.63 % 
+JSON         2 hrs 14 mins   █░░░░░░░░░░░░░░░░░░░░░░░░   04.05 % 
+Java         1 hr 30 mins    ▓░░░░░░░░░░░░░░░░░░░░░░░░   02.73 % 
+CSS          1 hr 20 mins    ▓░░░░░░░░░░░░░░░░░░░░░░░░   02.42 % 
 ```
 <!--END_SECTION:waka-->
 
