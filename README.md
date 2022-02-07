@@ -26,7 +26,7 @@ I am just a web front-end developer and I am glad to meet you!
 
 <!--START_SECTION:waka-->
 ```text
-Week: 30 January, 2022 - 05 February, 2022
+Week: 31 January, 2022 - 06 February, 2022
 
 JavaScript   17 hrs 17 mins  ███████████████████████▒░   93.77 % 
 JSON         51 mins         █▒░░░░░░░░░░░░░░░░░░░░░░░   04.70 % 
