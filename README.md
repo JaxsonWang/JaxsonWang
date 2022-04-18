@@ -27,7 +27,7 @@ I am just a web front-end developer and I am glad to meet you!
 <!--START_SECTION:waka-->
 
 ```text
-From: 09 April 2022 - To: 16 April 2022
+From: 10 April 2022 - To: 17 April 2022
 
 Vue.js           7 hrs 20 mins   █████████████████████▓░░░   86.21 %
 JavaScript       40 mins         ██░░░░░░░░░░░░░░░░░░░░░░░   07.93 %
