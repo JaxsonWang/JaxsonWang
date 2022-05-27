@@ -14,9 +14,3 @@
           with:
             WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
             SHOW_TITLE: true
-
-        - name: cURL request
-          run: curl https://raw.githubusercontent.com/JaxsonWang/Scriptable-VW/master/purge.sh -o purge.sh
-
-        - name: run bash
-          run: bash purge.sh
