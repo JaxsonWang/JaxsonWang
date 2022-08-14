@@ -27,7 +27,14 @@ I am just a web front-end developer and I am glad to meet you!
 <!--START_SECTION:waka-->
 
 ```text
-No activity tracked
+From: 06 August 2022 - To: 13 August 2022
+
+WXML         55 mins         ██████▒░░░░░░░░░░░░░░░░░░   25.90 %
+TypeScript   45 mins         █████▒░░░░░░░░░░░░░░░░░░░   21.00 %
+SCSS         27 mins         ███░░░░░░░░░░░░░░░░░░░░░░   12.63 %
+Markdown     25 mins         ███░░░░░░░░░░░░░░░░░░░░░░   11.98 %
+WXSS         20 mins         ██▒░░░░░░░░░░░░░░░░░░░░░░   09.35 %
+JSON         15 mins         █▓░░░░░░░░░░░░░░░░░░░░░░░   07.29 %
 ```
 
 <!--END_SECTION:waka-->
