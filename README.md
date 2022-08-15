@@ -27,7 +27,7 @@ I am just a web front-end developer and I am glad to meet you!
 <!--START_SECTION:waka-->
 
 ```text
-From: 06 August 2022 - To: 13 August 2022
+From: 07 August 2022 - To: 14 August 2022
 
 WXML         55 mins         ██████▒░░░░░░░░░░░░░░░░░░   25.90 %
 TypeScript   45 mins         █████▒░░░░░░░░░░░░░░░░░░░   21.00 %
