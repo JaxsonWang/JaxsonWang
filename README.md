@@ -27,7 +27,7 @@ I am just a web front-end developer and I am glad to meet you!
 <!--START_SECTION:waka-->
 
 ```txt
-From: 28 July 2023 - To: 04 August 2023
+From: 29 July 2023 - To: 05 August 2023
 
 Vue.js         4 hrs 2 mins    ██████████████████▓░░░░░░   74.59 %
 TypeScript     44 mins         ███▒░░░░░░░░░░░░░░░░░░░░░   13.65 %
