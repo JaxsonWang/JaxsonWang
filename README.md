@@ -27,7 +27,7 @@ I am just a web front-end developer and I am glad to meet you!
 <!--START_SECTION:waka-->
 
 ```txt
-From: 01 September 2023 - To: 08 September 2023
+From: 02 September 2023 - To: 09 September 2023
 
 JavaScript     3 hrs 15 mins   ████████▓░░░░░░░░░░░░░░░░   34.89 %
 HTML           2 hrs 54 mins   ███████▓░░░░░░░░░░░░░░░░░   31.17 %
