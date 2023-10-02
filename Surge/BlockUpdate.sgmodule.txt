@@ -1,0 +1,11 @@
+#!name=屏蔽系统更新
+#!desc=屏蔽 iOS 系统更新。
+
+[Rule]
+DOMAIN,mesu.apple.com,REJECT
+DOMAIN,gdmf.apple.com,REJECT
+DOMAIN,updates-http.cdn-apple.com,REJECT
+DOMAIN,xp.apple.com,REJECT
+DOMAIN,swdist.apple.com,REJECT
+DOMAIN,swscan.apple.com,REJECT
+DOMAIN,swcdn.apple.com,REJECT
