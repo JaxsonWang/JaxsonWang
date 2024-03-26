@@ -2,4 +2,4 @@
 #!desc=我的自定义分流规则。
 
 [Rule]
-DOMAIN-KEYWORD,google,Proxy
+DOMAIN-KEYWORD,coze,Proxy
