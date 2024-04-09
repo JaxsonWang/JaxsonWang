@@ -1,5 +1,5 @@
 #!name=获取应用 Cookie
-#!desc=获取应用 Cookie
+#!desc=获取所有应用的应用 Cookie
 
 [MITM]
 hostname = act.10010.com, m.client.10010.com, clientaccess.10086.cn
@@ -11,6 +11,6 @@ http-request ^https?:\/\/act.10010.com\/SigninApp(.*?)\/signin\/daySign script-p
 http-request ^https?:\/\/m.client.10010.com\/dailylottery\/static\/(textdl\/userLogin|active\/findActivityInfo) script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/10010/10010.cookie.js
 cron "10 0 0 * * *" script-path=https://raw.githubusercontent.com/chavyleung/scripts/master/10010/10010.js
 
-http-request ^https?:\/\/clientaccess.10086.cn\/biz-orange\/LN\/uamrandcodelogin\/autoLogin script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/scripts/10086/10086.fee.cookie.js
-http-request ^https?:\/\/clientaccess.10086.cn\/biz-orange\/BN\/realFeeQuery\/getRealFee script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/scripts/10086/10086.fee.cookie.js
-cron "10 0 0 * * *" script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/scripts/10086/10086.fee.js
+http-request ^https?:\/\/clientaccess.10086.cn\/biz-orange\/LN\/uamrandcodelogin\/autoLogin script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10086/10086.fee.cookie.js
+http-request ^https?:\/\/clientaccess.10086.cn\/biz-orange\/BN\/realFeeQuery\/getRealFee script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10086/10086.fee.cookie.js
+cron "10 0 0 * * *" script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10086/10086.fee.js

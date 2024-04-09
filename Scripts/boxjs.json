@@ -1,0 +1,19 @@
+{
+  "id": "jaxsonwang.app.sub",
+  "name": "淮城一只猫 - 应用订阅",
+  "author": "@JaxsonWang",
+  "icon": "https://avatars3.githubusercontent.com/u/16836692?s=460&u=1e87605e4abc4e6ecf3edd8b1d730227f54db4d4&v=4",
+  "repo": "https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts",
+  "apps": [
+    {
+      "id": "10010Cookie",
+      "name": "中国联通",
+      "keys": ["@JaxsonWang_10010.cookie"],
+      "author": "@JaxsonWang",
+      "icons": [
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Alpha/10010.png",
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/10010.png"
+      ]
+    }
+  ]
+}
