@@ -1,5 +1,5 @@
 #!name=获取应用 Cookie
-#!desc=获取所有应用的应用 Cookie
+#!desc=获取所有应用的 Cookie
 
 [MITM]
 hostname = %INSERT% act.10010.com, m.client.10010.com, audi2c.faw-vw.com
