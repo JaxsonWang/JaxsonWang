@@ -2,11 +2,10 @@
 #!desc=获取所有应用的应用 Cookie
 
 [MITM]
-hostname = act.10010.com, m.client.10010.com, audi2c.faw-vw.com
+hostname = %INSERT% act.10010.com, m.client.10010.com, audi2c.faw-vw.com
 
 [Script]
 # 获取联通 Cookie
-http-request ^https?:\/\/m\.client\.10010\.com\/serviceimportantbusiness\/smart\/smartwisdomCommonNew script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10010/10010.cookie.js
+Rewrite: Joiner = type=http-request, pattern=^http-request ^https?:\/\/m\.client\.10010\.com\/serviceimportantbusiness\/smart\/smartwisdomCommonNew script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10010/10010.cookie.js, requires-body=true, timeout=120
 # 获取一汽奥迪 Cookie
-http-request ^https?:\/\/audi2c\.faw-vw\.com\/capi\/v2\/feed script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/audi.cookie.js
-
+Rewrite: Joiner = type=http-request, pattern=^http-request ^https?:\/\/audi2c\.faw-vw\.com\/capi\/v2\/feed script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/audi.cookie.js, requires-body=true, timeout=120
