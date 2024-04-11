@@ -14,6 +14,16 @@
         "https://raw.githubusercontent.com/Orz-3/mini/master/Alpha/10010.png",
         "https://raw.githubusercontent.com/Orz-3/mini/master/Color/10010.png"
       ]
+    },
+    {
+      "id": "FvwAudiCookie",
+      "name": "一汽奥迪",
+      "keys": ["@JaxsonWang_fvw_audi_idToken.cookie"],
+      "author": "@JaxsonWang",
+      "icons": [
+        "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Alpha/Audi.png",
+        "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi.png"
+      ]
     }
   ]
 }

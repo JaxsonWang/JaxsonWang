@@ -2,12 +2,11 @@
 #!desc=获取所有应用的应用 Cookie
 
 [MITM]
-hostname = act.10010.com, m.client.10010.com, clientaccess.10086.cn
+hostname = act.10010.com, m.client.10010.com, audi2c.faw-vw.com
 
 [Script]
 # 获取联通 Cookie
 http-request ^https?:\/\/m\.client\.10010\.com\/serviceimportantbusiness\/smart\/smartwisdomCommonNew script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10010/10010.cookie.js
-# 获取移动 Cookie
-http-request ^https?:\/\/clientaccess.10086.cn\/biz-orange\/LN\/uamrandcodelogin\/autoLogin script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10086/10086.fee.cookie.js
-http-request ^https?:\/\/clientaccess.10086.cn\/biz-orange\/BN\/realFeeQuery\/getRealFee script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10086/10086.fee.cookie.js
-cron "10 0 0 * * *" script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10086/10086.fee.js
+# 获取一汽奥迪 Cookie
+http-request ^https?:\/\/audi2c\.faw-vw\.com\/capi\/v2\/feed script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/audi.cookie.js
+
