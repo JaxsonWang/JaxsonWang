@@ -7,7 +7,7 @@ hostname = audi2c.faw-vw.com
 
 */
 
-const APIKey = 'JaxsonWang_fvw_audi_idToken';
+const APIKey = 'idToken';
 const $ = new API(APIKey, true);
 if ($request) getToken();
 

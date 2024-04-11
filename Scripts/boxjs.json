@@ -16,9 +16,9 @@
       ]
     },
     {
-      "id": "FvwAudiCookie",
+      "id": "FvwAudiIDToken",
       "name": "一汽奥迪",
-      "keys": ["@JaxsonWang_fvw_audi_idToken.cookie"],
+      "keys": ["@idToken.cookie"],
       "author": "@JaxsonWang",
       "icons": [
         "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Alpha/Audi.png",
