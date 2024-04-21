@@ -6,3 +6,5 @@ hostname = %INSERT% account.wps.cn
 
 [Script]
 Rewrite: Joiner = type=http-response, pattern=^https?:\/\/account\.wps\.cn\/api\/users, script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Wps/wps.js, requires-body=true, timeout=120
+Rewrite: Joiner = type=http-response, pattern=^https?:\/\/drive\.wps\.cn\/api\/v3\/userinfo, script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Wps/wps1.js, requires-body=true, timeout=120
+Rewrite: Joiner = type=http-response, pattern=^https?:\/\/vas\.wps\.cn\/query\/api\/v1\/list_purchase_info, script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Wps/wps2.js, requires-body=true, timeout=120

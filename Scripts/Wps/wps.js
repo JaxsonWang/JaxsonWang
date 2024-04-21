@@ -16,7 +16,7 @@ obj = {
     result: "ok",
     total_buy: 0,
     total_cost: -30,
-    userid: 0000,
+    userid: '0000',
     vip: {
         name: "超级会员",
         has_ad: 0,
