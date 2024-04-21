@@ -1,8 +1,8 @@
 #!name=WPS 测试
 #!desc=WPS 测试
 
-[Script]
-http-response ^https?:\/\/account\.wps\.cn\/api\/users requires-body=1,max-size=-1,script-path=https://raw.githubusercontent.com/eHpo1/Surge/master/Script/wps.js
-
 [MITM]
-hostname = account.wps.cn
+hostname = %INSERT% account.wps.cn
+
+[Script]
+Rewrite: Joiner = type=http-response, pattern=^https?:\/\/account\.wps\.cn\/api\/users, script-path==https://raw.githubusercontent.com/eHpo1/Surge/master/Script/wps.js, requires-body=true, timeout=120
