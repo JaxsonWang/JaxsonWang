@@ -1,5 +1,9 @@
 #!name=修复奇怪的问题
 #!desc=修复部分应用打开缓慢的问题。
+#!author=淮城一只猫
+#!homepage=https://github.com/JaxsonWang/JaxsonWang
+#!icon=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi.png
+#!category=Joiner
 
 [Host]
 *.lan = server:10.0.0.1

@@ -1,5 +1,9 @@
 #!name=自定义分流规则
 #!desc=我的自定义分流规则。
+#!author=淮城一只猫
+#!homepage=https://github.com/JaxsonWang/JaxsonWang
+#!icon=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi.png
+#!category=Joiner
 
 [Rule]
 DOMAIN-KEYWORD,coze,Proxy

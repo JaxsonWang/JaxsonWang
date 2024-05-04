@@ -1,5 +1,9 @@
 #!name=获取应用 Cookie
 #!desc=获取所有应用的 Cookie
+#!author=淮城一只猫
+#!homepage=https://github.com/JaxsonWang/JaxsonWang
+#!icon=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi.png
+#!category=Joiner
 
 [MITM]
 hostname = %INSERT% act.10010.com, m.client.10010.com, audi2c.faw-vw.com
