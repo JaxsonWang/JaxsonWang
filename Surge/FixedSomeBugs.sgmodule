@@ -4,6 +4,8 @@
 #!homepage=https://github.com/JaxsonWang/JaxsonWang
 #!icon=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi.png
 #!category=Joiner
+[General]
+always-real-ip = %APPEND% -*.lan
 
 [Host]
 *.lan = server:10.0.0.1
