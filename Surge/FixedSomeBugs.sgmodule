@@ -1,11 +1,8 @@
 #!name=修复奇怪的问题
 #!desc=修复部分应用打开缓慢的问题。
 #!author=淮城一只猫
-#!homepage=https://github.com/JaxsonWang/JaxsonWang
-#!icon=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi.png
 #!category=Joiner
-[General]
-always-real-ip = *.126.net, *.blzstatic.cn, *.cmpassport.com, *.home.arpa, *.icitymobile.mobi, *.jegotrip.com.cn, *.kuwo.cn, *.linksys.com, *.localhost, *.localdomain, *.logon.battle.net, *.logon.battlenet.com.cn, *.mcdn.bilivideo.cn, *.msftconnecttest.com, *.msftncsi.com, *.music.163.com, *.music.migu.cn, *.ntp.org.cn, *.pool.ntp.org, *.srv.nintendo.net, *.stun.playstation.net, *.xboxlive.com, *.xiami.com, *.y.qq.com, aqqmusic.tc.qq.com, amobile.music.tc.qq.com, api.joox.com, api-jooxtt.sanook.com, auth.wosms.cn, cable.auth.com, DC._msDCS.*.*, detectportal.firefox.com, dl.stream.qqmusic.qq.com, GC._msDCS.*.*, global.stun.twilio.com, global.turn.twilio.com, id6.me, isure.stream.qqmusic.qq.com, joox.com, localhost.ptlogin2.qq.com, localhost.*.qq.com, mdn.open.wo.cn, mobileoc.music.tc.qq.com, music.163.com, music.migu.cn, music.taihe.com, musicapi.taihe.com, ntp.*.com, ntp?.*.com, ntp1.*.com, ntp2.*.com, ntp3.*.com, ntp4.*.com, ntp5.*.com, ntp6.*.com, ntp7.*.com, open.e.189.cn, opencloud.wostore.cn, PDC._msDCS.*.*, pingan.com.cn, pool.ntp.org, proxy.golang.org, resolver1.opendns.com, songsearch.kugou.com, streamoc.music.tc.qq.com, stun.*, stun.*.*.*, time.*.com, time.*.gov, time.*.edu.cn, time.*.apple.com, time?.*.com, time1.*.com, time1.cloud.tencent.com, time2.*.com, time2.*.com, time3.*.com, time3.*.com, time4.*.com, time4.*.com, time5.*.com, time5.*.com, time6.*.com, time6.*.com, time7.*.com, time7.*.com, time8.*.com, time8.*.com, time9.*.com, time9.*.com, trackercdn.kugou.com, xbox.*.microsoft.com
 
 [Host]
-*.lan = server:10.0.0.1
+*.lan = server:localhost
+# *.lan = server:10.0.0.1
