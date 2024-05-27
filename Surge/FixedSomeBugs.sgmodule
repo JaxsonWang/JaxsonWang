@@ -4,5 +4,5 @@
 #!category=Joiner
 
 [Host]
-*.lan = server:localhost
+*.lan = localhost
 # *.lan = server:10.0.0.1
