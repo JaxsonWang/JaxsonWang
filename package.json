@@ -1,0 +1,17 @@
+{
+  "name": "jaxson-wang",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "index.js",
+  "repository": "https://github.com/JaxsonWang/JaxsonWang",
+  "author": "Jaxson Wang <i@iiong.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.4.0",
+    "eslint": "^9.4.0",
+    "eslint-config-prettier": "^9.1.0",
+    "eslint-define-config": "^2.1.0",
+    "eslint-plugin-prettier": "^5.1.3",
+    "prettier": "^3.3.2"
+  }
+}
