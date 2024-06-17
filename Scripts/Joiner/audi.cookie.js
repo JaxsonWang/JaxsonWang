@@ -10,7 +10,7 @@ hostname = audi2c.faw-vw.com
 const APIKey = 'idToken'
 const $ = new API(APIKey, true)
 
-const token = $.read(APIKey)
+const token = $.read('cookie')
 !(async () => {
   if (typeof $request != 'undefined') {
     return getToken()
