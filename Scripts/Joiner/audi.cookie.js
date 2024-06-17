@@ -9,7 +9,24 @@ hostname = audi2c.faw-vw.com
 
 const APIKey = 'idToken'
 const $ = new API(APIKey, true)
-if ($request) getToken()
+
+const token = $.read(APIKey)
+!(async () => {
+  if (typeof $request != 'undefined') {
+    return getToken()
+  }
+  if (token !== undefined) {
+    await signTasker()
+  } else {
+    $.notify($.name, '', `❌请先获取 Token 🎉`)
+  }
+})()
+  .catch(e => {
+    $.log('', `❌失败! 原因: ${e}!`, '')
+  })
+  .finally(() => {
+    $.done()
+  })
 
 function getToken() {
   const token = $request.headers['X-ACCESS-TOKEN']
@@ -18,7 +35,52 @@ function getToken() {
     $.write(token, 'cookie')
     $.notify('一汽奥迪', 'Token 写入成功')
   }
-  $.done()
+  // $.done()
+}
+
+const headers = {
+  'X-ACCESS-TOKEN': token,
+  'X-CHANNEL': 'IOS',
+  Accept: 'application/json',
+  'Content-Type': 'application/json',
+  'User-Agent': `MyAuDi/4.3.2 CFNetwork/1390 Darwin/22.0.0`
+}
+
+function task1() {
+  const options = {
+    baseURL: 'https://audi2c.faw-vw.com/capi/v1/vehicle/browse?task=1',
+    method: 'GET',
+    headers
+  }
+  const response = HTTP(options)
+  if (response['code'] === 0) {
+    if (response['data'] === true) {
+      $.notify('浏览车辆签到成功！', '请到一汽奥迪 App 应用确认！')
+    } else {
+      $.notify('浏览车辆签到失败！', response['message'])
+    }
+  }
+}
+
+function task2() {
+  const options = {
+    baseURL: 'https://audi2c.faw-vw.com/capi/v1/task/sign_in',
+    method: 'GET',
+    headers
+  }
+  const response = HTTP(options)
+  if (response['code'] === 0) {
+    if (response['data'] === true) {
+      $.notify('常规签到成功！', '请到一汽奥迪 App 应用确认！')
+    } else {
+      $.notify('常规签到成功！', response['message'])
+    }
+  }
+}
+
+function signTasker() {
+  task1()
+  task2()
 }
 
 function ENV() {
@@ -307,6 +369,7 @@ function API(name = 'untitled', debug = false) {
       else
         try {
           return JSON.stringify(obj_or_str, null, 2)
+          // eslint-disable-next-line no-unused-vars
         } catch (err) {
           return '[object Object]'
         }
