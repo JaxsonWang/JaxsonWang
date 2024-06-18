@@ -10,6 +10,9 @@ const $ = new Env('Joiner-FvwAudi')
 const apiKey = 'Joiner-FvwAudi-Cookie'
 const token = $.getdata(apiKey)
 
+const taskDay = $.getdata('Joiner-FvwAudi-Day') || 0
+const taskComment = $.getdata('Joiner-FvwAudi-Comment') || 1
+
 let postId = ''
 let postTitle = ''
 
@@ -43,7 +46,7 @@ async function signTasker() {
   // 每日任务
   await getSignInMainRequest()
   await getSignIn1Request()
-  if (new Date().getDay() === 1) {
+  if (new Date().getDay() === parseInt(taskDay, 10)) {
     // 每周任务
     await getSignInGetNewPostRequest()
     await getSignIn2Request()
@@ -167,7 +170,7 @@ async function getSignIn5Request() {
     body: {
       channel: 'APP',
       infoId: postId,
-      content: '支持一下'
+      content: taskComment
     }
   }
   return new Promise(resolve => {

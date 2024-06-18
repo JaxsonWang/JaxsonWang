@@ -38,7 +38,7 @@
           "id": "Joiner-FvwAudi-Comment",
           "name": "评论内容",
           "val": "",
-          "desc": "支持一下",
+          "desc": "默认为：支持一下",
           "type": "textarea",
           "autoGrow": false,
           "rows": 1
