@@ -88,7 +88,7 @@ async function getSignIn1Request() {
   }
   return new Promise(resolve => {
     $.get(options, async (error, response, data) => {
-      $.log('常规签到失败！', '', '请到一汽奥迪 App 应用确认！')
+      $.log('常规签到成功！', '', '请到一汽奥迪 App 应用确认！')
       resolve(response)
     })
   })
@@ -100,18 +100,19 @@ async function getSignInGetNewPostRequest() {
     headers: getHeaders(),
     body: {
       current: 1,
-      pageSize: 20,
+      pageSize: 1,
       activityTimeStatus: 0
     }
   }
   return new Promise(resolve => {
     $.post(options, async (error, response, data) => {
-      if (data['code'] === 0) {
-        const result = data['data']['records'][0]
-        postId = result.id
-        postTitle = result.title
+      const result = JSON.parse(data)
+      if (result['code'] === 0) {
+        const record = result['data']['records'][0]
+        postId = record.id
+        postTitle = record.title
       } else {
-        $.log('获取最新的文章编号失败！', '', typeof data === 'string' ? data : JSON.stringify(data))
+        $.log('获取最新的文章编号失败！', '', data)
       }
       resolve(response)
     })
