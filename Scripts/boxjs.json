@@ -42,15 +42,6 @@
           "type": "textarea",
           "autoGrow": false,
           "rows": 1
-        },
-        {
-          "id": "Joiner-FvwAudi-Cookie",
-          "name": "Cookie 值",
-          "val": "",
-          "desc": "脚本自动获取，不建议修改",
-          "type": "textarea",
-          "autoGrow": false,
-          "rows": 1
         }
       ],
       "repo": "https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts",
