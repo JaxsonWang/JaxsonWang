@@ -119,8 +119,8 @@ async function getSignInGetNewPostRequest() {
         postId = result.id
         postTitle = result.title
       } else {
-        $.log('"获取最新的文章编号失败！" '"" response)
-;      }
+        $.log('获取最新的文章编号失败！', '', response)
+      }
       resolve(response)
     })
   })
