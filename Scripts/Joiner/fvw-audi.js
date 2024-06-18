@@ -104,11 +104,16 @@ async function getSignIn1Request() {
 
 async function getSignInGetNewPostRequest() {
   const options = {
-    url: 'https://audi2c.faw-vw.com/capi/v1/information/platform/page_list?current=1&pageSize=1&platformId=0',
-    headers: getHeaders()
+    url: 'https://audi2c.faw-vw.com/capi/v1/information/activity/paged_search',
+    headers: getHeaders(),
+    body: {
+      current: 1,
+      pageSize: 20,
+      activityTimeStatus: 0
+    }
   }
   return new Promise(resolve => {
-    $.get(options, async (error, response, data) => {
+    $.post(options, async (error, response, data) => {
       if (response['code'] === 0) {
         const result = response['data']['records'][0]
         postId = result.id
@@ -123,12 +128,12 @@ async function getSignInGetNewPostRequest() {
 
 async function getSignIn2Request() {
   const options = {
-    url: `https://audi2c.faw-vw.com/capi/v1/information/forward/${this.postId}`,
+    url: `https://audi2c.faw-vw.com/capi/v1/information/forward/${postId}`,
     headers: getHeaders()
   }
   return new Promise(resolve => {
     $.post(options, async (error, response, data) => {
-      $.log('文章分享成功！', '', '请到一汽奥迪 App 应用确认！')
+      $.log(postTitle + '文章分享成功！', '', '请到一汽奥迪 App 应用确认！')
       resolve(response)
     })
   })
@@ -137,12 +142,12 @@ async function getSignIn2Request() {
 async function getSignIn3Request(type) {
   const timeMap = new Date().valueOf()
   const options = {
-    url: `https://audi2c.faw-vw.com/capi/v1/information/like/save?infoId=${this.postId}&type=${type}&_t=${timeMap}`,
+    url: `https://audi2c.faw-vw.com/capi/v1/information/like/save?infoId=${postId}&type=${type}&_t=${timeMap}`,
     headers: getHeaders()
   }
   return new Promise(resolve => {
     $.post(options, async (error, response, data) => {
-      if (type === 'LIKE') $.log('文章点赞成功！', '', '稍后自动取消点赞')
+      if (type === 'LIKE') $.log(postTitle + '文章点赞成功！', '', '稍后自动取消点赞')
       resolve(response)
     })
   })
@@ -151,12 +156,12 @@ async function getSignIn3Request(type) {
 async function getSignIn4Request(type) {
   const timeMap = new Date().valueOf()
   const options = {
-    url: `https://audi2c.faw-vw.com/capi/v1/information/collect/save?infoId=${this.postId}&type=${type}&_t=${timeMap}`,
+    url: `https://audi2c.faw-vw.com/capi/v1/information/collect/save?infoId=${postId}&type=${type}&_t=${timeMap}`,
     headers: getHeaders()
   }
   return new Promise(resolve => {
     $.post(options, async (error, response, data) => {
-      if (type === 'COLLECT') $.log('文章收藏成功！', '', '稍后自动取消收藏')
+      if (type === 'COLLECT') $.log(postTitle + '文章收藏成功！', '', '稍后自动取消收藏')
       resolve(response)
     })
   })
@@ -175,7 +180,7 @@ async function getSignIn5Request() {
   }
   return new Promise(resolve => {
     $.post(options, async (error, response, data) => {
-      $.log('文章评论成功！', '', '')
+      $.log(postTitle + '文章评论成功！', '', '')
       resolve(response)
     })
   })
