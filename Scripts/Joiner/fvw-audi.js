@@ -88,15 +88,7 @@ async function getSignIn1Request() {
   }
   return new Promise(resolve => {
     $.get(options, async (error, response, data) => {
-      if (response['code'] === 0) {
-        if (response['data'] === true) {
-          $.log('常规签到成功！', '', '请到一汽奥迪 App 应用确认！')
-        } else {
-          $.log('常规签到成功！', '', typeof response === 'string' ? response : JSON.stringify(response))
-        }
-      } else {
-        $.log('常规签到失败！', '', typeof response === 'string' ? response : JSON.stringify(response))
-      }
+      $.log('常规签到失败！', '', '请到一汽奥迪 App 应用确认！')
       resolve(response)
     })
   })
@@ -114,12 +106,12 @@ async function getSignInGetNewPostRequest() {
   }
   return new Promise(resolve => {
     $.post(options, async (error, response, data) => {
-      if (response['code'] === 0) {
-        const result = response['data']['records'][0]
+      if (data['code'] === 0) {
+        const result = data['data']['records'][0]
         postId = result.id
         postTitle = result.title
       } else {
-        $.log('获取最新的文章编号失败！', '', typeof response === 'string' ? response : JSON.stringify(response))
+        $.log('获取最新的文章编号失败！', '', typeof data === 'string' ? data : JSON.stringify(data))
       }
       resolve(response)
     })
@@ -185,6 +177,7 @@ async function getSignIn5Request() {
     })
   })
 }
+
 /**
  * ENV
  * @param name
