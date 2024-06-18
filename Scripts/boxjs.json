@@ -6,22 +6,30 @@
   "repo": "https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts",
   "apps": [
     {
-      "id": "10010Cookie",
+      "id": "ChinaUnicom",
       "name": "中国联通",
-      "keys": ["@JaxsonWang_10010.cookie"],
+      "keys": ["Joiner-10010-Cookie"],
       "author": "@JaxsonWang",
+      "repo": "https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts",
       "icons": [
-        "https://raw.githubusercontent.com/Orz-3/mini/master/Alpha/10010.png",
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/10010.png",
         "https://raw.githubusercontent.com/Orz-3/mini/master/Color/10010.png"
       ]
     },
     {
-      "id": "FvwAudiIDToken",
+      "id": "FvwAudi",
       "name": "一汽奥迪",
-      "keys": ["@idToken.cookie"],
+      "keys": ["Joiner-FvwAudi-Cookie"],
       "author": "@JaxsonWang",
+      "repo": "https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts",
+      "scripts": [
+        {
+          "name": "一汽奥迪签到",
+          "script": "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi.js"
+        }
+      ],
       "icons": [
-        "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Alpha/Audi.png",
+        "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi.png",
         "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi.png"
       ]
     }

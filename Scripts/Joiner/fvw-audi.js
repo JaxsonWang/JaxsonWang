@@ -1,44 +1,182 @@
 /*
 
-获取方式：打开  中国联通 app 【官方版】-> 首页的流量查询获取 Cookie
+获取方式：打开  一汽奥迪 app 【官方版】-> 登录成功后访问首页
 ===================
 [MITM]
-hostname = m.client.10010.com
-
-【Surge脚本配置】:
-===================
-[Script]
-联通组件 = type=http-request,pattern=https:\/\/m\.client\.10010\.com\/(.*)\/smartwisdomCommon,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/dompling/Script/master/10010/index.js,script-update-interval=0
-
-===================
-【Loon脚本配置】:
-===================
-[Script]
-http-request https:\/\/m\.client\.10010\.com\/(.*)\/smartwisdomCommon tag=联通 headers, script-path=https://raw.githubusercontent.com/dompling/Script/master/10010/index.js
-
-===================
-【 QX  脚本配置 】 :
-===================
-
-[rewrite_local]
-https:\/\/m\.client\.10010\.com\/(.*)\/smartwisdomCommon  url script-request-header https://raw.githubusercontent.com/dompling/Script/master/10010/index.js
+hostname = audi2c.faw-vw.com
 
 */
+const $ = new Env('Joiner-FvwAudi')
+const apiKey = 'Joiner-FvwAudi-Cookie'
+const token = $.getdata(apiKey)
 
-const $ = new Env('JaxsonWang_10010')
-const apiKey = 'Joiner-10010-Cookie'
-if ($request) getCookie()
+let postId = ''
+let postTitle = ''
 
-function getCookie() {
-  const cookie = $request.headers.Cookie || $request.headers.cookie
-  $.log($request.headers)
-  if (cookie && cookie.indexOf('JSESSIONID') > -1) {
-    $.setdata(cookie, apiKey)
-    $.msg('中国联通', '', 'Cookie 写入成功')
+!(async () => {
+  if (typeof $request != 'undefined') {
+    return getToken()
   }
-  $.done()
+  if (token !== undefined) {
+    await signTasker()
+  } else {
+    $.msg($.name, '', `❌请先获取 Token 🎉`)
+  }
+})()
+  .catch(e => {
+    $.log('', `❌失败! 原因: ${e}!`, '')
+  })
+  .finally(() => {
+    $.done()
+  })
+
+function getToken() {
+  const token = $request.headers['X-ACCESS-TOKEN']
+  $.log($request.headers)
+  if (token && token.length !== 0) {
+    $.setdata(token, apiKey)
+    $.msg('一汽奥迪', '', 'Token 写入成功')
+  }
 }
 
+async function signTasker() {
+  // 每日任务
+  await getSignInMainRequest()
+  await getSignIn1Request()
+  if (new Date().getDay() === 1) {
+    // 每周任务
+    await getSignInGetNewPostRequest()
+    await getSignIn2Request()
+    await getSignIn3Request('LIKE')
+    await getSignIn4Request('COLLECT')
+    await getSignIn5Request()
+    await getSignIn3Request('CANCEL_LIKE')
+    await getSignIn4Request('CANCEL_COLLECT')
+  }
+}
+
+function getHeaders() {
+  return {
+    'X-ACCESS-TOKEN': token,
+    'X-CHANNEL': 'IOS',
+    Accept: 'application/json',
+    'Content-Type': 'application/json',
+    'User-Agent': `MyAuDi/4.3.2 CFNetwork/1390 Darwin/22.0.0`
+  }
+}
+
+async function getSignInMainRequest() {
+  const options = {
+    url: 'https://audi2c.faw-vw.com/capi/v1/vehicle/browse?task=1',
+    headers: getHeaders()
+  }
+  return new Promise(resolve => {
+    $.get(options, async (error, response, data) => {
+      $.msg('浏览车辆签到成功！', '', '请到一汽奥迪 App 应用确认！')
+      resolve(response)
+    })
+  })
+}
+
+async function getSignIn1Request() {
+  const options = {
+    url: 'https://audi2c.faw-vw.com/capi/v1/task/sign_in',
+    headers: getHeaders()
+  }
+  return new Promise(resolve => {
+    $.get(options, async (error, response, data) => {
+      if (response['code'] === 0) {
+        if (response['data'] === true) {
+          $.msg('常规签到成功！', '', '请到一汽奥迪 App 应用确认！')
+        } else {
+          $.msg('常规签到成功！', '', response['message'])
+        }
+      } else {
+        $.msg('常规签到成功！', '', response['message'])
+      }
+      resolve(response)
+    })
+  })
+}
+
+async function getSignInGetNewPostRequest() {
+  const options = {
+    url: 'https://audi2c.faw-vw.com/capi/v1/information/platform/page_list?current=1&pageSize=1&platformId=0',
+    headers: getHeaders()
+  }
+  return new Promise(resolve => {
+    $.get(options, async (error, response, data) => {
+      if (response['code'] === 0) {
+        const result = response['data']['records'][0]
+        postId = result.id
+        postTitle = result.title
+      } else {
+        $.msg('获取最新的文章编号失败！', '', response['message'])
+      }
+      resolve(response)
+    })
+  })
+}
+
+async function getSignIn2Request() {
+  const options = {
+    url: `https://audi2c.faw-vw.com/capi/v1/information/forward/${this.postId}`,
+    headers: getHeaders()
+  }
+  return new Promise(resolve => {
+    $.post(options, async (error, response, data) => {
+      $.msg('文章分享成功！', '', '请到一汽奥迪 App 应用确认！')
+      resolve(response)
+    })
+  })
+}
+
+async function getSignIn3Request(type) {
+  const timeMap = new Date().valueOf()
+  const options = {
+    url: `https://audi2c.faw-vw.com/capi/v1/information/like/save?infoId=${this.postId}&type=${type}&_t=${timeMap}`,
+    headers: getHeaders()
+  }
+  return new Promise(resolve => {
+    $.post(options, async (error, response, data) => {
+      if (type === 'LIKE') $.msg('文章点赞成功！', '', '稍后自动取消点赞')
+      resolve(response)
+    })
+  })
+}
+
+async function getSignIn4Request(type) {
+  const timeMap = new Date().valueOf()
+  const options = {
+    url: `https://audi2c.faw-vw.com/capi/v1/information/collect/save?infoId=${this.postId}&type=${type}&_t=${timeMap}`,
+    headers: getHeaders()
+  }
+  return new Promise(resolve => {
+    $.post(options, async (error, response, data) => {
+      if (type === 'COLLECT') $.msg('文章收藏成功！', '', '稍后自动取消收藏')
+      resolve(response)
+    })
+  })
+}
+
+async function getSignIn5Request() {
+  const timeMap = new Date().valueOf()
+  const options = {
+    url: `https://audi2c.faw-vw.com/capi/v1/information/comment/save?_t=${timeMap}`,
+    headers: getHeaders(),
+    body: {
+      channel: 'APP',
+      infoId: postId,
+      content: '支持一下'
+    }
+  }
+  return new Promise(resolve => {
+    $.post(options, async (error, response, data) => {
+      $.msg('文章评论成功！', '', '')
+      resolve(response)
+    })
+  })
+}
 /**
  * ENV
  * @param name
