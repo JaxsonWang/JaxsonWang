@@ -95,8 +95,8 @@ async function getSignIn1Request() {
           $.log('常规签到成功！', '', response)
         }
       } else {
-        $.log('"常规签到失败！" '"" response)
-;      }
+        $.log('常规签到失败！', '', response)
+      }
       resolve(response)
     })
   })
@@ -119,8 +119,8 @@ async function getSignInGetNewPostRequest() {
         postId = result.id
         postTitle = result.title
       } else {
-        $.log("获取最新的文章编号失败！", "", response);
-      }
+        $.log('"获取最新的文章编号失败！" '"" response)
+;      }
       resolve(response)
     })
   })
