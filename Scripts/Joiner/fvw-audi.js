@@ -75,7 +75,7 @@ async function getSignInMainRequest() {
   }
   return new Promise(resolve => {
     $.get(options, async (error, response, data) => {
-      $.msg('浏览车辆签到成功！', '', '请到一汽奥迪 App 应用确认！')
+      $.log('浏览车辆签到成功！', '', '请到一汽奥迪 App 应用确认！')
       resolve(response)
     })
   })
@@ -90,12 +90,12 @@ async function getSignIn1Request() {
     $.get(options, async (error, response, data) => {
       if (response['code'] === 0) {
         if (response['data'] === true) {
-          $.msg('常规签到成功！', '', '请到一汽奥迪 App 应用确认！')
+          $.log('常规签到成功！', '', '请到一汽奥迪 App 应用确认！')
         } else {
-          $.msg('常规签到成功！', '', response['message'])
+          $.log('常规签到成功！', '', response['message'])
         }
       } else {
-        $.msg('常规签到成功！', '', response['message'])
+        $.log('常规签到失败！', '', response['message'])
       }
       resolve(response)
     })
@@ -114,7 +114,7 @@ async function getSignInGetNewPostRequest() {
         postId = result.id
         postTitle = result.title
       } else {
-        $.msg('获取最新的文章编号失败！', '', response['message'])
+        $.log('获取最新的文章编号失败！', '', response['message'])
       }
       resolve(response)
     })
@@ -128,7 +128,7 @@ async function getSignIn2Request() {
   }
   return new Promise(resolve => {
     $.post(options, async (error, response, data) => {
-      $.msg('文章分享成功！', '', '请到一汽奥迪 App 应用确认！')
+      $.log('文章分享成功！', '', '请到一汽奥迪 App 应用确认！')
       resolve(response)
     })
   })
@@ -142,7 +142,7 @@ async function getSignIn3Request(type) {
   }
   return new Promise(resolve => {
     $.post(options, async (error, response, data) => {
-      if (type === 'LIKE') $.msg('文章点赞成功！', '', '稍后自动取消点赞')
+      if (type === 'LIKE') $.log('文章点赞成功！', '', '稍后自动取消点赞')
       resolve(response)
     })
   })
@@ -156,7 +156,7 @@ async function getSignIn4Request(type) {
   }
   return new Promise(resolve => {
     $.post(options, async (error, response, data) => {
-      if (type === 'COLLECT') $.msg('文章收藏成功！', '', '稍后自动取消收藏')
+      if (type === 'COLLECT') $.log('文章收藏成功！', '', '稍后自动取消收藏')
       resolve(response)
     })
   })
@@ -175,7 +175,7 @@ async function getSignIn5Request() {
   }
   return new Promise(resolve => {
     $.post(options, async (error, response, data) => {
-      $.msg('文章评论成功！', '', '')
+      $.log('文章评论成功！', '', '')
       resolve(response)
     })
   })
