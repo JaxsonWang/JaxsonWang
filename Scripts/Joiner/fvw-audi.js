@@ -92,11 +92,11 @@ async function getSignIn1Request() {
         if (response['data'] === true) {
           $.log('常规签到成功！', '', '请到一汽奥迪 App 应用确认！')
         } else {
-          $.log('常规签到成功！', '', response['message'])
+          $.log('常规签到成功！', '', response)
         }
       } else {
-        $.log('常规签到失败！', '', response['message'])
-      }
+        $.log('"常规签到失败！" '"" response)
+;      }
       resolve(response)
     })
   })
@@ -119,7 +119,7 @@ async function getSignInGetNewPostRequest() {
         postId = result.id
         postTitle = result.title
       } else {
-        $.log('获取最新的文章编号失败！', '', response['message'])
+        $.log("获取最新的文章编号失败！", "", response);
       }
       resolve(response)
     })
