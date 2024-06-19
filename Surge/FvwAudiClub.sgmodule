@@ -1,0 +1,15 @@
+#!name=奥迪官方俱乐部
+#!desc=获取奥迪官方俱乐部的 Cookie 和签到
+#!author=淮城一只猫
+#!homepage=https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts
+#!icon=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi-Club.png
+#!category=Joiner
+
+[MITM]
+hostname = %INSERT% audiclub.faw-vw.com
+
+[Script]
+# 获取奥迪官方俱乐部 Cookie
+一汽奥迪 = type=http-request, pattern=^https?:\/\/audiclub\.faw-vw\.com\/getBuryConfigAndUserData, script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi-club.js, requires-body=true, timeout=120
+# 获取奥迪官方俱乐部签到
+一汽奥迪签到 = type=cron, cronexp=20 7 * * *, script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi-club.js

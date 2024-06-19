@@ -49,6 +49,10 @@
         {
           "name": "一汽奥迪签到",
           "script": "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi.js"
+        },
+        {
+          "name": "奥迪官方俱乐部签到",
+          "script": "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi-club.js"
         }
       ],
       "icons": [
