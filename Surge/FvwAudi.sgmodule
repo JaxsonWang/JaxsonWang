@@ -6,10 +6,14 @@
 #!category=Joiner
 
 [MITM]
-hostname = %INSERT% audi2c.faw-vw.com
+hostname = %INSERT% audi2c.faw-vw.com audiclub.faw-vw.com
 
 [Script]
 # 获取一汽奥迪 Cookie
-一汽奥迪 = type=http-request, pattern=^https?:\/\/audi2c\.faw-vw\.com\/capi\/v2\/feed, script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi.js, requires-body=true, timeout=120
+一汽奥迪 = type=http-request, pattern=^https?:\/\/audi2c\.faw-vw\.com\/capi\/v2\/feed, script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi.js, requires-body=0, timeout=120, max-size=0, binary-body-mode=0, debug=0
 # 获取一汽奥迪签到
 一汽奥迪签到 = type=cron, cronexp=15 7 * * *, script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi.js
+# 获取奥迪官方俱乐部 Cookie
+一汽奥迪 = type=http-request, pattern=^https?:\/\/audiclub\.faw-vw\.com\/getBuryConfigAndUserData, script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi-club.js, requires-body=0, timeout=120, max-size=0, binary-body-mode=0, debug=0
+# 获取奥迪官方俱乐部签到
+一汽奥迪签到 = type=cron, cronexp=20 7 * * *, script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi-club.js
