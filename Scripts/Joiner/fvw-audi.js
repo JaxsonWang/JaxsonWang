@@ -58,6 +58,7 @@ async function signTasker() {
   if (new Date().getDay() === parseInt(taskDay, 10)) {
     // 每周任务
     await getSignInGetNewPostRequest()
+    if (!postId) return
     await getSignIn2Request()
     await getSignIn3Request('LIKE')
     await getSignIn4Request('COLLECT')
@@ -107,11 +108,7 @@ async function getSignInGetNewPostRequest() {
   const options = {
     url: 'https://audi2c.faw-vw.com/capi/v1/information/activity/paged_search',
     headers: getHeaders(),
-    body: {
-      current: 1,
-      pageSize: 1,
-      activityTimeStatus: 0
-    }
+    body: `{"current": 1,"pageSize": 1,"activityTimeStatus": 0}`
   }
   return new Promise(resolve => {
     $.post(options, async (error, response, data) => {
@@ -174,11 +171,7 @@ async function getSignIn5Request() {
   const options = {
     url: `https://audi2c.faw-vw.com/capi/v1/information/comment/save?_t=${timeMap}`,
     headers: getHeaders(),
-    body: {
-      channel: 'APP',
-      infoId: postId,
-      content: taskComment
-    }
+    body: `{"channel": "APP","infoId": ${postId},"content": ${taskComment}`
   }
   return new Promise(resolve => {
     $.post(options, async (error, response, data) => {
