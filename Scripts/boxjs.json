@@ -19,7 +19,7 @@
     {
       "id": "FvwAudi",
       "name": "一汽奥迪",
-      "keys": ["Joiner-FvwAudi-Cookie", "Joiner-FvwAudi-Day", "Joiner-FvwAudi-Comment"],
+      "keys": ["Joiner-FvwAudi-Cookie", "Joiner-FvwAudi-Club-Cookie", "Joiner-FvwAudi-Day", "Joiner-FvwAudi-Comment"],
       "author": "@JaxsonWang",
       "descs_html": [
         "请按提示填写内容"
