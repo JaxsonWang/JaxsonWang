@@ -6,10 +6,10 @@
 Quantumult X:
 
 [rewrite_local]
-^https?:\/\/audi2c\.faw-vw\.com\/capi\/v2\/feed url script-request-header https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi.js
+^https?:\/\/audiclub\.faw-vw\.com\/getBuryConfigAndUserData url script-request-header https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi-club.js
 
 [task_local]
-15 7 * * * https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi.js, tag= 一汽奥迪签到, enabled=true
+20 7 * * * https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi-club.js, tag= 奥迪官方俱乐部签到, enabled=true
 
 [mitm]
 hostname = audiclub.faw-vw.com
