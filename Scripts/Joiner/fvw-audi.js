@@ -5,7 +5,6 @@ const $ = new Env('Joiner-FvwAudi')
 const apiKey = 'Joiner-FvwAudi-Cookie'
 const token = $.getdata(apiKey)
 
-const taskDay = $.getdata('Joiner-FvwAudi-Day') || 0
 const taskComment = $.getdata('Joiner-FvwAudi-Comment') || 1
 
 let postId = ''
