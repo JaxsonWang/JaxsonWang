@@ -1,20 +1,6 @@
 /*
-
-获取方式：打开微信搜索【奥迪官方俱乐部】- 我的奥迪 - 会员中心/尊享会员|签到 任意页面
-===================
-
-Quantumult X:
-
-[rewrite_local]
-^https?:\/\/audiclub\.faw-vw\.com\/getBuryConfigAndUserData url script-request-header https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi-club.js
-
-[task_local]
-20 7 * * * https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi-club.js, tag= 奥迪官方俱乐部签到, enabled=true
-
-[mitm]
-hostname = audiclub.faw-vw.com
-
-*/
+  获取方式：打开微信搜索【奥迪官方俱乐部】- 我的奥迪 - 会员中心/尊享会员|签到 任意页面
+ */
 const $ = new Env('Joiner-FvwAudi-Club')
 const apiKey = 'Joiner-FvwAudi-Club-Cookie'
 const token = $.getdata(apiKey)

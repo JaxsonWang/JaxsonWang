@@ -1,19 +1,5 @@
 /*
-
-获取方式：打开  一汽奥迪 app 【官方版】-> 登录成功后访问首页
-===================
-
-Quantumult X:
-
-[rewrite_local]
-^https?:\/\/audi2c\.faw-vw\.com\/capi\/v2\/feed url script-request-header https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi.js
-
-[task_local]
-15 7 * * * https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi.js, tag= 一汽奥迪签到, enabled=true
-
-[mitm]
-hostname = audi2c.faw-vw.com
-
+  获取方式：打开  一汽奥迪 app 【官方版】-> 登录成功后访问首页
 */
 const $ = new Env('Joiner-FvwAudi')
 const apiKey = 'Joiner-FvwAudi-Cookie'
