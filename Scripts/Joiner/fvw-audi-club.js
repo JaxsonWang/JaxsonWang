@@ -34,8 +34,10 @@ function getToken() {
     $.msg('一汽奥迪官方俱乐部', '', 'Cookie 写入成功')
   }
   const body = JSON.parse($response.body)
-  if (body['user_bury'].openid) $.setdata(body['user_bury'].openid, openidKey)
-  if (body['user_bury'].aid) $.setdata(body['user_bury'].aid, aidKey)
+  const _openid = body['user_bury'].openid
+  const _aid = typeof body['user_bury'].aid === 'number' ? String(body['user_bury'].aid) : body['user_bury'].aid
+  if (_openid) $.setdata(_openid, openidKey)
+  if (_aid) $.setdata(_aid, aidKey)
 }
 
 async function signTasker() {
@@ -55,7 +57,7 @@ async function getSignIn1Request() {
   const options = {
     url: 'https://audiclub.faw-vw.com/taskActivitiesSignin.do',
     headers: getHeaders(),
-    body: `aid=${aid}&openid=${openid}`
+    body: `aid=${Number(aid)}&openid=${openid}`
   }
   return new Promise(resolve => {
     $.post(options, async (error, response, data) => {
@@ -74,7 +76,7 @@ async function getSignIn2Request() {
   const options = {
     url: 'https://audiclub.faw-vw.com/completeMyBrowseTask.do',
     headers: getHeaders(),
-    body: `url=%2FshoppingIndex.html&aId=${aid}`
+    body: `url=%2FshoppingIndex.html&aId=${Number(aid)}`
   }
   return new Promise(resolve => {
     $.post(options, async (error, response, data) => {
