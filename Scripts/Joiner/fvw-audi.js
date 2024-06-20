@@ -39,19 +39,10 @@ function getToken() {
 
 async function signTasker() {
   // 每日任务
-  await getSignInMainRequest()
   await getSignIn1Request()
-  if (new Date().getDay() === parseInt(taskDay, 10)) {
-    // 每周任务
-    await getSignInGetNewPostRequest()
-    if (!postId) return
-    await getSignIn2Request()
-    await getSignIn3Request('LIKE')
-    await getSignIn4Request('COLLECT')
-    await getSignIn5Request()
-    await getSignIn3Request('CANCEL_LIKE')
-    await getSignIn4Request('CANCEL_COLLECT')
-  }
+  await getSignInGetNewPostRequest()
+  if (!postId) return
+  await getSignIn2Request()
 }
 
 function getHeaders() {
@@ -62,19 +53,6 @@ function getHeaders() {
     'Content-Type': 'application/json',
     'User-Agent': `MyAuDi/4.3.2 CFNetwork/1390 Darwin/22.0.0`
   }
-}
-
-async function getSignInMainRequest() {
-  const options = {
-    url: 'https://audi2c.faw-vw.com/capi/v1/vehicle/browse?task=1',
-    headers: getHeaders()
-  }
-  return new Promise(resolve => {
-    $.get(options, async (error, response, data) => {
-      $.log('浏览车辆签到成功！', '', '请到一汽奥迪 App 应用确认！')
-      resolve(response)
-    })
-  })
 }
 
 async function getSignIn1Request() {
@@ -116,47 +94,6 @@ async function getSignInGetNewPostRequest() {
 }
 
 async function getSignIn2Request() {
-  const options = {
-    url: `https://audi2c.faw-vw.com/capi/v1/information/forward/${postId}`,
-    headers: getHeaders()
-  }
-  return new Promise(resolve => {
-    $.post(options, async (error, response, data) => {
-      $.log(postTitle + '文章分享成功！', '', '请到一汽奥迪 App 应用确认！')
-      resolve(response)
-    })
-  })
-}
-
-async function getSignIn3Request(type) {
-  const timeMap = new Date().valueOf()
-  const options = {
-    url: `https://audi2c.faw-vw.com/capi/v1/information/like/save?infoId=${postId}&type=${type}&_t=${timeMap}`,
-    headers: getHeaders()
-  }
-  return new Promise(resolve => {
-    $.post(options, async (error, response, data) => {
-      if (type === 'LIKE') $.log(postTitle + '文章点赞成功！', '', '稍后自动取消点赞')
-      resolve(response)
-    })
-  })
-}
-
-async function getSignIn4Request(type) {
-  const timeMap = new Date().valueOf()
-  const options = {
-    url: `https://audi2c.faw-vw.com/capi/v1/information/collect/save?infoId=${postId}&type=${type}&_t=${timeMap}`,
-    headers: getHeaders()
-  }
-  return new Promise(resolve => {
-    $.post(options, async (error, response, data) => {
-      if (type === 'COLLECT') $.log(postTitle + '文章收藏成功！', '', '稍后自动取消收藏')
-      resolve(response)
-    })
-  })
-}
-
-async function getSignIn5Request() {
   const timeMap = new Date().valueOf()
   const options = {
     url: `https://audi2c.faw-vw.com/capi/v1/information/comment/save?_t=${timeMap}`,

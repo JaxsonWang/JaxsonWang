@@ -19,21 +19,10 @@
     {
       "id": "FvwAudi",
       "name": "一汽奥迪",
-      "keys": ["Joiner-FvwAudi-Cookie", "Joiner-FvwAudi-Club-Cookie", "Joiner-FvwAudi-Day", "Joiner-FvwAudi-Comment"],
+      "keys": ["Joiner-FvwAudi-Cookie", "Joiner-FvwAudi-Club-Cookie", "Joiner-FvwAudi-Comment"],
       "author": "@JaxsonWang",
-      "descs_html": [
-        "请按提示填写内容"
-      ],
+      "descs_html": ["请按提示填写内容"],
       "settings": [
-        {
-          "id": "Joiner-FvwAudi-Day",
-          "name": "每周任务第几天执行",
-          "val": "",
-          "desc": "0 表示星期天、1 代表星期一，依次类推",
-          "type": "textarea",
-          "autoGrow": false,
-          "rows": 1
-        },
         {
           "id": "Joiner-FvwAudi-Comment",
           "name": "评论内容",
