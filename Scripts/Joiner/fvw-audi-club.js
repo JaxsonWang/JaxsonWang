@@ -32,7 +32,8 @@ function getToken() {
 }
 
 async function signTasker() {
-  await getSignInMainRequest()
+  await getSignIn1Request()
+  await getSignIn2Request()
 }
 
 function getHeaders() {
@@ -43,7 +44,7 @@ function getHeaders() {
   }
 }
 
-async function getSignInMainRequest() {
+async function getSignIn1Request() {
   const options = {
     url: 'https://audiclub.faw-vw.com/taskActivitiesSignin.do',
     headers: getHeaders()
@@ -52,9 +53,27 @@ async function getSignInMainRequest() {
     $.get(options, async (error, response, data) => {
       const result = JSON.parse(data)
       if (result.success) {
-        $.log('奥迪官方俱乐部签到成功！', '', '请到一汽奥迪 App 应用确认！')
+        $.log('奥迪官方俱乐部签到成功！', '', '')
       } else {
         $.log('奥迪官方俱乐部签到失败！', '', result.message)
+      }
+      resolve(response)
+    })
+  })
+}
+
+async function getSignIn2Request() {
+  const options = {
+    url: 'https://audiclub.faw-vw.com/completeMyBrowseTask.do',
+    headers: getHeaders()
+  }
+  return new Promise(resolve => {
+    $.get(options, async (error, response, data) => {
+      const result = JSON.parse(data)
+      if (result.success) {
+        $.log('奥迪官方俱乐部商城浏览签到成功！', '', '')
+      } else {
+        $.log('奥迪官方俱乐部商城浏览签到失败！', '', result.message)
       }
       resolve(response)
     })

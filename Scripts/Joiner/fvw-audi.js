@@ -62,7 +62,7 @@ async function getSignIn1Request() {
   }
   return new Promise(resolve => {
     $.get(options, async (error, response, data) => {
-      $.log('常规签到成功！', '', '请到一汽奥迪 App 应用确认！')
+      $.log('常规签到成功！', '', '')
       resolve(response)
     })
   })
