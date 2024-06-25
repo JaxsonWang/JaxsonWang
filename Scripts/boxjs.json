@@ -14,17 +14,17 @@
         "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0d/31/0b/0d310b25-aa91-99c5-b23b-af1e8753c4d0/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/144x144.png",
         "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0d/31/0b/0d310b25-aa91-99c5-b23b-af1e8753c4d0/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/144x144.png"
       ],
-      "keys": ["Joiner-Is-Debug", "Joiner-Bark-Key"],
+      "keys": ["is_debug", "bark_key"],
       "settings": [
         {
-          "id": "Joiner-Is-Debug",
+          "id": "is_debug",
           "name": "开启调试模式",
           "val": false,
           "type": "boolean",
           "desc": "默认关闭"
         },
         {
-          "id": "Joiner-Bark-Key",
+          "id": "bark_key",
           "name": "bark通知",
           "val": "",
           "type": "text",
