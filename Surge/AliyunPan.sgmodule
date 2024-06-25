@@ -1,0 +1,13 @@
+#!name=阿里云盘任务
+#!desc=定时执行阿里云盘任务
+#!author=淮城一只猫
+#!homepage=https://github.com/JaxsonWang/JaxsonWang
+#!icon=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi.png
+#!category=Joiner
+
+[MITM]
+hostname = %INSERT% auth.alipan.com, auth.aliyundrive.com
+
+[Script]
+获取阿里云盘Cookie = type=http-request, pattern=^https:\/\/(auth|aliyundrive)\.alipan\.com\/v2\/account\/token, script-path=https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js, requires-body=0, timeout=120, max-size=0, binary-body-mode=0, debug=0
+阿里云盘签到 = type=cron, cronexp=0 7,11,17 * * *, script-path=https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js

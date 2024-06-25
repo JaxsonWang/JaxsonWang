@@ -6,7 +6,34 @@
   "repo": "https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts",
   "apps": [
     {
-      "id": "ChinaUnicom",
+      "id": "JaxsonWang_Setting",
+      "name": "参数设置",
+      "author": "@JaxsonWang",
+      "repo": "https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts",
+      "icons": [
+        "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0d/31/0b/0d310b25-aa91-99c5-b23b-af1e8753c4d0/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/144x144.png",
+        "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0d/31/0b/0d310b25-aa91-99c5-b23b-af1e8753c4d0/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/144x144.png"
+      ],
+      "keys": ["Joiner-Is-Debug", "Joiner-Bark-Key"],
+      "settings": [
+        {
+          "id": "Joiner-Is-Debug",
+          "name": "开启调试模式",
+          "val": false,
+          "type": "boolean",
+          "desc": "默认关闭"
+        },
+        {
+          "id": "Joiner-Bark-Key",
+          "name": "bark通知",
+          "val": "",
+          "type": "text",
+          "desc": "填写key则开启bark通知，默认留空"
+        }
+      ]
+    },
+    {
+      "id": "JaxsonWang_ChinaUnicom",
       "name": "中国联通",
       "keys": ["Joiner-10010-Cookie"],
       "author": "@JaxsonWang",
@@ -17,16 +44,22 @@
       ]
     },
     {
-      "id": "FvwAudi",
+      "id": "JaxsonWang_FvwAudi",
       "name": "一汽奥迪",
-      "keys": ["Joiner-FvwAudi-Cookie", "Joiner-FvwAudi-Club-Cookie", "Joiner-FvwAudi-Club-Openid", "Joiner-FvwAudi-Club-Aid", "Joiner-FvwAudi-Comment"],
+      "keys": [
+        "Joiner-FvwAudi-Cookie",
+        "Joiner-FvwAudi-Club-Cookie",
+        "Joiner-FvwAudi-Club-Openid",
+        "Joiner-FvwAudi-Club-Aid",
+        "Joiner-FvwAudi-Comment"
+      ],
       "author": "@JaxsonWang",
       "descs_html": ["请按提示填写内容"],
       "settings": [
         {
           "id": "Joiner-FvwAudi-Comment",
           "name": "评论内容",
-          "val": "",
+          "val": "支持一下",
           "desc": "默认为：支持一下",
           "type": "textarea",
           "autoGrow": false,
@@ -47,6 +80,28 @@
       "icons": [
         "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi.png",
         "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi.png"
+      ]
+    },
+    {
+      "id": "JaxsonWang_AliyunPan",
+      "name": "阿里云盘",
+      "author": "@Sliverkiss",
+      "icons": [
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AliYunDrive.png",
+        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AliYunDrive.png"
+      ],
+      "keys": [
+        "aliyun_data"
+      ],
+      "settings": [
+        {
+          "id": "aliyun_data",
+          "name": "会员Cookie数据",
+          "val": "",
+          "type": "textarea",
+          "autoGrow": true,
+          "desc": "会员Cookie数据"
+        }
       ]
     }
   ]
