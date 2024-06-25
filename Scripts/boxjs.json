@@ -90,6 +90,12 @@
         "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AliYunDrive.png",
         "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AliYunDrive.png"
       ],
+      "scripts": [
+        {
+          "name": "阿里云盘签到",
+          "script": "https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js"
+        }
+      ],
       "keys": [
         "aliyun_data"
       ],
