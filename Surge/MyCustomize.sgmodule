@@ -6,4 +6,5 @@
 #!category=Joiner
 
 [Rule]
-DOMAIN-KEYWORD,coze,Proxy
+DOMAIN-SUFFIX, coze.com, Proxy
+DOMAIN-SUFFIX, uplabs.com, Proxy
