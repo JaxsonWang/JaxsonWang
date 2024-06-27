@@ -25,8 +25,8 @@ https:\/\/m\.client\.10010\.com\/(.*)\/smartwisdomCommon  url script-request-hea
 
 */
 
-const $ = new Env('JaxsonWang_10010')
-const apiKey = 'Joiner-10010-Cookie'
+const $ = new Env('JoinerChinaUnicom')
+const apiKey = 'unicom_cookie'
 if ($request) getCookie()
 
 function getCookie() {

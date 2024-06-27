@@ -1,11 +1,11 @@
 /*
   获取方式：打开  一汽奥迪 app 【官方版】-> 登录成功后访问首页
 */
-const $ = new Env('Joiner-FvwAudi')
-const apiKey = 'Joiner-FvwAudi-Cookie'
+const $ = new Env('JoinerFvwAudiApp')
+const apiKey = 'fvw_audi_app_cookie'
 const token = $.getdata(apiKey)
 
-const taskComment = $.getdata('Joiner-FvwAudi-Comment') || 1
+const taskComment = $.getdata('fvw_audi_app_comment') || '支持一下'
 
 let postId = ''
 let postTitle = ''

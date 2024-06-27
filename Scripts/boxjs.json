@@ -6,7 +6,7 @@
   "repo": "https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts",
   "apps": [
     {
-      "id": "JaxsonWang_Setting",
+      "id": "JoinerSetting",
       "name": "参数设置",
       "author": "@JaxsonWang",
       "repo": "https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts",
@@ -33,9 +33,9 @@
       ]
     },
     {
-      "id": "JaxsonWang_ChinaUnicom",
+      "id": "JoinerChinaUnicom",
       "name": "中国联通",
-      "keys": ["Joiner-10010-Cookie"],
+      "keys": ["unicom_cookie"],
       "author": "@JaxsonWang",
       "repo": "https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts",
       "icons": [
@@ -44,20 +44,20 @@
       ]
     },
     {
-      "id": "JaxsonWang_FvwAudi",
+      "id": "JoinerFvwAudi",
       "name": "一汽奥迪",
       "keys": [
-        "Joiner-FvwAudi-Cookie",
-        "Joiner-FvwAudi-Club-Cookie",
-        "Joiner-FvwAudi-Club-Openid",
-        "Joiner-FvwAudi-Club-Aid",
-        "Joiner-FvwAudi-Comment"
+        "fvw_audi_app_cookie",
+        "fvw_audi_app_comment",
+        "fvw_audi_club_cookie",
+        "fvw_audi_club_openid",
+        "fvw_audi_club_aid"
       ],
       "author": "@JaxsonWang",
-      "descs_html": ["请按提示填写内容"],
+      "descs_html": ["请根据提示填写内容"],
       "settings": [
         {
-          "id": "Joiner-FvwAudi-Comment",
+          "id": "fvw_audi_app_comment",
           "name": "评论内容",
           "val": "支持一下",
           "desc": "默认为：支持一下",
@@ -83,7 +83,7 @@
       ]
     },
     {
-      "id": "JaxsonWang_AliyunPan",
+      "id": "JoinerAliyunPan",
       "name": "阿里云盘",
       "author": "@Sliverkiss",
       "icons": [

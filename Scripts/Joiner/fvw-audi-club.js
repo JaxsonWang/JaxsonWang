@@ -1,10 +1,10 @@
 /*
   获取方式：打开微信搜索【奥迪官方俱乐部】- 我的奥迪 - 会员中心/尊享会员|签到 任意页面
  */
-const $ = new Env('Joiner-FvwAudi-Club')
-const apiKey = 'Joiner-FvwAudi-Club-Cookie'
-const openidKey = 'Joiner-FvwAudi-Club-Openid'
-const aidKey = 'Joiner-FvwAudi-Club-Aid'
+const $ = new Env('JoinerFvwAudiClub')
+const apiKey = 'fvw_audi_club_cookie'
+const openidKey = 'fvw_audi_club_openid'
+const aidKey = 'fvw_audi_club_aid'
 const token = $.getdata(apiKey)
 const openid = $.getdata(openidKey)
 const aid = $.getdata(aidKey)
