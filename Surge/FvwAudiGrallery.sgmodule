@@ -1,0 +1,12 @@
+#!name=Audi Gallery
+#!desc=修改一汽奥迪修改相册
+#!author=淮城一只猫
+#!homepage=https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts
+#!icon=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi.png
+#!category=Joiner
+
+[MITM]
+hostname = %INSERT% audioneapp.faw-vw.com
+
+[Script]
+Audi Gallery = type=http-response, pattern=^https?:\/\/audioneapp\.faw-vw.com\/v2\/audi-vehicle-server\/public\/vehicleServer\/queryDefaultVehicleDetails, script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi-gallery.js, requires-body=1, timeout=120, max-size=0, binary-body-mode=0, debug=0
