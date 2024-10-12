@@ -27,13 +27,13 @@ I am just a web front-end developer and I am glad to meet you!
 <!--START_SECTION:waka-->
 
 ```txt
-From: 03 October 2024 - To: 10 October 2024
+From: 04 October 2024 - To: 11 October 2024
 
-Vue.js            4 hrs 59 mins   ████████▒░░░░░░░░░░░░░░░░   33.25 %
-TypeScript        1 hr 48 mins    ███░░░░░░░░░░░░░░░░░░░░░░   12.01 %
-Liquid            1 hr 43 mins    ███░░░░░░░░░░░░░░░░░░░░░░   11.47 %
-Liquid Template   1 hr 25 mins    ██▒░░░░░░░░░░░░░░░░░░░░░░   09.45 %
-Logos             1 hr 15 mins    ██░░░░░░░░░░░░░░░░░░░░░░░   08.37 %
+Vue.js            8 hrs 34 mins   ██████████░░░░░░░░░░░░░░░   40.22 %
+JavaScript        2 hrs 19 mins   ██▓░░░░░░░░░░░░░░░░░░░░░░   10.90 %
+TypeScript        1 hr 48 mins    ██░░░░░░░░░░░░░░░░░░░░░░░   08.49 %
+Liquid            1 hr 47 mins    ██░░░░░░░░░░░░░░░░░░░░░░░   08.38 %
+Liquid Template   1 hr 31 mins    █▓░░░░░░░░░░░░░░░░░░░░░░░   07.12 %
 ```
 
 <!--END_SECTION:waka-->
