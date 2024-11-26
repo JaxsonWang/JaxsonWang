@@ -44,6 +44,90 @@
       ]
     },
     {
+      "id": "JoinerChinaMobile",
+      "name": "中国移动",
+      "descs_html": [
+        "1. 填写手机号码",
+        "2. 添加对应插件/重写/模块",
+        "3. 打开App(保证已登录且不是风险用户), 提示捕获参数成功即可使用该脚本",
+        "4. 手动执行 查看结果"
+      ],
+      "keys": [
+        "china_mobile_debug",
+        "china_mobile_phonenumber",
+        "china_mobile_params",
+        "china_mobile_cookie",
+        "china_mobile_bark_key",
+        "china_mobile_silent",
+        "china_mobile_service"
+      ],
+      "author": "@JaxsonWang",
+      "repo": "https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts",
+      "scripts": [
+        {
+          "name": "手动执行查询（⚠️ 执行前请确认配置正确）",
+          "script": "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10086/10086.cookie.js"
+        }
+      ],
+      "settings": [
+        {
+          "id": "china_mobile_debug",
+          "name": "是否开启调试模式",
+          "val": false,
+          "type": "boolean",
+          "desc": ""
+        },
+        {
+          "id": "china_mobile_phonenumber",
+          "name": "手机号码",
+          "val": null,
+          "type": "text",
+          "desc": ""
+        },
+        {
+          "id": "china_mobile_params",
+          "name": "加密参数",
+          "val": null,
+          "type": "textarea",
+          "rows": 5,
+          "desc": ""
+        },
+        {
+          "id": "china_mobile_cookie",
+          "name": "Cookie",
+          "val": null,
+          "type": "textarea",
+          "rows": 5,
+          "desc": ""
+        },
+        {
+          "id": "china_mobile_bark_key",
+          "name": "Bark_Key",
+          "val": null,
+          "type": "text",
+          "desc": "填写后优先使用Bark推送"
+        },
+        {
+          "id": "china_mobile_silent",
+          "name": "是否开启静默模式",
+          "val": false,
+          "type": "boolean",
+          "desc": ""
+        },
+        {
+          "id": "china_mobile_service",
+          "name": "是否开启服务模式",
+          "val": false,
+          "type": "boolean",
+          "desc": "配合小组件使用, 不知者无视"
+        }
+      ],
+      "icons": [
+        "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/8b/03/928b0371-20fc-288b-e4e4-05f48b7082c2/AppIcon-0-0-1x_U007emarketing-0-7-0-0-85-220.png/144x144.png",
+        "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/8b/03/928b0371-20fc-288b-e4e4-05f48b7082c2/AppIcon-0-0-1x_U007emarketing-0-7-0-0-85-220.png/144x144.png"
+      ]
+    },
+    {
       "id": "JoinerFvwAudi",
       "name": "一汽奥迪",
       "keys": [
@@ -80,115 +164,6 @@
       "icons": [
         "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi.png",
         "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi.png"
-      ]
-    },
-    {
-      "id": "JoinerAliyunPan",
-      "name": "阿里云盘",
-      "author": "@Sliverkiss",
-      "icons": [
-        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AliYunDrive.png",
-        "https://raw.githubusercontent.com/fmz200/wool_scripts/main/icons/apps/AliYunDrive.png"
-      ],
-      "scripts": [
-        {
-          "name": "阿里云盘签到",
-          "script": "https://gist.githubusercontent.com/Sliverkiss/33800a98dcd029ba09f8b6fc6f0f5162/raw/aliyun.js"
-        }
-      ],
-      "keys": [
-        "aliyun_data"
-      ],
-      "settings": [
-        {
-          "id": "aliyun_data",
-          "name": "会员Cookie数据",
-          "val": "",
-          "type": "textarea",
-          "autoGrow": true,
-          "desc": "会员Cookie数据"
-        }
-      ]
-    },
-    {
-      "id": "iMaoTai",
-      "name": "i 茅台",
-      "author": "@JaxsonWang",
-      "script": "",
-      "descs_html": [""],
-      "icons": [
-        "https://raw.githubusercontent.com/FoKit/Scripts/main/images/iMaoTai.png",
-        "https://raw.githubusercontent.com/FoKit/Scripts/main/images/iMaoTai.png"
-      ],
-      "keys": [
-        "MT_TOKENS",
-        "MT_PROVINCE",
-        "MT_CITY",
-        "MT_DISTRICT",
-        "MT_ITEM_BLACK",
-        "MT_VERSION",
-        "MT_USERAGENT",
-        "MT_R"
-      ],
-      "settings": [
-        {
-          "id": "MT_TOKENS",
-          "name": "i茅台Token",
-          "val": "",
-          "type": "textarea",
-          "autoGrow": true,
-          "rows": 1,
-          "desc": ""
-        },
-        {
-          "id": "MT_PROVINCE",
-          "name": "省份",
-          "val": "",
-          "type": "text",
-          "desc": "XX省 / 直辖市"
-        },
-        {
-          "id": "MT_CITY",
-          "name": "城市",
-          "val": "",
-          "type": "text",
-          "desc": "XX市 / 直辖市"
-        },
-        {
-          "id": "MT_DISTRICT",
-          "name": "区域",
-          "val": "",
-          "type": "text",
-          "desc": "xx区|xx区"
-        },
-        {
-          "id": "MT_ITEM_BLACK",
-          "name": "商品黑名单",
-          "val": "",
-          "type": "text",
-          "desc": "2478|10056"
-        },
-        {
-          "id": "MT_VERSION",
-          "name": "APP版本号",
-          "val": "",
-          "type": "text",
-          "desc": "x.x.x"
-        },
-        {
-          "id": "MT_USERAGENT",
-          "name": "用户标识",
-          "val": "",
-          "type": "text",
-          "desc": "iOS;16.1.2;Apple;"
-        },
-        {
-          "id": "MT_R",
-          "name": "MT_R",
-          "val": "",
-          "type": "text",
-          "desc": "clips_xxx"
-        }
       ]
     }
   ]
