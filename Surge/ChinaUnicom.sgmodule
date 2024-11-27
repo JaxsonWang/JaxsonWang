@@ -6,7 +6,7 @@
 #!category=Joiner
 
 [MITM]
-hostname = %INSERT% act.10010.com, m.client.10010.com
+hostname = %APPEND% act.10010.com, m.client.10010.com
 
 [Script]
 # 获取联通 Cookie

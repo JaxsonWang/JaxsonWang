@@ -6,7 +6,7 @@
 #!category=Joiner
 
 [MITM]
-hostname = %INSERT% audioneapp.faw-vw.com
+hostname = %APPEND% audioneapp.faw-vw.com
 
 [Script]
 Audi Gallery = type=http-response, pattern=^https?:\/\/audioneapp\.faw-vw.com\/v2\/audi-vehicle-server\/public\/vehicleServer\/queryDefaultVehicleDetails, script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi-gallery.js, requires-body=1, timeout=120, max-size=0, binary-body-mode=0, debug=0

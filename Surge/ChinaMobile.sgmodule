@@ -6,6 +6,7 @@
 
 [Script]
 移动余量查询 = type=cron,cronexp={{{CRONEXP}}},wake-system=1,script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10086/10086.cookie.js,timeout={{{TIMEOUT}}},argument=phonenumber={{{手机号码}}}&bark_key={{{BarkKey}}}&debug={{{调试模式}}}&silent={{{静默模式}}}&service={{{Scriptable服务模式}}}
+移动查询接口 = type=http-request, pattern=^https?:\/\/api\.example\.com\/10086\/query, script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10086/10086.cookie.js, requires-body=true, max-size=-1, timeout=60
 
 {{{禁用获参重写}}}中国移动获取参数 = type=http-request,pattern=^https?:\/\/client\.app\.coc\.10086\.cn\/biz-orange\/[LD]N\/uam(onekey|randcode)login\/autoLogin,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10086/10086.cookie.js
 
@@ -15,4 +16,4 @@
 {{{禁用PANEL}}}10086-panel = script-name=10086-panel,update-interval=21600
 
 [MITM]
-{{{禁用获参重写}}}hostname = %APPEND% client.app.coc.10086.cn
+{{{禁用获参重写}}}hostname = %APPEND% client.app.coc.10086.cn, api.example.com
