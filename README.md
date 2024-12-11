@@ -27,13 +27,13 @@ I am just a web front-end developer and I am glad to meet you!
 <!--START_SECTION:waka-->
 
 ```txt
-From: 02 December 2024 - To: 09 December 2024
+From: 03 December 2024 - To: 10 December 2024
 
-JavaScript                 2 hrs 28 mins   ███████░░░░░░░░░░░░░░░░░░   28.58 %
-TypeScript                 2 hrs 11 mins   ██████▒░░░░░░░░░░░░░░░░░░   25.25 %
-Vue.js                     1 hr 12 mins    ███▒░░░░░░░░░░░░░░░░░░░░░   13.90 %
-Text                       51 mins         ██▓░░░░░░░░░░░░░░░░░░░░░░   10.00 %
-JSON                       37 mins         █▓░░░░░░░░░░░░░░░░░░░░░░░   07.27 %
+TypeScript   2 hrs 12 mins   █████████▒░░░░░░░░░░░░░░░   37.11 %
+JavaScript   1 hr 32 mins    ██████▒░░░░░░░░░░░░░░░░░░   25.72 %
+Text         50 mins         ███▓░░░░░░░░░░░░░░░░░░░░░   14.22 %
+JSON         38 mins         ██▓░░░░░░░░░░░░░░░░░░░░░░   10.69 %
+Other        23 mins         █▓░░░░░░░░░░░░░░░░░░░░░░░   06.48 %
 ```
 
 <!--END_SECTION:waka-->
