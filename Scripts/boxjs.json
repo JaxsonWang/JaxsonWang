@@ -126,45 +126,6 @@
         "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/8b/03/928b0371-20fc-288b-e4e4-05f48b7082c2/AppIcon-0-0-1x_U007emarketing-0-7-0-0-85-220.png/144x144.png",
         "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/8b/03/928b0371-20fc-288b-e4e4-05f48b7082c2/AppIcon-0-0-1x_U007emarketing-0-7-0-0-85-220.png/144x144.png"
       ]
-    },
-    {
-      "id": "JoinerFvwAudi",
-      "name": "一汽奥迪",
-      "keys": [
-        "fvw_audi_app_cookie",
-        "fvw_audi_app_comment",
-        "fvw_audi_club_cookie",
-        "fvw_audi_club_openid",
-        "fvw_audi_club_aid"
-      ],
-      "author": "@JaxsonWang",
-      "descs_html": ["请根据提示填写内容"],
-      "settings": [
-        {
-          "id": "fvw_audi_app_comment",
-          "name": "评论内容",
-          "val": "支持一下",
-          "desc": "默认为：支持一下",
-          "type": "textarea",
-          "autoGrow": false,
-          "rows": 1
-        }
-      ],
-      "repo": "https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts",
-      "scripts": [
-        {
-          "name": "一汽奥迪签到",
-          "script": "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi.js"
-        },
-        {
-          "name": "奥迪官方俱乐部签到",
-          "script": "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/Joiner/fvw-audi-club.js"
-        }
-      ],
-      "icons": [
-        "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi.png",
-        "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi.png"
-      ]
     }
   ]
 }
