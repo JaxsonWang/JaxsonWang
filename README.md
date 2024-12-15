@@ -27,7 +27,7 @@ I am just a web front-end developer and I am glad to meet you!
 <!--START_SECTION:waka-->
 
 ```txt
-From: 06 December 2024 - To: 13 December 2024
+From: 07 December 2024 - To: 14 December 2024
 
 Bash             1 hr 30 mins    ███████▓░░░░░░░░░░░░░░░░░   30.51 %
 JavaScript       1 hr 13 mins    ██████▒░░░░░░░░░░░░░░░░░░   24.78 %
