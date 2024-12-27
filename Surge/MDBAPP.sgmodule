@@ -1,0 +1,11 @@
+#!name=买单吧
+#!desc=获取买单吧 Cookie
+#!author=淮城一只猫
+#!category=Joiner
+
+[MITM]
+hostname = %APPEND% creditcardapp.bankcomm.com
+
+[Script]
+买单吧加油 = type=http-request, pattern=^https?:\/\/creditcardapp\.bankcomm\.com\/catering\/api\/product\/detail\.json, requires-body=0, timeout=120, debug=0, script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/mdb/mdb.cookie.js
+

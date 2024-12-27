@@ -126,6 +126,17 @@
         "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/8b/03/928b0371-20fc-288b-e4e4-05f48b7082c2/AppIcon-0-0-1x_U007emarketing-0-7-0-0-85-220.png/144x144.png",
         "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/8b/03/928b0371-20fc-288b-e4e4-05f48b7082c2/AppIcon-0-0-1x_U007emarketing-0-7-0-0-85-220.png/144x144.png"
       ]
+    },
+    {
+      "id": "JoinerMDBApp",
+      "name": "交通买单吧",
+      "keys": ["mdb_app_cookie"],
+      "author": "@JaxsonWang",
+      "repo": "https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts",
+      "icons": [
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/time.png",
+        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/time.png"
+      ]
     }
   ]
 }
