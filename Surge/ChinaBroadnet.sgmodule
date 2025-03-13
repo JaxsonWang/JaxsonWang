@@ -2,6 +2,7 @@
 #!desc= 查询套餐内通话、套餐使用情况
 #!author=淮城一只猫
 #!category=Joiner
+#!arguments= 禁用获参重写:''
 
 [MITM]
 {{{禁用获参重写}}}hostname = %APPEND% wx.10099.com.cn
