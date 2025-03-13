@@ -1,8 +1,6 @@
 #!name=中国联通 Cookie
 #!desc=获取中国联通的 Cookie
 #!author=淮城一只猫
-#!homepage=https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts
-#!icon=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Assets/Color/Audi.png
 #!category=Joiner
 
 [MITM]

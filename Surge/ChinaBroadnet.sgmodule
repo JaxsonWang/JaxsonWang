@@ -1,0 +1,11 @@
+#!name= 广电余量
+#!desc= 查询套餐内通话、套餐使用情况
+#!author=淮城一只猫
+#!category=Joiner
+
+[MITM]
+hostname = %APPEND% wx.10099.com.cn
+
+[Script]
+中国广电.Cooke = type=http-request,pattern=https://wx.10099.com.cn/contact-web/api/busi/qryUserInfo,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10099/ChinaBroadnet.cookie.js,script-update-interval=0
+中国广电 = type=cron,cronexp=3 0 * * *,script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10099/ChinaBroadnet.js,wake-system=1,script-update-interval=0

@@ -11,7 +11,6 @@
       "author": "@JaxsonWang",
       "repo": "https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts",
       "icons": [
-        "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0d/31/0b/0d310b25-aa91-99c5-b23b-af1e8753c4d0/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/144x144.png",
         "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/0d/31/0b/0d310b25-aa91-99c5-b23b-af1e8753c4d0/AppIcon-0-1x_U007emarketing-0-7-0-85-220.png/144x144.png"
       ],
       "keys": ["is_debug", "bark_key"],
@@ -39,7 +38,6 @@
       "author": "@JaxsonWang",
       "repo": "https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts",
       "icons": [
-        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/10010.png",
         "https://raw.githubusercontent.com/Orz-3/mini/master/Color/10010.png"
       ]
     },
@@ -123,8 +121,23 @@
         }
       ],
       "icons": [
-        "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/8b/03/928b0371-20fc-288b-e4e4-05f48b7082c2/AppIcon-0-0-1x_U007emarketing-0-7-0-0-85-220.png/144x144.png",
         "https://is1-ssl.mzstatic.com/image/thumb/Purple211/v4/92/8b/03/928b0371-20fc-288b-e4e4-05f48b7082c2/AppIcon-0-0-1x_U007emarketing-0-7-0-0-85-220.png/144x144.png"
+      ]
+    },
+    {
+      "id": "JoinerChinaBroadnet",
+      "name": "中国广电",
+      "keys": ["@JoinerChinaBroadnet.url", "@JoinerChinaBroadnet.access", "@JoinerChinaBroadnet.body"],
+      "author": "@JaxsonWang",
+      "repo": "https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts",
+      "scripts": [
+        {
+          "name": "手动执行查询（⚠️ 执行前请确认配置正确）",
+          "script": "https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10099/ChinaBroadnet.cookie.js"
+        }
+      ],
+      "icons": [
+        "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/53/fb/1b/53fb1b2e-69bf-1ef0-0147-8bbe8fc9e9c7/AppIcon-0-0-1x_U007emarketing-0-8-0-0-85-220.png/460x0w.webp"
       ]
     },
     {
@@ -134,8 +147,7 @@
       "author": "@JaxsonWang",
       "repo": "https://github.com/JaxsonWang/JaxsonWang/tree/master/Scripts",
       "icons": [
-        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/time.png",
-        "https://raw.githubusercontent.com/Orz-3/mini/master/Color/time.png"
+        "https://is1-ssl.mzstatic.com/image/thumb/Purple221/v4/ee/e1/43/eee14336-e6f8-7fb9-0c6d-8588bcd592e9/AppIcon-0-1x_U007emarketing-0-6-0-0-sRGB-85-220-0.png/460x0w.webp"
       ]
     }
   ]
