@@ -4,8 +4,8 @@
 #!category=Joiner
 
 [MITM]
-hostname = %APPEND% wx.10099.com.cn
+{{{禁用获参重写}}}hostname = %APPEND% wx.10099.com.cn
 
 [Script]
-中国广电.Cooke = type=http-request,pattern=https://wx.10099.com.cn/contact-web/api/busi/qryUserInfo,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10099/ChinaBroadnet.cookie.js,script-update-interval=0
+{{{禁用获参重写}}}中国广电.Cooke = type=http-request,pattern=https://wx.10099.com.cn/contact-web/api/busi/qryUserInfo,requires-body=1,max-size=0,script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10099/ChinaBroadnet.cookie.js,script-update-interval=0
 中国广电 = type=cron,cronexp=3 0 * * *,script-path=https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Scripts/10099/ChinaBroadnet.js,wake-system=1,script-update-interval=0
