@@ -27,13 +27,13 @@ I am just a web front-end developer and I am glad to meet you!
 <!--START_SECTION:waka-->
 
 ```txt
-From: 10 April 2025 - To: 17 April 2025
+From: 11 April 2025 - To: 18 April 2025
 
-Bash         1 hr 55 mins    █████████▒░░░░░░░░░░░░░░░   37.04 %
-Other        1 hr 11 mins    █████▓░░░░░░░░░░░░░░░░░░░   22.97 %
-XML          59 mins         ████▓░░░░░░░░░░░░░░░░░░░░   19.08 %
-Vue.js       26 mins         ██░░░░░░░░░░░░░░░░░░░░░░░   08.53 %
-CSV          15 mins         █▒░░░░░░░░░░░░░░░░░░░░░░░   05.02 %
+Bash           1 hr 18 mins    ███████░░░░░░░░░░░░░░░░░░   27.40 %
+Other          1 hr 11 mins    ██████▒░░░░░░░░░░░░░░░░░░   24.90 %
+XML            59 mins         █████▒░░░░░░░░░░░░░░░░░░░   20.67 %
+Vue.js         37 mins         ███▒░░░░░░░░░░░░░░░░░░░░░   13.08 %
+CSV            15 mins         █▒░░░░░░░░░░░░░░░░░░░░░░░   05.44 %
 ```
 
 <!--END_SECTION:waka-->
