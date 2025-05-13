@@ -27,9 +27,13 @@ I am just a web front-end developer and I am glad to meet you!
 <!--START_SECTION:waka-->
 
 ```txt
-From: 04 May 2025 - To: 11 May 2025
+From: 05 May 2025 - To: 12 May 2025
 
-No activity tracked
+Vue.js         27 mins         ███████████▒░░░░░░░░░░░░░   45.31 %
+Other          20 mins         ████████▓░░░░░░░░░░░░░░░░   34.33 %
+Shell Script   9 mins          ████░░░░░░░░░░░░░░░░░░░░░   15.34 %
+Bash           1 min           ▓░░░░░░░░░░░░░░░░░░░░░░░░   02.97 %
+JSON           1 min           ▓░░░░░░░░░░░░░░░░░░░░░░░░   02.05 %
 ```
 
 <!--END_SECTION:waka-->
