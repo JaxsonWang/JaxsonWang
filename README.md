@@ -27,9 +27,13 @@ I am just a web front-end developer and I am glad to meet you!
 <!--START_SECTION:waka-->
 
 ```txt
-From: 30 September 2025 - To: 07 October 2025
+From: 01 October 2025 - To: 08 October 2025
 
-No activity tracked
+JSON       43 mins         ███████████░░░░░░░░░░░░░░   43.62 %
+Other      18 mins         ████▓░░░░░░░░░░░░░░░░░░░░   18.93 %
+YAML       15 mins         ███▓░░░░░░░░░░░░░░░░░░░░░   15.31 %
+Bash       11 mins         ███░░░░░░░░░░░░░░░░░░░░░░   11.57 %
+HTML       9 mins          ██▒░░░░░░░░░░░░░░░░░░░░░░   09.73 %
 ```
 
 <!--END_SECTION:waka-->
