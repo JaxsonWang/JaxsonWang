@@ -27,13 +27,13 @@ I am just a web front-end developer and I am glad to meet you!
 <!--START_SECTION:waka-->
 
 ```txt
-From: 09 October 2025 - To: 16 October 2025
+From: 10 October 2025 - To: 17 October 2025
 
-Vue.js            4 hrs 26 mins   ████▒░░░░░░░░░░░░░░░░░░░░   17.60 %
-Liquid            3 hrs 52 mins   ████░░░░░░░░░░░░░░░░░░░░░   15.38 %
-Markdown          3 hrs 40 mins   ███▓░░░░░░░░░░░░░░░░░░░░░   14.56 %
-JSON              3 hrs 13 mins   ███▒░░░░░░░░░░░░░░░░░░░░░   12.76 %
-TypeScript        2 hrs 31 mins   ██▒░░░░░░░░░░░░░░░░░░░░░░   09.99 %
+Vue.js            5 hrs 40 mins   ██████░░░░░░░░░░░░░░░░░░░   23.49 %
+Liquid            3 hrs 52 mins   ████░░░░░░░░░░░░░░░░░░░░░   16.07 %
+Markdown          3 hrs 14 mins   ███▒░░░░░░░░░░░░░░░░░░░░░   13.43 %
+JavaScript        2 hrs 23 mins   ██▒░░░░░░░░░░░░░░░░░░░░░░   09.90 %
+JSON              2 hrs 20 mins   ██▒░░░░░░░░░░░░░░░░░░░░░░   09.71 %
 ```
 
 <!--END_SECTION:waka-->
