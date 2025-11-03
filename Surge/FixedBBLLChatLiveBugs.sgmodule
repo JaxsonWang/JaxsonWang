@@ -1,0 +1,7 @@
+#!name=修复B站直播死循环
+#!desc=修复B站直播死循环
+#!author=淮城一只猫
+#!category=Joiner
+
+[Rule]
+DOMAIN-WILDCARD, stun*.chat.bilibili.com, REJECT, pre-matching
