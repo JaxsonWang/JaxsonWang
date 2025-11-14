@@ -2,4 +2,5 @@ DOMAIN-SUFFIX,checkip.synology.com
 DOMAIN-SUFFIX,checkipv6.synology.com
 DOMAIN-SUFFIX,checkport.synology.com
 DOMAIN-SUFFIX,ddns.synology.com
+DOMAIN-SUFFIX,checkip.dyndns.org
 DOMAIN-SUFFIX,test-ipv6.com
