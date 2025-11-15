@@ -3,3 +3,5 @@ DOMAIN-SUFFIX,checkipv6.synology.com
 DOMAIN-SUFFIX,checkport.synology.com
 DOMAIN-SUFFIX,ddns.synology.com
 DOMAIN-SUFFIX,checkip.dyndns.org
+# 用于测试 ipv6
+DOMAIN-SUFFIX,test-ipv6.com
