@@ -27,11 +27,9 @@ I am just a web front-end developer and I am glad to meet you!
 <!--START_SECTION:waka-->
 
 ```txt
-From: 13 February 2026 - To: 20 February 2026
+From: 14 February 2026 - To: 21 February 2026
 
-YAML    23 mins               █████████████▒░░░░░░░░░░░   53.98 %
-Other   12 mins               ███████░░░░░░░░░░░░░░░░░░   28.11 %
-JSON    7 mins                ████▒░░░░░░░░░░░░░░░░░░░░   17.92 %
+JSON   7 mins                █████████████████████████   100.00 %
 ```
 
 <!--END_SECTION:waka-->
