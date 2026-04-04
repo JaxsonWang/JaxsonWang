@@ -27,13 +27,13 @@ I am just a web front-end developer and I am glad to meet you!
 <!--START_SECTION:waka-->
 
 ```txt
-From: 26 March 2026 - To: 02 April 2026
+From: 27 March 2026 - To: 03 April 2026
 
-Vue.js           14 hrs 4 mins         ██████████▒░░░░░░░░░░░░░░   41.57 %
-Other            5 hrs 29 mins         ████░░░░░░░░░░░░░░░░░░░░░   16.21 %
-TypeScript       3 hrs 7 mins          ██▒░░░░░░░░░░░░░░░░░░░░░░   09.23 %
-SCSS             1 hr 33 mins          █░░░░░░░░░░░░░░░░░░░░░░░░   04.60 %
-Astro            1 hr 32 mins          █░░░░░░░░░░░░░░░░░░░░░░░░   04.54 %
+Vue.js           10 hrs 12 mins        ████████░░░░░░░░░░░░░░░░░   32.30 %
+Other            7 hrs 29 mins         ██████░░░░░░░░░░░░░░░░░░░   23.73 %
+TypeScript       3 hrs 18 mins         ██▓░░░░░░░░░░░░░░░░░░░░░░   10.45 %
+Astro            1 hr 33 mins          █▒░░░░░░░░░░░░░░░░░░░░░░░   04.93 %
+SCSS             1 hr 20 mins          █░░░░░░░░░░░░░░░░░░░░░░░░   04.25 %
 ```
 
 <!--END_SECTION:waka-->
