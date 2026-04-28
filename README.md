@@ -27,13 +27,13 @@ I am just a web front-end developer and I am glad to meet you!
 <!--START_SECTION:waka-->
 
 ```txt
-From: 19 April 2026 - To: 26 April 2026
+From: 20 April 2026 - To: 27 April 2026
 
-TypeScript        23 hrs 9 mins         ███████░░░░░░░░░░░░░░░░░░   28.16 %
-Other             14 hrs 45 mins        ████▒░░░░░░░░░░░░░░░░░░░░   17.95 %
-Vue               13 hrs 7 mins         ████░░░░░░░░░░░░░░░░░░░░░   15.96 %
-Markdown          11 hrs 57 mins        ███▓░░░░░░░░░░░░░░░░░░░░░   14.54 %
-JavaScript        5 hrs 6 mins          █▓░░░░░░░░░░░░░░░░░░░░░░░   06.21 %
+TypeScript          23 hrs 4 mins         ██████▓░░░░░░░░░░░░░░░░░░   26.78 %
+Other               14 hrs 49 mins        ████▒░░░░░░░░░░░░░░░░░░░░   17.22 %
+Markdown            13 hrs 40 mins        ████░░░░░░░░░░░░░░░░░░░░░   15.87 %
+Vue                 11 hrs                ███▒░░░░░░░░░░░░░░░░░░░░░   12.78 %
+Go                  5 hrs 58 mins         █▓░░░░░░░░░░░░░░░░░░░░░░░   06.94 %
 ```
 
 <!--END_SECTION:waka-->
