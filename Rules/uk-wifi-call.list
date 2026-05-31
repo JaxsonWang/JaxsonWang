@@ -1,4 +1,3 @@
-
 DOMAIN-KEYWORD, mcc234
 # 沃达丰
 DOMAIN-SUFFIX, entsrv-uk.vodafone.com
@@ -15,5 +14,3 @@ IP-CIDR, 87.194.0.0/16,no-resolve
 # CTE
 DOMAIN-SUFFIX, ct.ee.co.uk
 IP-CIDR, 31.94.0.0/16,no-resolve
-
-
