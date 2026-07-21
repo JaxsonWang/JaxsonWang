@@ -5,7 +5,7 @@
   "sources": [
     {
       "source": "Rules/ddns.list",
-      "sha256": "ef3706c995ca7075ce9a809cef48f590b6b06196a49594f22c803303a9661ddc",
+      "sha256": "840e4cce073089005dab7293eb36b545fb9eaf0291a385b31bfe42389e0edf2c",
       "outputs": {
         "domain": {
           "path": "MSR/domain/ddns.mrs",
