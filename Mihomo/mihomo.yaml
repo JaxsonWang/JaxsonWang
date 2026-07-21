@@ -1,0 +1,270 @@
+# update: 2026-07-15
+
+# 节点IP优先级 
+# override: { ip-version: ipv6-prefer }
+providers: &providers { type: http, interval: 86400, proxy: 全球直连, header: { User-Agent: ["clash-verge/v2.5.1"] }, health-check: { enable: true, url: 'https://www.gstatic.com/generate_204', expected-status: 204, interval: 600, timeout: 3000, max-failed-times: 2, lazy: false }, override: { ip-version: dual }, exclude-filter: "(?i)套餐|剩余|流量|到期|重置|频道|订阅|官网|禁止|客户端|有效|联系|测试|节点|日期|群组|加入|通知|维护|网址|地址|下载|更新|APP|登录|严禁|海外|恢复|处理|谢谢" }
+
+proxy-providers:
+  AirProxy1: { <<: *providers, url: 'xxxx', path: ./profiles/AirProxy1.yaml }
+  AirProxy2: { <<: *providers, url: 'xxxx', path: ./profiles/AirProxy2.yaml }
+  AirProxy3: { <<: *providers, url: 'xxxx', path: ./profiles/AirProxy3.yaml }
+  # AirProxy4: { <<: *providers, url: 'xxxx', path: ./profiles/AirProxy4.yaml }
+  # AirProxy5: { <<: *providers, url: 'xxxx', path: ./profiles/AirProxy5.yaml }
+
+proxies: [
+  { name: 拒绝连接, type: reject },
+  { name: IPV4优先, type: direct, udp: true, ip-version: ipv4-prefer },
+  { name: IPV6优先, type: direct, udp: true, ip-version: ipv6-prefer },
+  { name: 仅IPV4, type: direct, udp: true, ip-version: ipv4 },
+  { name: 仅IPV6, type: direct, udp: true, ip-version: ipv6 },
+  { name: HomeWG, type: wireguard, ip: 10.6.0.2, ipv6: fd7f:66bb:bd9a:111::2, private-key: xxxx=, peers: [{ server: 1.1.1.1, port: 0000, public-key: xxxx=, allowed-ips: ["0.0.0.0/0", "::/0"], pre-shared-key: xxx+x+x/x+0= }], udp: true, mtu: 1280 },
+  # { name: 美國01-IDC, server: 1.1.1.1, port: 49998, type: vmess, uuid: xxxx, alterId: 64, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: { path: /path/172910173003, headers: { Host: www.70977343.xyz } }, udp: true, dialer-proxy: 前置节点 },
+  # { name: 美國02-IDC, server: 1.1.1.1, port: 443, type: ss, cipher: aes-256-gcm, password: xxxx, dialer-proxy: 前置节点 },
+]
+
+ipv6: true
+allow-lan: false
+bind-address: '*'
+mode: rule
+log-level: info
+unified-delay: true
+tcp-concurrent: true
+# always 开启，强制匹配所有进程
+# strict 默认，由 Clash 判断是否开启
+# off 不匹配进程，推荐在路由器上使用此模式
+find-process-mode: strict
+# 在 Android 强制为 true
+disable-keep-alive: false
+keep-alive-interval: 15
+keep-alive-idle: 300
+etag-support: true
+# global-ua: 'Mozilla/5.0 (Linux; Android 16; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.7778.217 Mobile Safari/537.36'
+# global-ua: 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/148.0.7778.257 Safari/537.36'
+external-controller: 0.0.0.0:9090
+# secret: '密码'
+# external-doh-server: /dns-query
+external-ui: dashboard
+external-ui-name: zashboard
+external-ui-url: 'https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip'
+profile: { store-selected: true, store-fake-ip: false }
+experimental: { quic-go-disable-gso: false, quic-go-disable-ecn: true, dialer-ip4p-convert: false }
+port: 7888
+socks-port: 7889
+mixed-port: 7890
+redir-port: 7891
+tproxy-port: 7892
+
+sniffer:
+  enable: true
+  sniff:
+    HTTP: { ports: [80, 8080-8880], override-destination: true }
+    TLS: { ports: [443, 8443] }
+    QUIC: { ports: [443, 8443] }
+  force-domain: ["*.v2ex.com"]
+  skip-domain: ['rule-set:private']
+  skip-src-address: ['rule-set:private_ip']
+  skip-dst-address: ['rule-set:private_ip']
+
+hosts:
+  dns.alidns.com: [223.5.5.5,223.6.6.6,'2400:3200::1','2400:3200:baba::1']
+  doh.pub: [120.53.53.53,1.12.12.12]
+  dns.google: [8.8.8.8,8.8.4.4,'2001:4860:4860::8888','2001:4860:4860::8844']
+  dns.quad9.net: [9.9.9.9,149.112.112.112,'2620:fe::fe','2620:fe::9']
+  cn.bing.com: global.bing.com
+  services.googleapis.cn: services.googleapis.com
+  google.cn: google.com
+
+direct-dns: &direct-dns ['https://dns.alidns.com/dns-query#全球直连', 'https://doh.pub/dns-query#全球直连&h3=false']
+proxy-dns: &proxy-dns ['https://cloudflare-dns.com/dns-query#代理DNS&disable-ipv6=true', 'https://dns.google/dns-query#代理DNS&ecs=8.8.8.8/24&ecs-override=true&disable-ipv6=true','https://dns.quad9.net/dns-query#代理DNS&ecs=9.9.9.9/24&ecs-override=true', 'https://1.1.1.1/dns-query#代理DNS&disable-ipv6=true']
+dns:
+  enable: true
+  ipv6: true
+  ipv6-timeout: 300
+  prefer-h3: false
+  cache-algorithm: arc
+  use-hosts: true
+  use-system-hosts: true
+  respect-rules: false
+  listen: 0.0.0.0:1053
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.0/15
+  fake-ip-range6: fd00:a4c5:9b12:d3f8:e760:00df::/96
+  fake-ip-ttl: 1
+  fake-ip-filter-mode: rule
+  fake-ip-filter:
+    - RULE-SET,ddns,real-ip
+    - RULE-SET,fake-ip-filter,real-ip
+    - RULE-SET,private,real-ip
+    - RULE-SET,ai,fake-ip
+    - RULE-SET,socialmedia,fake-ip
+    - RULE-SET,gits,fake-ip
+    - RULE-SET,google,fake-ip
+    - RULE-SET,apple-cn,real-ip
+    - RULE-SET,proxy,fake-ip
+    - RULE-SET,cn,real-ip
+    - MATCH,fake-ip
+  default-nameserver:
+    - 119.29.29.29
+    - 180.184.1.1
+  proxy-server-nameserver: *direct-dns
+  direct-nameserver: *direct-dns
+  nameserver: *proxy-dns
+  direct-nameserver-follow-policy: true
+  nameserver-policy:
+    'rule-set:private': *direct-dns
+    'rule-set:ddns': *direct-dns
+    # 'rule-set:adrules': [rcode://name_error]
+    'rule-set:ai': *proxy-dns
+    'rule-set:socialmedia': *proxy-dns
+    'rule-set:gits': *proxy-dns
+    'rule-set:google': *proxy-dns
+    'rule-set:apple-cn': *direct-dns
+    'rule-set:proxy': *proxy-dns
+    'rule-set:cn': *direct-dns
+
+tun:
+  enable: true
+  # Android dummy9 / Windows "以太网 9" / MacOS utun9
+  # device: dummy9
+  stack: mixed
+  auto-route: true
+  auto-redirect: true
+  auto-detect-interface: true
+  strict-route: true
+  disable-icmp-forwarding: true
+  # endpoint-independent-nat: true
+  dns-hijack: [any:53,tcp://any:53]
+  udp-timeout: 600
+
+select: &select { type: select, proxies: [节点选择,落地节点,最低延迟,香港节点,台湾节点,日本节点,韩国节点,美国节点,新加坡节点,其它节点,全球直连] }
+auto: &auto { type: url-test, tolerance: 30, include-all: true, empty-fallback: REJECT, hidden: false }
+
+proxy-groups:
+  - { name: 全球直连, type: select, proxies: [DIRECT,IPV4优先,IPV6优先,仅IPV4,仅IPV6], icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/direct.png' }
+  - { name: 回家模式, type: select, proxies: [全球直连,HomeWG], icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/pass.png' }
+  - { name: 前置节点, type: select, proxies: [全球直连,香港节点,台湾节点,日本节点,韩国节点,美国节点,新加坡节点,其它节点,最低延迟], include-all-providers: true, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png' }
+  - { name: 落地节点, type: select, include-all: true, exclude-type: 'direct|reject', filter: '家宽|住宅', icon: 'https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Airport.png' }
+  - { name: 节点选择, type: select, proxies: [最低延迟,手动选择,香港节点,台湾节点,日本节点,韩国节点,美国节点,新加坡节点,其它节点,落地节点,全球直连], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available.png' }
+  - { name: 代理DNS, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Unlock.png' }
+  - { name: 代理QUIC, type: select, proxies: [PASS-RULE,REJECT], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Star.png' }
+
+  - { name: 人工智能, <<: *select, icon: 'https://cdn.jsdelivr.net/gh/powerfullz/override-rules@master/icons/chatgpt.png' }
+  - { name: Google, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png' }
+  - { name: Apple, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png' }
+  - { name: 国外社交, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png' }
+  - { name: YouTube, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png' }
+  - { name: Netflix, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png' }
+  - { name: Spotify, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png' }
+  - { name: Speedtest, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png' }
+  - { name: Gits, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png' }
+  - { name: Games, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png' }
+  - { name: CDN, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ssLinks.png' }
+  - { name: 广告拦截, type: select, proxies: [拒绝连接,全球直连,节点选择], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png' }
+  - { name: 漏网之鱼, <<: *select, icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/direct.png' }
+
+  - { name: 香港节点, <<: *auto, filter: '(?i)🇭🇰|香港|\bHK\b|\bhongkong\b|\bhong\s?kong\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png' }
+  - { name: 台湾节点, <<: *auto, filter: '(?i)🇹🇼|台湾|\bTW\b|\btaiwan\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png' }
+  - { name: 日本节点, <<: *auto, filter: '(?i)🇯🇵|日本|\bJP\b|\bjapan\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png' }
+  - { name: 韩国节点, <<: *auto, filter: '(?i)🇰🇷|韩国|\bKR\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png' }
+  - { name: 新加坡节点, <<: *auto, filter: '(?i)🇸🇬|新加坡|狮城|\bSG\b|\bsingapore\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png' }
+  - { name: 美国节点, <<: *auto, filter: '(?i)🇺🇸|美国|\bUS\b|\bunitedstates\b|\bunited\s?states\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png' }
+  - { name: 其它节点, type: select, exclude-type: 'direct|reject', include-all: true, filter: '(?i)^(?!.*(🇭🇰|香港|\bHK\b|\bhongkong\b|\bhong\s?kong\b|🇹🇼|台湾|\bTW\b|\btaiwan\b|🇯🇵|日本|\bJP\b|\bjapan\b|🇸🇬|新加坡|狮城|\bSG\b|\bsingapore\b|🇺🇸|美国|\bUS\b|\bunitedstates\b|\bunited\s?states\b|🇰🇷|韩国|\bKR\b)).*', exclude-filter: 'HomeWG|家宽|住宅', icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/other.png' }
+  - { name: 最低延迟, type: url-test, include-all: true, exclude-type: 'direct|reject', exclude-filter: 'HomeWG|家宽|住宅', tolerance: 30, icon: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/release/icon/color/auto.png' }
+  - { name: 手动选择, type: select, include-all: true, exclude-type: 'direct|reject', exclude-filter: 'HomeWG|家宽|住宅|拒绝连接|IPV4|IPV6', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Static.png' }
+
+domain_mrs: &domain_mrs { type: http, interval: 86400, proxy: Gits, behavior: domain, format: mrs }
+ip_mrs: &ip_mrs { type: http, interval: 86400, proxy: Gits, behavior: ipcidr, format: mrs }
+classical_text: &classical_text { type: http, interval: 86400, proxy: Gits, behavior: classical, format: text }
+
+rule-providers:
+  fake-ip-filter: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/fake-ip-filter.mrs', path: ./rules/fake_ip_filter.mrs }
+  ddns: { <<: *classical_text, url: 'https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Rules/ddns.list', path: ./rules/ddns.list }
+  pcdn: { <<: *classical_text, url: 'https://cdn.jsdelivr.net/gh/dqzboy/Loon_Surge_Rule/Rule/Pcdn/Pcdn.list', path: ./rules/pcdn.list }
+
+  private: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/private.mrs', path: ./rules/private.mrs }
+  adrules: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Advertising/Advertising_OCD_Domain.mrs', path: ./rules/adrules.mrs }
+  ai: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/ai.mrs', path: ./rules/ai.mrs }
+  socialmedia: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/socialmedia.mrs', path: ./rules/socialmedia.mrs }
+  gits: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/gits.mrs', path: ./rules/gits.mrs }
+  google: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/google.mrs', path: ./rules/google.mrs }
+  youtube: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/youtube.mrs', path: ./rules/youtube.mrs }
+  netflix: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/netflix.mrs', path: ./rules/netflix.mrs }
+  spotify: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/spotify.mrs', path: ./rules/spotify.mrs }
+  speedtest: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/speedtest.mrs', path: ./rules/speedtest.mrs }
+  apple-cn: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/apple-cn.mrs', path: ./rules/apple-cn.mrs }
+  apple: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/apple.mrs', path: ./rules/apple.mrs }
+  games: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/games.mrs', path: ./rules/games.mrs }
+  cdn: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/cdn.mrs', path: ./rules/cdn.mrs }
+  proxy: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/proxy.mrs', path: ./rules/proxy.mrs }
+  cn: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/cn.mrs', path: ./rules/cn.mrs }
+
+  private_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/private.mrs', path: ./rules/private_ip.mrs }
+  adrules_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Advertising/Advertising_OCD_IP.mrs', path: ./rules/adrules_ip.mrs }
+  socialmedia_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/socialmedia.mrs', path: ./rules/socialmedia_ip.mrs }
+  google_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/google.mrs', path: ./rules/google_ip.mrs }
+  youtube_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/youtube.mrs', path: ./rules/youtube_ip.mrs }
+  netflix_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/netflix.mrs', path: ./rules/netflix_ip.mrs }
+  spotify_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/spotify.mrs', path: ./rules/spotify_ip.mrs }
+  apple_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/apple.mrs', path: ./rules/apple_ip.mrs }
+  games_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/games.mrs', path: ./rules/games_ip.mrs }
+  proxy_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/proxy.mrs', path: ./rules/proxy_ip.mrs }
+  cn_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/cn.mrs', path: ./rules/cn_ip.mrs }
+
+quic: &quic 'AND,((NETWORK,udp),(DST-PORT,443)),代理QUIC'
+
+rules:
+  # 1. 明确特判
+  - IP-CIDR,192.168.50.0/24,回家模式,no-resolve
+  - RULE-SET,ddns,全球直连
+  - RULE-SET,pcdn,拒绝连接
+
+  # 2. 基础直连/保留地址
+  - RULE-SET,private,全球直连
+  - RULE-SET,private_ip,全球直连,no-resolve
+
+  # 3. 广告
+  - RULE-SET,adrules,广告拦截
+  - RULE-SET,adrules_ip,广告拦截,no-resolve
+
+  # 4. 业务分类
+  - SUB-RULE,(RULE-SET,ai),sub-ai
+  - SUB-RULE,(RULE-SET,socialmedia),sub-socialmedia
+  - SUB-RULE,(RULE-SET,socialmedia_ip,no-resolve),sub-socialmedia
+  - SUB-RULE,(RULE-SET,gits),sub-gits
+  - SUB-RULE,(RULE-SET,google),sub-google
+  - SUB-RULE,(RULE-SET,google_ip,no-resolve),sub-google
+  - SUB-RULE,(RULE-SET,youtube),sub-youtube
+  - SUB-RULE,(RULE-SET,youtube_ip,no-resolve),sub-youtube
+  - SUB-RULE,(RULE-SET,netflix),sub-netflix
+  - SUB-RULE,(RULE-SET,netflix_ip,no-resolve),sub-netflix
+  - SUB-RULE,(RULE-SET,spotify),sub-spotify
+  - SUB-RULE,(RULE-SET,speedtest),sub-speedtest
+  - SUB-RULE,(RULE-SET,spotify_ip,no-resolve),sub-spotify
+  - RULE-SET,apple-cn,全球直连
+  - SUB-RULE,(RULE-SET,apple),sub-apple
+  - SUB-RULE,(RULE-SET,apple_ip,no-resolve),sub-apple
+  - SUB-RULE,(RULE-SET,games),sub-games
+  - SUB-RULE,(RULE-SET,games_ip,no-resolve),sub-games
+  - SUB-RULE,(RULE-SET,cdn),sub-cdn
+  # 5. 大类兜底
+  - SUB-RULE,(RULE-SET,proxy),sub-proxy
+  - SUB-RULE,(RULE-SET,proxy_ip,no-resolve),sub-proxy
+  - RULE-SET,cn,全球直连
+  - RULE-SET,cn_ip,全球直连,no-resolve
+  - *quic
+  # 6. 最终兜底
+  - MATCH,漏网之鱼
+
+sub-rules:
+  sub-ai: [*quic,'MATCH,人工智能']
+  sub-socialmedia: [*quic,'MATCH,国外社交']
+  sub-gits: [*quic,'MATCH,Gits']
+  sub-google: [*quic,'MATCH,Google']
+  sub-youtube: [*quic,'MATCH,YouTube']
+  sub-netflix: [*quic,'MATCH,Netflix']
+  sub-spotify: [*quic,'MATCH,Spotify']
+  sub-speedtest: [*quic,'MATCH,Speedtest']
+  sub-apple: [*quic,'MATCH,Apple']
+  sub-games: [*quic,'MATCH,Games']
+  sub-cdn: [*quic,'MATCH,CDN']
+  sub-proxy: [*quic,'MATCH,节点选择']

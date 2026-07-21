@@ -26,3 +26,7 @@ stats.html
 *.njsproj
 *.sln
 *.sw?
+
+# Optional npm cache directory
+Mihomo/config.yaml
+Surge/config.conf
