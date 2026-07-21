@@ -1,4 +1,4 @@
-# update: 2026-07-15
+# update: 2026-07-21
 
 # 节点IP优先级 
 # override: { ip-version: ipv6-prefer }
@@ -18,8 +18,8 @@ proxies: [
   { name: 仅IPV4, type: direct, udp: true, ip-version: ipv4 },
   { name: 仅IPV6, type: direct, udp: true, ip-version: ipv6 },
   { name: HomeWG, type: wireguard, ip: 10.6.0.2, ipv6: fd7f:66bb:bd9a:111::2, private-key: xxxx=, peers: [{ server: 1.1.1.1, port: 0000, public-key: xxxx=, allowed-ips: ["0.0.0.0/0", "::/0"], pre-shared-key: xxx+x+x/x+0= }], udp: true, mtu: 1280 },
-  # { name: 美國01-IDC, server: 1.1.1.1, port: 49998, type: vmess, uuid: xxxx, alterId: 64, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: { path: /path/172910173003, headers: { Host: www.70977343.xyz } }, udp: true, dialer-proxy: 前置节点 },
-  # { name: 美國02-IDC, server: 1.1.1.1, port: 443, type: ss, cipher: aes-256-gcm, password: xxxx, dialer-proxy: 前置节点 },
+  # { name: 美國01-家宽, server: 1.1.1.1, port: 49998, type: vmess, uuid: xxxx, alterId: 64, cipher: auto, tls: true, skip-cert-verify: false, network: ws, ws-opts: { path: /path/172910173003, headers: { Host: www.70977343.xyz } }, udp: true, dialer-proxy: 前置节点 },
+  # { name: 美國02-家宽, server: 1.1.1.1, port: 443, type: ss, cipher: aes-256-gcm, password: xxxx, dialer-proxy: 前置节点 },
 ]
 
 ipv6: true
@@ -214,7 +214,6 @@ rules:
   # 1. 明确特判
   - IP-CIDR,192.168.50.0/24,回家模式,no-resolve
   - RULE-SET,ddns,全球直连
-  - RULE-SET,pcdn,拒绝连接
 
   # 2. 基础直连/保留地址
   - RULE-SET,private,全球直连
