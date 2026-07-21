@@ -174,12 +174,10 @@ proxy-groups:
 
 domain_mrs: &domain_mrs { type: http, interval: 86400, proxy: Gits, behavior: domain, format: mrs }
 ip_mrs: &ip_mrs { type: http, interval: 86400, proxy: Gits, behavior: ipcidr, format: mrs }
-classical_text: &classical_text { type: http, interval: 86400, proxy: Gits, behavior: classical, format: text }
 
 rule-providers:
   fake-ip-filter: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/fake-ip-filter.mrs', path: ./rules/fake_ip_filter.mrs }
-  ddns: { <<: *classical_text, url: 'https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Rules/ddns.list', path: ./rules/ddns.list }
-  pcdn: { <<: *classical_text, url: 'https://cdn.jsdelivr.net/gh/dqzboy/Loon_Surge_Rule/Rule/Pcdn/Pcdn.list', path: ./rules/pcdn.list }
+  ddns: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/refs/heads/master/MSR/domain/ddns.mrs', path: ./rules/ddns.mrs }
 
   private: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/private.mrs', path: ./rules/private.mrs }
   adrules: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Advertising/Advertising_OCD_Domain.mrs', path: ./rules/adrules.mrs }
