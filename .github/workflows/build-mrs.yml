@@ -1,0 +1,71 @@
+name: Build MRS rules
+
+on:
+  push:
+    paths:
+      - 'Rules/*.list'
+      - 'Rules/**/*.list'
+      - '.github/scripts/build_mrs.py'
+      - '.github/scripts/test_build_mrs.py'
+      - '.github/workflows/build-mrs.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-mrs-${{ github.ref }}
+  cancel-in-progress: true
+
+env:
+  MIHOMO_VERSION: v1.19.29
+  MIHOMO_LINUX_AMD64_SHA256: 60de76a35a6cbf7b4fa4a20f5c257c24345d1d635ab1aa3877022a1997ef413c
+
+jobs:
+  build-mrs:
+    if: github.ref_type == 'branch'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-depth: 0
+
+      - name: Download pinned Mihomo
+        shell: bash
+        run: |
+          set -euo pipefail
+          asset="mihomo-linux-amd64-${MIHOMO_VERSION}.gz"
+          archive="${RUNNER_TEMP}/${asset}"
+          curl --fail --location --show-error --silent \
+            --retry 5 --retry-all-errors \
+            "https://github.com/MetaCubeX/mihomo/releases/download/${MIHOMO_VERSION}/${asset}" \
+            --output "${archive}"
+          echo "${MIHOMO_LINUX_AMD64_SHA256}  ${archive}" | sha256sum --check --strict
+          gzip --decompress --stdout "${archive}" > "${RUNNER_TEMP}/mihomo"
+          chmod +x "${RUNNER_TEMP}/mihomo"
+          "${RUNNER_TEMP}/mihomo" -v
+
+      - name: Run generator tests
+        run: python3 -m unittest discover -s .github/scripts -p 'test_*.py'
+
+      - name: Compile and verify MRS artifacts
+        run: >-
+          python3 .github/scripts/build_mrs.py
+          --mihomo "${RUNNER_TEMP}/mihomo"
+
+      - name: Commit generated artifacts
+        shell: bash
+        run: |
+          set -euo pipefail
+          git add --all -- MSR
+          if git diff --cached --quiet; then
+            echo "MRS artifacts are already up to date."
+            exit 0
+          fi
+
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "chore(rules): rebuild MRS artifacts"
+          git push origin "HEAD:${GITHUB_REF_NAME}"

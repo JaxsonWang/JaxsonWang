@@ -1,0 +1,38 @@
+{
+  "schemaVersion": 1,
+  "format": "MRSv1",
+  "generator": ".github/scripts/build_mrs.py",
+  "sources": [
+    {
+      "source": "Rules/ddns.list",
+      "sha256": "ef3706c995ca7075ce9a809cef48f590b6b06196a49594f22c803303a9661ddc",
+      "outputs": {
+        "domain": {
+          "path": "MSR/domain/ddns.mrs",
+          "sourceRuleCount": 7,
+          "compiledRuleCount": 7,
+          "sha256": "3af4bfee3b98edfc4db4c20835891c14a2b9394f32b021e8928091e0b4b7662a"
+        }
+      }
+    },
+    {
+      "source": "Rules/uk-wifi-call.list",
+      "sha256": "ea6e26a38aa95b4029f589e326b2d6c0200334d0123b0815a0f27b8d52651b25",
+      "outputs": {
+        "domain": {
+          "path": "MSR/domain/uk-wifi-call.mrs",
+          "sourceRuleCount": 7,
+          "compiledRuleCount": 7,
+          "sha256": "2a02e83a1502f15069e6470bf6cfbf56429ed6dd832d32d205884a1202d9fae9"
+        },
+        "ipcidr": {
+          "path": "MSR/ipcidr/uk-wifi-call.mrs",
+          "sourceRuleCount": 8,
+          "compiledRuleCount": 7,
+          "sha256": "bf34781221121b43909c8f16d8a79549fb6cab565a005e691409cc6baf6b673c",
+          "ruleSetNoResolve": true
+        }
+      }
+    }
+  ]
+}
