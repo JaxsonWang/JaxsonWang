@@ -125,7 +125,7 @@ dns:
 tun:
   enable: true
   # Android dummy9 / Windows "以太网 9" / MacOS utun9
-  # device: dummy9
+  device: dummy9
   stack: mixed
   auto-route: true
   auto-redirect: true
