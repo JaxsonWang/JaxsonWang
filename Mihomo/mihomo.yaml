@@ -1,8 +1,8 @@
-# update: 2026-07-21
+# update: 2026-07-22
 
 # 节点IP优先级 
 # override: { ip-version: ipv6-prefer }
-providers: &providers { type: http, interval: 86400, proxy: 全球直连, header: { User-Agent: ["clash-verge/v2.5.1"] }, health-check: { enable: true, url: 'https://www.gstatic.com/generate_204', expected-status: 204, interval: 600, timeout: 3000, max-failed-times: 2, lazy: false }, override: { ip-version: dual }, exclude-filter: "(?i)套餐|剩余|流量|到期|重置|频道|订阅|官网|禁止|客户端|有效|联系|测试|节点|日期|群组|加入|通知|维护|网址|地址|下载|更新|APP|登录|严禁|海外|恢复|处理|谢谢" }
+providers: &providers { type: http, interval: 86400, proxy: 全球直连, header: { User-Agent: ["clash-verge/v2.5.1"] }, health-check: { enable: true, url: 'https://gstatic.com/generate_204', expected-status: 204, interval: 600, timeout: 6000, lazy: false }, override: { ip-version: dual }, exclude-filter: "(?i)套餐|剩余|流量|到期|重置|频道|订阅|官网|禁止|客户端|有效|联系|测试|节点|日期|群组|加入|通知|维护|网址|地址|下载|更新|APP|登录|严禁|海外|恢复|处理|谢谢" }
 
 proxy-providers:
   AirProxy1: { <<: *providers, url: 'xxxx', path: ./profiles/AirProxy1.yaml }
@@ -32,7 +32,7 @@ tcp-concurrent: true
 # always 开启，强制匹配所有进程
 # strict 默认，由 Clash 判断是否开启
 # off 不匹配进程，推荐在路由器上使用此模式
-find-process-mode: strict
+find-process-mode: off
 # 在 Android 强制为 true
 disable-keep-alive: false
 keep-alive-interval: 15
@@ -137,7 +137,7 @@ tun:
   udp-timeout: 600
 
 select: &select { type: select, proxies: [节点选择,落地节点,最低延迟,香港节点,台湾节点,日本节点,韩国节点,美国节点,新加坡节点,其它节点,全球直连] }
-auto: &auto { type: url-test, tolerance: 30, include-all: true, empty-fallback: REJECT, hidden: false }
+auto: &auto { type: url-test, expected-status: 204, interval: 600, timeout: 6000, max-failed-times: 2, lazy: false, include-all: true, tolerance: 30, empty-fallback: REJECT, hidden: false }
 
 proxy-groups:
   - { name: 全球直连, type: select, proxies: [DIRECT,IPV4优先,IPV6优先,仅IPV4,仅IPV6], icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/direct.png' }
@@ -169,7 +169,7 @@ proxy-groups:
   - { name: 新加坡节点, <<: *auto, filter: '(?i)🇸🇬|新加坡|狮城|\bSG\b|\bsingapore\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png' }
   - { name: 美国节点, <<: *auto, filter: '(?i)🇺🇸|美国|\bUS\b|\bunitedstates\b|\bunited\s?states\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png' }
   - { name: 其它节点, type: select, exclude-type: 'direct|reject', include-all: true, filter: '(?i)^(?!.*(🇭🇰|香港|\bHK\b|\bhongkong\b|\bhong\s?kong\b|🇹🇼|台湾|\bTW\b|\btaiwan\b|🇯🇵|日本|\bJP\b|\bjapan\b|🇸🇬|新加坡|狮城|\bSG\b|\bsingapore\b|🇺🇸|美国|\bUS\b|\bunitedstates\b|\bunited\s?states\b|🇰🇷|韩国|\bKR\b)).*', exclude-filter: 'HomeWG|家宽|住宅', icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/other.png' }
-  - { name: 最低延迟, type: url-test, include-all: true, exclude-type: 'direct|reject', exclude-filter: 'HomeWG|家宽|住宅', tolerance: 30, icon: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/release/icon/color/auto.png' }
+  - { name: 最低延迟, <<: *auto, exclude-type: 'direct|reject', exclude-filter: 'HomeWG|家宽|住宅', icon: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/release/icon/color/auto.png' }
   - { name: 手动选择, type: select, include-all: true, exclude-type: 'direct|reject', exclude-filter: 'HomeWG|家宽|住宅|拒绝连接|IPV4|IPV6', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Static.png' }
 
 domain_mrs: &domain_mrs { type: http, interval: 86400, proxy: Gits, behavior: domain, format: mrs }
