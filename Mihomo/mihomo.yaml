@@ -46,7 +46,7 @@ external-controller: 0.0.0.0:9090
 external-ui: dashboard
 external-ui-name: zashboard
 external-ui-url: 'https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip'
-profile: { store-selected: true, store-fake-ip: false }
+profile: { store-selected: true, store-fake-ip: true }
 experimental: { quic-go-disable-gso: false, quic-go-disable-ecn: true, dialer-ip4p-convert: false }
 port: 7888
 socks-port: 7889
