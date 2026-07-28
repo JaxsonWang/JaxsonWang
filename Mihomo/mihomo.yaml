@@ -136,15 +136,15 @@ tun:
   dns-hijack: [any:53,tcp://any:53]
   udp-timeout: 600
 
-select: &select { type: select, proxies: [节点选择,落地节点,最低延迟,香港节点,台湾节点,日本节点,韩国节点,美国节点,新加坡节点,其它节点,全球直连] }
+select: &select { type: select, proxies: [节点选择,落地节点,最低延迟,香港节点,台湾节点,日本节点,韩国节点,新加坡节点,美国节点,英国节点,其它节点,全球直连] }
 auto: &auto { type: url-test, expected-status: 204, interval: 600, timeout: 6000, max-failed-times: 2, lazy: false, include-all: true, tolerance: 30, empty-fallback: REJECT, hidden: false }
 
 proxy-groups:
   - { name: 全球直连, type: select, proxies: [DIRECT,IPV4优先,IPV6优先,仅IPV4,仅IPV6], icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/direct.png' }
   - { name: 回家模式, type: select, proxies: [全球直连,HomeWG], icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/pass.png' }
-  - { name: 前置节点, type: select, proxies: [全球直连,香港节点,台湾节点,日本节点,韩国节点,美国节点,新加坡节点,其它节点,最低延迟], include-all-providers: true, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png' }
+  - { name: 前置节点, type: select, proxies: [全球直连,香港节点,台湾节点,日本节点,韩国节点,新加坡节点,美国节点,英国节点,其它节点,最低延迟], include-all-providers: true, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png' }
   - { name: 落地节点, type: select, include-all: true, exclude-type: 'direct|reject', filter: '家宽|住宅', icon: 'https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Airport.png' }
-  - { name: 节点选择, type: select, proxies: [最低延迟,手动选择,香港节点,台湾节点,日本节点,韩国节点,美国节点,新加坡节点,其它节点,落地节点,全球直连], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available.png' }
+  - { name: 节点选择, type: select, proxies: [最低延迟,手动选择,香港节点,台湾节点,日本节点,韩国节点,新加坡节点,美国节点,英国节点,其它节点,落地节点,全球直连], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available.png' }
   - { name: 代理DNS, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Unlock.png' }
   - { name: 代理QUIC, type: select, proxies: [PASS-RULE,REJECT], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Star.png' }
 
@@ -168,7 +168,8 @@ proxy-groups:
   - { name: 韩国节点, <<: *auto, filter: '(?i)🇰🇷|韩国|\bKR\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png' }
   - { name: 新加坡节点, <<: *auto, filter: '(?i)🇸🇬|新加坡|狮城|\bSG\b|\bsingapore\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png' }
   - { name: 美国节点, <<: *auto, filter: '(?i)🇺🇸|美国|\bUS\b|\bunitedstates\b|\bunited\s?states\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png' }
-  - { name: 其它节点, type: select, exclude-type: 'direct|reject', include-all: true, filter: '(?i)^(?!.*(🇭🇰|香港|\bHK\b|\bhongkong\b|\bhong\s?kong\b|🇹🇼|台湾|\bTW\b|\btaiwan\b|🇯🇵|日本|\bJP\b|\bjapan\b|🇸🇬|新加坡|狮城|\bSG\b|\bsingapore\b|🇺🇸|美国|\bUS\b|\bunitedstates\b|\bunited\s?states\b|🇰🇷|韩国|\bKR\b)).*', exclude-filter: 'HomeWG|家宽|住宅', icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/other.png' }
+  - { name: 英国节点, <<: *auto, filter: '(?i)🇬🇧|英国|\bUK\b|\bGB\b|\bunitedkingdom\b|\bunited\s?kingdom\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png' }
+  - { name: 其它节点, type: select, exclude-type: 'direct|reject', include-all: true, filter: '(?i)^(?!.*(🇭🇰|香港|\bHK\b|\bhongkong\b|\bhong\s?kong\b|🇹🇼|台湾|\bTW\b|\btaiwan\b|🇯🇵|日本|\bJP\b|\bjapan\b|🇸🇬|新加坡|狮城|\bSG\b|\bsingapore\b|🇺🇸|美国|\bUS\b|\bunitedstates\b|\bunited\s?states\b|🇬🇧|英国|\bUK\b|\bGB\b|\bunitedkingdom\b|\bunited\s?kingdom\b|🇰🇷|韩国|\bKR\b)).*', exclude-filter: 'HomeWG|家宽|住宅', icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/other.png' }
   - { name: 最低延迟, <<: *auto, exclude-type: 'direct|reject', exclude-filter: 'HomeWG|家宽|住宅', icon: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/release/icon/color/auto.png' }
   - { name: 手动选择, type: select, include-all: true, exclude-type: 'direct|reject', exclude-filter: 'HomeWG|家宽|住宅|拒绝连接|IPV4|IPV6', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Static.png' }
 
