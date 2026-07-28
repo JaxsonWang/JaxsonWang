@@ -76,6 +76,7 @@ hosts:
 
 direct-dns: &direct-dns ['https://dns.alidns.com/dns-query#全球直连', 'https://doh.pub/dns-query#全球直连&h3=false']
 proxy-dns: &proxy-dns ['https://cloudflare-dns.com/dns-query#代理DNS&disable-ipv6=true', 'https://dns.google/dns-query#代理DNS&ecs=8.8.8.8/24&ecs-override=true&disable-ipv6=true','https://dns.quad9.net/dns-query#代理DNS&ecs=9.9.9.9/24&ecs-override=true', 'https://1.1.1.1/dns-query#代理DNS&disable-ipv6=true']
+uk-wifi-call-dns: &uk-wifi-call-dns ['https://cloudflare-dns.com/dns-query#英国节点&disable-ipv6=true', 'https://dns.google/dns-query#英国节点&disable-ipv6=true']
 dns:
   enable: true
   ipv6: true
@@ -119,6 +120,7 @@ dns:
     'rule-set:gits': *proxy-dns
     'rule-set:google': *proxy-dns
     'rule-set:apple-cn': *direct-dns
+    'rule-set:uk_wifi_call': *uk-wifi-call-dns
     'rule-set:proxy': *proxy-dns
     'rule-set:cn': *direct-dns
 
@@ -159,6 +161,7 @@ proxy-groups:
   - { name: Gits, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png' }
   - { name: Games, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png' }
   - { name: CDN, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ssLinks.png' }
+  - { name: UK Wi-Fi Call, type: select, proxies: [英国节点,全球直连], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/UK.png' }
   - { name: 广告拦截, type: select, proxies: [拒绝连接,全球直连,节点选择], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png' }
   - { name: 漏网之鱼, <<: *select, icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/direct.png' }
 
@@ -168,7 +171,7 @@ proxy-groups:
   - { name: 韩国节点, <<: *auto, filter: '(?i)🇰🇷|韩国|\bKR\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png' }
   - { name: 新加坡节点, <<: *auto, filter: '(?i)🇸🇬|新加坡|狮城|\bSG\b|\bsingapore\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png' }
   - { name: 美国节点, <<: *auto, filter: '(?i)🇺🇸|美国|\bUS\b|\bunitedstates\b|\bunited\s?states\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png' }
-  - { name: 英国节点, <<: *auto, filter: '(?i)🇬🇧|英国|\bUK\b|\bGB\b|\bunitedkingdom\b|\bunited\s?kingdom\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png' }
+  - { name: 英国节点, <<: *auto, filter: '(?i)🇬🇧|英国|\bUK\b|\bGB\b|\bunitedkingdom\b|\bunited\s?kingdom\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png' }
   - { name: 其它节点, type: select, exclude-type: 'direct|reject', include-all: true, filter: '(?i)^(?!.*(🇭🇰|香港|\bHK\b|\bhongkong\b|\bhong\s?kong\b|🇹🇼|台湾|\bTW\b|\btaiwan\b|🇯🇵|日本|\bJP\b|\bjapan\b|🇸🇬|新加坡|狮城|\bSG\b|\bsingapore\b|🇺🇸|美国|\bUS\b|\bunitedstates\b|\bunited\s?states\b|🇬🇧|英国|\bUK\b|\bGB\b|\bunitedkingdom\b|\bunited\s?kingdom\b|🇰🇷|韩国|\bKR\b)).*', exclude-filter: 'HomeWG|家宽|住宅', icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/other.png' }
   - { name: 最低延迟, <<: *auto, exclude-type: 'direct|reject', exclude-filter: 'HomeWG|家宽|住宅', icon: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/release/icon/color/auto.png' }
   - { name: 手动选择, type: select, include-all: true, exclude-type: 'direct|reject', exclude-filter: 'HomeWG|家宽|住宅|拒绝连接|IPV4|IPV6', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Static.png' }
@@ -194,6 +197,7 @@ rule-providers:
   apple: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/apple.mrs', path: ./rules/apple.mrs }
   games: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/games.mrs', path: ./rules/games.mrs }
   cdn: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/cdn.mrs', path: ./rules/cdn.mrs }
+  uk_wifi_call: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/refs/heads/master/MSR/domain/uk-wifi-call.mrs', path: ./rules/uk_wifi_call.mrs }
   proxy: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/proxy.mrs', path: ./rules/proxy.mrs }
   cn: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/cn.mrs', path: ./rules/cn.mrs }
 
@@ -206,6 +210,7 @@ rule-providers:
   spotify_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/spotify.mrs', path: ./rules/spotify_ip.mrs }
   apple_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/apple.mrs', path: ./rules/apple_ip.mrs }
   games_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/games.mrs', path: ./rules/games_ip.mrs }
+  uk_wifi_call_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/refs/heads/master/MSR/ipcidr/uk-wifi-call.mrs', path: ./rules/uk_wifi_call_ip.mrs }
   proxy_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/proxy.mrs', path: ./rules/proxy_ip.mrs }
   cn_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/cn.mrs', path: ./rules/cn_ip.mrs }
 
@@ -213,6 +218,8 @@ quic: &quic 'AND,((NETWORK,udp),(DST-PORT,443)),代理QUIC'
 
 rules:
   # 1. 明确特判
+  # 群晖某个 Docker 程序需要流量固定直连，不需要可以删除
+  - AND,((SRC-IP-CIDR,192.168.50.20/32),(IN-TYPE,TUN/REDIR/TPROXY)),DIRECT
   - IP-CIDR,192.168.50.0/24,回家模式,no-resolve
   - RULE-SET,ddns,全球直连
 
@@ -244,6 +251,9 @@ rules:
   - SUB-RULE,(RULE-SET,games),sub-games
   - SUB-RULE,(RULE-SET,games_ip,no-resolve),sub-games
   - SUB-RULE,(RULE-SET,cdn),sub-cdn
+  # GiffGaff 卡实现 VoWiFi，不需要可删除
+  - SUB-RULE,(RULE-SET,uk_wifi_call),sub-uk-wifi-call
+  - SUB-RULE,(RULE-SET,uk_wifi_call_ip,no-resolve),sub-uk-wifi-call
   # 5. 大类兜底
   - SUB-RULE,(RULE-SET,proxy),sub-proxy
   - SUB-RULE,(RULE-SET,proxy_ip,no-resolve),sub-proxy
@@ -265,4 +275,5 @@ sub-rules:
   sub-apple: [*quic,'MATCH,Apple']
   sub-games: [*quic,'MATCH,Games']
   sub-cdn: [*quic,'MATCH,CDN']
+  sub-uk-wifi-call: [*quic,'MATCH,UK Wi-Fi Call']
   sub-proxy: [*quic,'MATCH,节点选择']
