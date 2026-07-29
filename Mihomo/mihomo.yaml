@@ -220,49 +220,50 @@ rules:
   # 1. 明确特判
   # 群晖某个 Docker 程序需要流量固定直连，不需要可以删除
   - AND,((SRC-IP-CIDR,192.168.50.20/32),(IN-TYPE,TUN/REDIR/TPROXY)),DIRECT
-  # WireGuard 回家模式
-  - IP-CIDR,192.168.50.0/24,回家模式,no-resolve
   # DDNS 检测固定直连
   - RULE-SET,ddns,全球直连
 
-  # 2. 基础直连/保留地址
+  # 2. 域名分类
   - RULE-SET,private,全球直连
-  - RULE-SET,private_ip,全球直连,no-resolve
-
-  # 3. 广告
   - RULE-SET,adrules,广告拦截
-  - RULE-SET,adrules_ip,广告拦截,no-resolve
-
-  # 4. 业务分类
   - SUB-RULE,(RULE-SET,ai),sub-ai
   - SUB-RULE,(RULE-SET,socialmedia),sub-socialmedia
-  - SUB-RULE,(RULE-SET,socialmedia_ip,no-resolve),sub-socialmedia
   - SUB-RULE,(RULE-SET,gits),sub-gits
-  - SUB-RULE,(RULE-SET,google),sub-google
-  - SUB-RULE,(RULE-SET,google_ip,no-resolve),sub-google
   - SUB-RULE,(RULE-SET,youtube),sub-youtube
-  - SUB-RULE,(RULE-SET,youtube_ip,no-resolve),sub-youtube
-  - SUB-RULE,(RULE-SET,netflix),sub-netflix
-  - SUB-RULE,(RULE-SET,netflix_ip,no-resolve),sub-netflix
   - SUB-RULE,(RULE-SET,spotify),sub-spotify
+  - SUB-RULE,(RULE-SET,google),sub-google
+  - SUB-RULE,(RULE-SET,netflix),sub-netflix
   - SUB-RULE,(RULE-SET,speedtest),sub-speedtest
-  - SUB-RULE,(RULE-SET,spotify_ip,no-resolve),sub-spotify
   - RULE-SET,apple-cn,全球直连
   - SUB-RULE,(RULE-SET,apple),sub-apple
-  - SUB-RULE,(RULE-SET,apple_ip,no-resolve),sub-apple
   - SUB-RULE,(RULE-SET,games),sub-games
-  - SUB-RULE,(RULE-SET,games_ip,no-resolve),sub-games
   - SUB-RULE,(RULE-SET,cdn),sub-cdn
   # GiffGaff 卡实现 VoWiFi，不需要可删除
   - SUB-RULE,(RULE-SET,uk_wifi_call),sub-uk-wifi-call
-  - SUB-RULE,(RULE-SET,uk_wifi_call_ip,no-resolve),sub-uk-wifi-call
-  # 5. 大类兜底
   - SUB-RULE,(RULE-SET,proxy),sub-proxy
-  - SUB-RULE,(RULE-SET,proxy_ip,no-resolve),sub-proxy
   - RULE-SET,cn,全球直连
-  - RULE-SET,cn_ip,全球直连,no-resolve
+
+  # 3. 直接 IP 补充
+  # 业务 IP 仅匹配连接本身已是 IP 的请求，避免通过共享云网段猜测域名业务
+  - SUB-RULE,(RULE-SET,uk_wifi_call_ip,no-resolve),sub-uk-wifi-call
+  - IP-CIDR,192.168.50.0/24,回家模式,no-resolve
+  - RULE-SET,private_ip,全球直连,no-resolve
+  - RULE-SET,adrules_ip,广告拦截,no-resolve
+  - SUB-RULE,(RULE-SET,socialmedia_ip,no-resolve),sub-socialmedia
+  - SUB-RULE,(RULE-SET,youtube_ip,no-resolve),sub-youtube
+  - SUB-RULE,(RULE-SET,spotify_ip,no-resolve),sub-spotify
+  - SUB-RULE,(RULE-SET,google_ip,no-resolve),sub-google
+  - SUB-RULE,(RULE-SET,netflix_ip,no-resolve),sub-netflix
+  - SUB-RULE,(RULE-SET,apple_ip,no-resolve),sub-apple
+  - SUB-RULE,(RULE-SET,games_ip,no-resolve),sub-games
+  - SUB-RULE,(RULE-SET,proxy_ip,no-resolve),sub-proxy
+
+  # 4. 地域解析兜底
+  # 仅在这里解析未命中域名规则的连接，用于中国大陆 IP 直连判断
+  - RULE-SET,cn_ip,全球直连
   - *quic
-  # 6. 最终兜底
+
+  # 5. 最终兜底
   - MATCH,漏网之鱼
 
 sub-rules:
