@@ -225,11 +225,11 @@ rules:
 
   # 2. 域名分类
   - RULE-SET,private,全球直连
+  - SUB-RULE,(RULE-SET,youtube),sub-youtube
   - RULE-SET,adrules,广告拦截
   - SUB-RULE,(RULE-SET,ai),sub-ai
   - SUB-RULE,(RULE-SET,socialmedia),sub-socialmedia
   - SUB-RULE,(RULE-SET,gits),sub-gits
-  - SUB-RULE,(RULE-SET,youtube),sub-youtube
   - SUB-RULE,(RULE-SET,spotify),sub-spotify
   - SUB-RULE,(RULE-SET,google),sub-google
   - SUB-RULE,(RULE-SET,netflix),sub-netflix
@@ -248,9 +248,9 @@ rules:
   - SUB-RULE,(RULE-SET,uk_wifi_call_ip,no-resolve),sub-uk-wifi-call
   - IP-CIDR,192.168.50.0/24,回家模式,no-resolve
   - RULE-SET,private_ip,全球直连,no-resolve
+  - SUB-RULE,(RULE-SET,youtube_ip,no-resolve),sub-youtube
   - RULE-SET,adrules_ip,广告拦截,no-resolve
   - SUB-RULE,(RULE-SET,socialmedia_ip,no-resolve),sub-socialmedia
-  - SUB-RULE,(RULE-SET,youtube_ip,no-resolve),sub-youtube
   - SUB-RULE,(RULE-SET,spotify_ip,no-resolve),sub-spotify
   - SUB-RULE,(RULE-SET,google_ip,no-resolve),sub-google
   - SUB-RULE,(RULE-SET,netflix_ip,no-resolve),sub-netflix
