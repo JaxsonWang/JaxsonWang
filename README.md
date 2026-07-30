@@ -4,7 +4,6 @@ I am just a web front-end developer and I am glad to meet you!
 
 ![JaxsonWang's GitHub stats](./profile/stats.svg)
 
-
 ### 📝 Worked language
 
 - ✅ JavaScript / TypeScript / ...
@@ -16,7 +15,7 @@ I am just a web front-end developer and I am glad to meet you!
 
 - [Email - i@iiong.com](mailto:i@iiong.com)
 
-- [Twitter - @JaxsonWangChina](https://twitter.com/JaxsonWangChina)
+- [Twitter - @JaxsonJWang](https://twitter.com/JaxsonJWang)
 
 ### 🤪 Other
 
