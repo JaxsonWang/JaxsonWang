@@ -1,4 +1,4 @@
-# update: 2026-07-22
+# update: 2026-07-30
 
 # 节点IP优先级 
 # override: { ip-version: ipv6-prefer }
