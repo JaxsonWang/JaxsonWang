@@ -2,7 +2,7 @@
 
 I am just a web front-end developer and I am glad to meet you!
 
-![JaxsonWang's GitHub stats](./profile/stats.svg)
+![JaxsonWang's GitHub stats](./Profile/stats.svg)
 
 ### 📝 Worked language
 

@@ -26,7 +26,7 @@ jobs:
         with:
           card: stats
           options: 'username=${{ github.repository_owner }}&show_icons=true&title_color=1abc9c&icon_color=1abc9c&disable_animations=true'
-          path: profile/stats.svg
+          path: Profile/stats.svg
           token: ${{ secrets.GITHUB_TOKEN }}
           core_version: 2.1.5
           fail_on_error: true
@@ -36,7 +36,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          git add -- profile/stats.svg
+          git add -- Profile/stats.svg
 
           if git diff --cached --quiet; then
             echo "Profile stats card is already up to date."
