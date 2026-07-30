@@ -220,6 +220,8 @@ rules:
   # 1. 明确特判
   # 群晖某个 Docker 程序需要流量固定直连，不需要可以删除
   - AND,((SRC-IP-CIDR,192.168.50.20/32),(IN-TYPE,TUN/REDIR/TPROXY)),DIRECT
+  - AND,((SRC-IP-CIDR,192.168.50.21/32),(IN-TYPE,TUN/REDIR/TPROXY)),DIRECT
+
   # DDNS 检测固定直连
   - RULE-SET,ddns,全球直连
 
