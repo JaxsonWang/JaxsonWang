@@ -2,7 +2,6 @@
 # 适用于 Loon Build 964 及以上版本；使用前确认节点、订阅地址与证书参数
 # 官方示例：https://github.com/Loon0x00/LoonExampleConfig/blob/master/example.conf
 # 使用手册：https://nsloon.app/docs/
-# DNS 由 General / Host 配置；UDP/443 沿用所属业务策略，不设置改变业务出口的统一 QUIC 策略
 
 [General]
 # IPv4 / IPv6 双栈，直连的 IP 协议偏好在此统一设置
