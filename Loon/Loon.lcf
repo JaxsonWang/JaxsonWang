@@ -10,21 +10,41 @@ ip-mode = dual
 # 节点测速超时，单位为秒
 test-timeout = 5
 # 直连网络可用性检测地址
-internet-test-url = http://www.baidu.com
+internet-test-url = http://connectivitycheck.platform.hicloud.com/generate_204
 # 自动策略组共用的测速地址
 proxy-test-url = https://gstatic.com/generate_204
 # 普通 DNS 服务器；system 表示当前网络的系统 DNS
 dns-server = 223.5.5.5, 223.6.6.6, 119.29.29.29, system
-# 可选的加密 DNS，按需启用
-# doh-server = https://223.5.5.5/dns-query, https://1.12.12.12/dns-query
-# 回家网段 192.168.50.0/24 不在 HTTP 代理绕过列表内，也不要将它加入 bypass-tun
-skip-proxy = 192.168.0.0/24, 10.0.0.0/8, 172.16.0.0/12, 127.0.0.1, localhost, *.local
+# DoH DNS服务器
+doh-server = https://doh.pub/dns-query,https://dns.alidns.com/dns-query
+# DoH3 DNS服务器
+doh3-server = h3://dns.alidns.com/dns-query,h3://1.1.1.1/dns-query
+# DNS劫持（劫持所有 53 端口 DNS 查询，防止应用硬编码 DNS 绕过域名规则）
+hijack-dns = *:53
+# SNI辅助规则匹配
+sni-sniffing = true
+# 丢弃 STUN，减少 WebRTC 公网 IP 泄漏
+disable-stun = true
+# DNS拦截方式
+dns-reject-mode = LOOPBACKIP
+# 域名拦截行为
+domain-reject-mode = DNS
+# 网络接口
+interface-mode = Auto
+# 策略切换时关闭连接
+disconnect-on-policy-change = false
 # 用于国内 IP 分流的 GeoIP 数据库
-geoip-url = https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country-without-asn.mmdb
+geoip-url = https://cdn.jsdelivr.net/gh/Loyalsoldier/geoip@release/Country-without-asn.mmdb
 # 是否允许同一局域网的其他设备使用 Loon 代理
 allow-wifi-access = true
 # Clash 等格式订阅可在客户端本地转换，需同时启用该订阅的 parser-enable
 resource-parser = https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-parser.loon.min.js
+# 回家网段 192.168.50.0/24 不在 HTTP 代理绕过列表内，也不要将它加入 bypass-tun
+skip-proxy = 192.168.0.0/24, 10.0.0.0/8, 172.16.0.0/12, 127.0.0.1, localhost, *.local
+# 实时网络优化（Apple 服务和强制门户检测依赖真实 IP）
+real-ip = captive.apple.com, *.apple.com,*.icloud.com, *.push.apple.com, mask.icloud.com, mask-h2.icloud.com, mask-api.icloud.com
+# 绕过路由
+bypass-tun = 10.0.0.0/8,100.64.0.0/10,127.0.0.0/8,169.254.0.0/16,172.16.0.0/12,192.0.0.0/24,192.0.2.0/24,192.88.99.0/24,192.168.0.0/16,198.51.100.0/24,203.0.113.0/24,224.0.0.0/4,255.255.255.255/32
 # 在 Wi-Fi「705」使用全局直连，其他网络使用规则模式；此项不会关闭 VPN
 ssid-trigger = "705":DIRECT,"default":RULE
 
