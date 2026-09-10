@@ -1,0 +1,148 @@
+# Loon 配置
+# 适用于 Loon Build 964 及以上版本；使用前确认节点、订阅地址与证书参数
+# 官方示例：https://github.com/Loon0x00/LoonExampleConfig/blob/master/example.conf
+# 使用手册：https://nsloon.app/docs/
+# DNS 由 General / Host 配置；UDP/443 沿用所属业务策略，不设置改变业务出口的统一 QUIC 策略
+
+[General]
+# IPv4 / IPv6 双栈，直连的 IP 协议偏好在此统一设置
+ip-mode = dual
+# 节点测速超时，单位为秒
+test-timeout = 5
+# 直连网络可用性检测地址
+internet-test-url = http://www.baidu.com
+# 自动策略组共用的测速地址
+proxy-test-url = https://gstatic.com/generate_204
+# 普通 DNS 服务器；system 表示当前网络的系统 DNS
+dns-server = 223.5.5.5, 223.6.6.6, 119.29.29.29, system
+# 可选的加密 DNS，按需启用
+# doh-server = https://223.5.5.5/dns-query, https://1.12.12.12/dns-query
+# 回家网段 192.168.50.0/24 不在 HTTP 代理绕过列表内，也不要将它加入 bypass-tun
+skip-proxy = 192.168.0.0/24, 10.0.0.0/8, 172.16.0.0/12, 127.0.0.1, localhost, *.local
+# 用于国内 IP 分流的 GeoIP 数据库
+geoip-url = https://raw.githubusercontent.com/Loyalsoldier/geoip/release/Country-without-asn.mmdb
+# 是否允许同一局域网的其他设备使用 Loon 代理
+allow-wifi-access = true
+# Clash 等格式订阅可在客户端本地转换，需同时启用该订阅的 parser-enable
+resource-parser = https://github.com/sub-store-org/Sub-Store/releases/latest/download/sub-store-parser.loon.min.js
+# 在 Wi-Fi「705」使用全局直连，其他网络使用规则模式；此项不会关闭 VPN
+ssid-trigger = "705":DIRECT,"default":RULE
+
+[Proxy]
+# HomeWG 单独用于回家隧道；其余本地节点作为家宽出口
+# 节点名称与策略引用必须一致，示例地址、密钥及 UUID 需替换为有效参数
+HomeWG = wireguard, interface-ip=10.6.0.2, interface-ipV6=fd7f:66bb:bd9a:111::2, private-key="xxxxx", mtu=1280, dns=192.168.50.1, keepalive=25, peers=[{public-key="xxx", preshared-key="xxxx", allowed-ips="0.0.0.0/0,::/0", endpoint=1.1.1.1:51820}], udp=true
+美國01-家宽 = vmess, 1.1.1.1, 49998, aes-128-gcm, "xxxxxxx", transport=ws, alterId=0, path=/path/172910173003, host=www.70977343.xyz, over-tls=true, sni=www.70977343.xyz
+美國02-家宽 = Shadowsocks, 1.1.1.1, 443, aes-256-gcm, "xxxxx"
+
+[Remote Proxy]
+# 订阅地址需返回 Loon 支持的节点，Clash 格式订阅启用 parser-enable=true
+# 填写有效地址后启用 enabled=true；占位订阅和包含不支持协议的订阅保持禁用
+AirProxy1订阅 = https://example.com/airproxy1, enabled=false
+AirProxy2订阅 = https://example.com/airproxy2, enabled=false
+AirProxy3订阅 = https://example.com/airproxy3, parser-enable=false, enabled=false
+
+[Remote Filter]
+# 默认扫描 App 中全部本地节点和订阅节点，统一排除 HomeWG
+# 订阅信息的过滤名单只在常规节点维护，最低延迟、手动选择及落地节点共用它
+常规节点 = NameRegex, FilterKey="(?i)^(?!.*(HomeWG|套餐|剩余|流量|到期|重置|频道|订阅|官网|禁止|客户端|有效|联系|测试|节点|日期|群组|加入|通知|维护|网址|地址|下载|更新|APP|登录|严禁|海外|恢复|处理|谢谢)).+$"
+# 地区筛选只维护地区关键词，不会自动继承常规节点的信息过滤名单
+香港节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇭🇰|香港|\bHK\b|\bhong\s?kong\b).*$"
+台湾节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇹🇼|台湾|\bTW\b|\btaiwan\b).*$"
+日本节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇯🇵|日本|\bJP\b|\bjapan\b).*$"
+韩国节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇰🇷|韩国|\bKR\b).*$"
+新加坡节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇸🇬|新加坡|狮城|\bSG\b|\bsingapore\b).*$"
+美国节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇺🇸|美国|\bUS\b|\bunited\s?states\b).*$"
+英国节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇬🇧|英国|\bUK\b|\bGB\b|\bunited\s?kingdom\b).*$"
+# 其它节点排除上述七个地区；增加地区时同步更新此处的排除条件
+其它节点 = NameRegex, FilterKey="(?i)^(?!.*(HomeWG|🇭🇰|香港|\bHK\b|\bhong\s?kong\b|🇹🇼|台湾|\bTW\b|\btaiwan\b|🇯🇵|日本|\bJP\b|\bjapan\b|🇰🇷|韩国|\bKR\b|🇸🇬|新加坡|狮城|\bSG\b|\bsingapore\b|🇺🇸|美国|\bUS\b|\bunited\s?states\b|🇬🇧|英国|\bUK\b|\bGB\b|\bunited\s?kingdom\b)).+$"
+
+[Proxy Chain]
+# 统一通过前置节点连接落地节点；前置和出口分别在对应策略组中选择
+# 前置选择DIRECT时直接连接出口，选择代理节点时形成两跳代理链
+链式代理 = 前置节点, 落地节点, udp=true
+
+[Proxy Group]
+# 回家网段默认直连，需要隧道时切换到 HomeWG
+回家模式 = select, DIRECT, HomeWG, img-url=https://github.com/DustinWin/ruleset_geodata/releases/download/icons/pass.png
+# 前置支持地区自动选点、全部节点最低延迟，也可以直接选择一个常规订阅节点
+前置节点 = select, DIRECT, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, 其它选择, 最低延迟, 常规节点, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png
+# 从全部本地节点和订阅节点中统一选择出口；HomeWG 和订阅信息条目由筛选规则排除
+落地节点 = select, 常规节点, img-url=https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Airport.png
+# 主入口默认使用最低延迟；「落地节点」直接连接所选出口，「链式代理」先经过前置节点
+节点选择 = select, 最低延迟, 手动选择, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, 其它选择, 落地节点, 链式代理, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available.png
+# 各业务可选择地区、最低延迟、直接连接落地节点或通过链式代理中转
+人工智能 = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, 其它选择, DIRECT, img-url=https://cdn.jsdelivr.net/gh/powerfullz/override-rules@master/icons/chatgpt.png
+Google = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, 其它选择, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+Apple = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, 其它选择, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
+国外社交 = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, 其它选择, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
+YouTube = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, 其它选择, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
+Netflix = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, 其它选择, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
+Spotify = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, 其它选择, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
+Speedtest = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, 其它选择, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
+Gits = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, 其它选择, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png
+Games = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, 其它选择, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+CDN = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, 其它选择, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ssLinks.png
+广告拦截 = select, REJECT, DIRECT, 节点选择, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
+漏网之鱼 = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, 其它选择, DIRECT, img-url=https://github.com/DustinWin/ruleset_geodata/releases/download/icons/direct.png
+# 地区和全局自动选点每 600 秒测速，切换容差为 30 毫秒，超时由 General 设置
+香港优选 = url-test, 香港节点, interval=600, tolerance=30, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
+台湾优选 = url-test, 台湾节点, interval=600, tolerance=30, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
+日本优选 = url-test, 日本节点, interval=600, tolerance=30, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png
+韩国优选 = url-test, 韩国节点, interval=600, tolerance=30, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png
+新加坡优选 = url-test, 新加坡节点, interval=600, tolerance=30, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png
+美国优选 = url-test, 美国节点, interval=600, tolerance=30, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png
+英国优选 = url-test, 英国节点, interval=600, tolerance=30, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png
+其它选择 = select, 其它节点, img-url=https://github.com/DustinWin/ruleset_geodata/releases/download/icons/other.png
+最低延迟 = url-test, 常规节点, interval=600, tolerance=30, img-url=https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/release/icon/color/auto.png
+手动选择 = select, 常规节点, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Static.png
+
+[Rule]
+# 回家规则必须位于覆盖范围更大的内网直连规则之前
+IP-CIDR,192.168.50.0/24,回家模式,no-resolve
+IP-CIDR,10.0.0.0/8,DIRECT,no-resolve
+IP-CIDR,172.16.0.0/12,DIRECT,no-resolve
+IP-CIDR,192.168.0.0/16,DIRECT,no-resolve
+IP-CIDR,127.0.0.0/8,DIRECT,no-resolve
+IP-CIDR,169.254.0.0/16,DIRECT,no-resolve
+IP-CIDR6,::1/128,DIRECT,no-resolve
+IP-CIDR6,fc00::/7,DIRECT,no-resolve
+IP-CIDR6,fe80::/10,DIRECT,no-resolve
+# 国内 IP 直连；本地 IP 规则优先于订阅中的 IP 规则
+GEOIP,CN,DIRECT
+FINAL,漏网之鱼
+
+[Remote Rule]
+# 远程规则按下方顺序匹配，policy 指定对应的业务策略
+# 域名请求先匹配域名规则，再匹配 IP 规则；本地规则优先于订阅规则
+# 广告列表包含域名、IP、URL-REGEX 和 AND 规则；IP 规则保留 no-resolve
+https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Rules/ddns.list, policy=DIRECT, tag=ddns, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/private.list, policy=DIRECT, tag=private, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/youtube.list, policy=YouTube, tag=youtube, enabled=true
+https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Surge/Advertising/Advertising_All_No_Resolve.list, policy=广告拦截, tag=Advertising_All_No_Resolve, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/ai.list, policy=人工智能, tag=ai, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/socialmedia.list, policy=国外社交, tag=socialmedia, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/gits.list, policy=Gits, tag=gits, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/spotify.list, policy=Spotify, tag=spotify, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/google.list, policy=Google, tag=google, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/netflix.list, policy=Netflix, tag=netflix, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/speedtest.list, policy=Speedtest, tag=speedtest, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/apple-cn.list, policy=DIRECT, tag=apple-cn, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/apple.list, policy=Apple, tag=apple, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/games.list, policy=Games, tag=games, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/cdn.list, policy=CDN, tag=cdn, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/proxy.list, policy=节点选择, tag=proxy, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/cn.list, policy=DIRECT, tag=cn, enabled=true
+
+[Host]
+# 域名别名与特定域名的 DNS 映射
+services.googleapis.cn = services.googleapis.com
+google.cn = google.com
+
+[MITM]
+# 默认关闭 HTTPS 解密；启用前确认解密域名、CA 证书及系统信任状态
+# skip-server-cert-verify=true 会在解密时跳过上游服务器证书校验
+enable = false
+ca-p12 = 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
+ca-passphrase = G00L1UJ5
+skip-server-cert-verify = true

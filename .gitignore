@@ -34,4 +34,4 @@ __pycache__/
 # Optional npm cache directory
 Mihomo/config.yaml
 Surge/config.conf
-Loon/config.conf
+Loon/config.lcf
