@@ -93,9 +93,7 @@ AirProxy3订阅 = https://example.com/airproxy3, parser-enable=false, enabled=fa
 Google = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
 Apple = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
 国外社交 = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
-YouTube = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png
-Netflix = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png
-Spotify = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png
+国外媒体 = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
 Speedtest = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
 Gits = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png
 Games = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
@@ -134,18 +132,31 @@ FINAL,漏网之鱼
 # 广告列表包含域名、IP、URL-REGEX 和 AND 规则；IP 规则保留 no-resolve
 https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/Rules/ddns.list, policy=DIRECT, tag=ddns, enabled=true
 https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/private.list, policy=DIRECT, tag=private, enabled=true
-https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/youtube.list, policy=YouTube, tag=youtube, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/youtube.list, policy=国外媒体, tag=youtube, enabled=true
 https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Surge/Advertising/Advertising_All_No_Resolve.list, policy=广告拦截, tag=Advertising_All_No_Resolve, enabled=true
 https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/ai.list, policy=人工智能, tag=ai, enabled=true
 https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/socialmedia.list, policy=国外社交, tag=socialmedia, enabled=true
 https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/gits.list, policy=Gits, tag=gits, enabled=true
-https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/spotify.list, policy=Spotify, tag=spotify, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/spotify.list, policy=国外媒体, tag=spotify, enabled=true
 https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/google.list, policy=Google, tag=google, enabled=true
-https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/netflix.list, policy=Netflix, tag=netflix, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/netflix.list, policy=国外媒体, tag=netflix, enabled=true
 https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/speedtest.list, policy=Speedtest, tag=speedtest, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/apple-tv.list, policy=国外媒体, tag=apple-tv, enabled=true
 https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/apple-cn.list, policy=DIRECT, tag=apple-cn, enabled=true
 https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/apple.list, policy=Apple, tag=apple, enabled=true
 https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/games.list, policy=Games, tag=games, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/disney.list, policy=国外媒体, tag=disney, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/hbo.list, policy=国外媒体, tag=hbo, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/primevideo.list, policy=国外媒体, tag=primevideo, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/hulu.list, policy=国外媒体, tag=hulu, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/twitch.list, policy=国外媒体, tag=twitch, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/abema.list, policy=国外媒体, tag=abema, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/niconico.list, policy=国外媒体, tag=niconico, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/dazn.list, policy=国外媒体, tag=dazn, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/mytvsuper.list, policy=国外媒体, tag=mytvsuper, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/bahamut.list, policy=国外媒体, tag=bahamut, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/tiktok.list, policy=国外媒体, tag=tiktok, enabled=true
+https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/dmm.list, policy=国外媒体, tag=dmm, enabled=true
 https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/cdn.list, policy=CDN, tag=cdn, enabled=true
 https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/proxy.list, policy=节点选择, tag=proxy, enabled=true
 https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/loon/cn.list, policy=DIRECT, tag=cn, enabled=true

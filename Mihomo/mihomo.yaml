@@ -105,8 +105,8 @@ dns:
     - RULE-SET,cn,real-ip
     - MATCH,fake-ip
   default-nameserver:
-    - 119.29.29.29
-    - 180.184.1.1
+    - 223.5.5.5
+    - 1.2.4.8
   proxy-server-nameserver: *direct-dns
   direct-nameserver: *direct-dns
   nameserver: *proxy-dns
@@ -154,9 +154,7 @@ proxy-groups:
   - { name: Google, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png' }
   - { name: Apple, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png' }
   - { name: 国外社交, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png' }
-  - { name: YouTube, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/YouTube.png' }
-  - { name: Netflix, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Netflix.png' }
-  - { name: Spotify, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Spotify.png' }
+  - { name: 国外媒体, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png' }
   - { name: Speedtest, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png' }
   - { name: Gits, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png' }
   - { name: Games, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png' }
@@ -191,6 +189,19 @@ rule-providers:
   youtube: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/youtube.mrs', path: ./rules/youtube.mrs }
   netflix: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/netflix.mrs', path: ./rules/netflix.mrs }
   spotify: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/spotify.mrs', path: ./rules/spotify.mrs }
+  disney: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/disney.mrs', path: ./rules/disney.mrs }
+  hbo: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/hbo.mrs', path: ./rules/hbo.mrs }
+  primevideo: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/primevideo.mrs', path: ./rules/primevideo.mrs }
+  hulu: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/hulu.mrs', path: ./rules/hulu.mrs }
+  apple-tv: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/apple-tv.mrs', path: ./rules/apple-tv.mrs }
+  twitch: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/twitch.mrs', path: ./rules/twitch.mrs }
+  abema: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/abema.mrs', path: ./rules/abema.mrs }
+  niconico: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/niconico.mrs', path: ./rules/niconico.mrs }
+  dazn: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/dazn.mrs', path: ./rules/dazn.mrs }
+  mytvsuper: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/mytvsuper.mrs', path: ./rules/mytvsuper.mrs }
+  bahamut: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/bahamut.mrs', path: ./rules/bahamut.mrs }
+  tiktok: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/tiktok.mrs', path: ./rules/tiktok.mrs }
+  dmm: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/dmm.mrs', path: ./rules/dmm.mrs }
   speedtest: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/speedtest.mrs', path: ./rules/speedtest.mrs }
   apple-cn: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/apple-cn.mrs', path: ./rules/apple-cn.mrs }
   apple: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/apple.mrs', path: ./rules/apple.mrs }
@@ -207,6 +218,8 @@ rule-providers:
   youtube_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/youtube.mrs', path: ./rules/youtube_ip.mrs }
   netflix_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/netflix.mrs', path: ./rules/netflix_ip.mrs }
   spotify_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/spotify.mrs', path: ./rules/spotify_ip.mrs }
+  twitch_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/twitch.mrs', path: ./rules/twitch_ip.mrs }
+  dmm_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/dmm.mrs', path: ./rules/dmm_ip.mrs }
   apple_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/apple.mrs', path: ./rules/apple_ip.mrs }
   games_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/ipcidr/games.mrs', path: ./rules/games_ip.mrs }
   # uk_wifi_call_ip: { <<: *ip_mrs, url: 'https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/refs/heads/master/MSR/ipcidr/uk-wifi-call.mrs', path: ./rules/uk_wifi_call_ip.mrs }
@@ -226,18 +239,31 @@ rules:
 
   # 2. 域名分类
   - RULE-SET,private,全球直连
-  - SUB-RULE,(RULE-SET,youtube),sub-youtube
+  - SUB-RULE,(RULE-SET,youtube),sub-media
   - RULE-SET,adrules,广告拦截
   - SUB-RULE,(RULE-SET,ai),sub-ai
   - SUB-RULE,(RULE-SET,socialmedia),sub-socialmedia
   - SUB-RULE,(RULE-SET,gits),sub-gits
-  - SUB-RULE,(RULE-SET,spotify),sub-spotify
+  - SUB-RULE,(RULE-SET,spotify),sub-media
   - SUB-RULE,(RULE-SET,google),sub-google
-  - SUB-RULE,(RULE-SET,netflix),sub-netflix
+  - SUB-RULE,(RULE-SET,netflix),sub-media
   - SUB-RULE,(RULE-SET,speedtest),sub-speedtest
+  - SUB-RULE,(RULE-SET,apple-tv),sub-media
   - RULE-SET,apple-cn,全球直连
   - SUB-RULE,(RULE-SET,apple),sub-apple
   - SUB-RULE,(RULE-SET,games),sub-games
+  - SUB-RULE,(RULE-SET,disney),sub-media
+  - SUB-RULE,(RULE-SET,hbo),sub-media
+  - SUB-RULE,(RULE-SET,primevideo),sub-media
+  - SUB-RULE,(RULE-SET,hulu),sub-media
+  - SUB-RULE,(RULE-SET,twitch),sub-media
+  - SUB-RULE,(RULE-SET,abema),sub-media
+  - SUB-RULE,(RULE-SET,niconico),sub-media
+  - SUB-RULE,(RULE-SET,dazn),sub-media
+  - SUB-RULE,(RULE-SET,mytvsuper),sub-media
+  - SUB-RULE,(RULE-SET,bahamut),sub-media
+  - SUB-RULE,(RULE-SET,tiktok),sub-media
+  - SUB-RULE,(RULE-SET,dmm),sub-media
   - SUB-RULE,(RULE-SET,cdn),sub-cdn
   # GiffGaff 卡实现 VoWiFi，不需要可删除
   # - SUB-RULE,(RULE-SET,uk_wifi_call),sub-uk-wifi-call
@@ -249,14 +275,16 @@ rules:
   # - SUB-RULE,(RULE-SET,uk_wifi_call_ip,no-resolve),sub-uk-wifi-call
   - IP-CIDR,192.168.50.0/24,回家模式,no-resolve
   - RULE-SET,private_ip,全球直连,no-resolve
-  - SUB-RULE,(RULE-SET,youtube_ip,no-resolve),sub-youtube
+  - SUB-RULE,(RULE-SET,youtube_ip,no-resolve),sub-media
   - RULE-SET,adrules_ip,广告拦截,no-resolve
   - SUB-RULE,(RULE-SET,socialmedia_ip,no-resolve),sub-socialmedia
-  - SUB-RULE,(RULE-SET,spotify_ip,no-resolve),sub-spotify
+  - SUB-RULE,(RULE-SET,spotify_ip,no-resolve),sub-media
   - SUB-RULE,(RULE-SET,google_ip,no-resolve),sub-google
-  - SUB-RULE,(RULE-SET,netflix_ip,no-resolve),sub-netflix
+  - SUB-RULE,(RULE-SET,netflix_ip,no-resolve),sub-media
   - SUB-RULE,(RULE-SET,apple_ip,no-resolve),sub-apple
   - SUB-RULE,(RULE-SET,games_ip,no-resolve),sub-games
+  - SUB-RULE,(RULE-SET,twitch_ip,no-resolve),sub-media
+  - SUB-RULE,(RULE-SET,dmm_ip,no-resolve),sub-media
   - SUB-RULE,(RULE-SET,proxy_ip,no-resolve),sub-proxy
 
   # 4. 地域解析兜底
@@ -272,9 +300,7 @@ sub-rules:
   sub-socialmedia: [*quic,'MATCH,国外社交']
   sub-gits: [*quic,'MATCH,Gits']
   sub-google: [*quic,'MATCH,Google']
-  sub-youtube: [*quic,'MATCH,YouTube']
-  sub-netflix: [*quic,'MATCH,Netflix']
-  sub-spotify: [*quic,'MATCH,Spotify']
+  sub-media: [*quic,'MATCH,国外媒体']
   sub-speedtest: [*quic,'MATCH,Speedtest']
   sub-apple: [*quic,'MATCH,Apple']
   sub-games: [*quic,'MATCH,Games']
