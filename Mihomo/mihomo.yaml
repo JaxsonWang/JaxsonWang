@@ -162,7 +162,7 @@ proxy-groups:
   # - { name: UK Wi-Fi Call, type: select, proxies: [英国优选,全球直连], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/UK.png' }
   - { name: 广告拦截, type: select, proxies: [拒绝连接,全球直连,节点选择], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png' }
   # WebRTC 默认阻断，必要时可切换到节点选择
-  - { name: WebRTC, type: select, proxies: [拒绝连接,节点选择,全球直连] }
+  - { name: WebRTC, type: select, proxies: [拒绝连接,节点选择,全球直连], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Lock.png' }
   - { name: 漏网之鱼, <<: *select, icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/direct.png' }
 
   - { name: 香港优选, <<: *auto, filter: '(?i)🇭🇰|香港|\bHK\b|\bhongkong\b|\bhong\s?kong\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png' }
