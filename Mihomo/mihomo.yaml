@@ -149,6 +149,8 @@ proxy-groups:
   - { name: 节点选择, type: select, proxies: [最低延迟,手动选择,香港优选,台湾优选,日本优选,韩国优选,新加坡优选,美国优选,英国优选,落地节点,全球直连], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available.png' }
   - { name: 代理DNS, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Unlock.png' }
   - { name: 代理QUIC, type: select, proxies: [PASS-RULE,REJECT], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Star.png' }
+  # WebRTC 默认阻断，必要时可切换到节点选择
+  - { name: WebRTC, type: select, proxies: [拒绝连接,节点选择,全球直连], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Lock.png' }
 
   - { name: 人工智能, <<: *select, icon: 'https://cdn.jsdelivr.net/gh/powerfullz/override-rules@master/icons/chatgpt.png' }
   - { name: Google, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png' }
@@ -161,8 +163,6 @@ proxy-groups:
   - { name: CDN, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ssLinks.png' }
   # - { name: UK Wi-Fi Call, type: select, proxies: [英国优选,全球直连], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/UK.png' }
   - { name: 广告拦截, type: select, proxies: [拒绝连接,全球直连,节点选择], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png' }
-  # WebRTC 默认阻断，必要时可切换到节点选择
-  - { name: WebRTC, type: select, proxies: [拒绝连接,节点选择,全球直连], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Lock.png' }
   - { name: 漏网之鱼, <<: *select, icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/direct.png' }
 
   - { name: 香港优选, <<: *auto, filter: '(?i)🇭🇰|香港|\bHK\b|\bhongkong\b|\bhong\s?kong\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png' }
