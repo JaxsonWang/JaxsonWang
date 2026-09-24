@@ -161,6 +161,8 @@ proxy-groups:
   - { name: CDN, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ssLinks.png' }
   # - { name: UK Wi-Fi Call, type: select, proxies: [英国优选,全球直连], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/UK.png' }
   - { name: 广告拦截, type: select, proxies: [拒绝连接,全球直连,节点选择], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png' }
+  # WebRTC 默认阻断，必要时可切换到节点选择
+  - { name: WebRTC, type: select, proxies: [拒绝连接,节点选择,全球直连] }
   - { name: 漏网之鱼, <<: *select, icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/direct.png' }
 
   - { name: 香港优选, <<: *auto, filter: '(?i)🇭🇰|香港|\bHK\b|\bhongkong\b|\bhong\s?kong\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png' }
@@ -233,6 +235,12 @@ rules:
   # 群晖某个 Docker 程序需要流量固定直连，不需要可以删除
   - AND,((SRC-IP-CIDR,192.168.50.20/32),(IN-TYPE,TUN/REDIR/TPROXY)),DIRECT
   - AND,((SRC-IP-CIDR,192.168.50.21/32),(IN-TYPE,TUN/REDIR/TPROXY)),DIRECT
+
+  # WebRTC/STUN 防止浏览器绕过代理暴露本地地址
+  - DST-PORT,3478,WebRTC
+  - DST-PORT,5349,WebRTC
+  - DST-PORT,19302-19309,WebRTC
+  - DOMAIN-KEYWORD,stun,WebRTC
 
   # DDNS 检测固定直连
   - RULE-SET,ddns,全球直连
