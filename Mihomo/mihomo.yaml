@@ -138,7 +138,7 @@ tun:
   dns-hijack: [any:53,tcp://any:53]
   udp-timeout: 600
 
-select: &select { type: select, proxies: [节点选择,落地节点,最低延迟,香港优选,台湾优选,日本优选,韩国优选,新加坡优选,美国优选,英国优选,全球直连] }
+select: &select { type: select, proxies: [节点选择,手动选择,落地节点,最低延迟,香港优选,台湾优选,日本优选,韩国优选,新加坡优选,美国优选,英国优选,全球直连] }
 auto: &auto { type: url-test, expected-status: 204, interval: 600, timeout: 5000, max-failed-times: 2, lazy: false, include-all: true, tolerance: 30, empty-fallback: REJECT, hidden: false, exclude-filter: 'HomeWG|家宽|住宅' }
 
 proxy-groups:
@@ -173,7 +173,7 @@ proxy-groups:
   - { name: 美国优选, <<: *auto, filter: '(?i)🇺🇸|美国|\bUS\b|\bunitedstates\b|\bunited\s?states\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png' }
   - { name: 英国优选, <<: *auto, filter: '(?i)🇬🇧|英国|\bUK\b|\bGB\b|\bunitedkingdom\b|\bunited\s?kingdom\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png' }
   - { name: 最低延迟, <<: *auto, exclude-type: 'direct|reject', exclude-filter: 'HomeWG|家宽|住宅', icon: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/release/icon/color/auto.png' }
-  - { name: 手动选择, type: select, include-all: true, exclude-type: 'direct|reject', exclude-filter: 'HomeWG|家宽|住宅|拒绝连接|IPV4|IPV6', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Static.png' }
+  - { name: 手动选择, type: select, include-all: true, exclude-type: 'direct|reject', exclude-filter: 'HomeWG|拒绝连接|IPV4|IPV6', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Static.png' }
 
 domain_mrs: &domain_mrs { type: http, interval: 86400, proxy: Gits, behavior: domain, format: mrs }
 ip_mrs: &ip_mrs { type: http, interval: 86400, proxy: Gits, behavior: ipcidr, format: mrs }

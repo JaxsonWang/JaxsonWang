@@ -89,17 +89,17 @@ AirProxy3订阅 = https://example.com/airproxy3, parser-enable=false, enabled=fa
 # 主入口默认使用最低延迟；「落地节点」直接连接所选出口，「链式代理」先经过前置节点
 节点选择 = select, 最低延迟, 手动选择, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, 落地节点, 链式代理, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available.png
 # 各业务可选择地区、最低延迟、直接连接落地节点或通过链式代理中转
-人工智能 = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://cdn.jsdelivr.net/gh/powerfullz/override-rules@master/icons/chatgpt.png
-Google = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
-Apple = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
-国外社交 = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
-国外媒体 = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
-Speedtest = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
-Gits = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png
-Games = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
-CDN = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ssLinks.png
+人工智能 = select, 节点选择, 手动选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://cdn.jsdelivr.net/gh/powerfullz/override-rules@master/icons/chatgpt.png
+Google = select, 节点选择, 手动选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png
+Apple = select, 节点选择, 手动选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png
+国外社交 = select, 节点选择, 手动选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png
+国外媒体 = select, 节点选择, 手动选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png
+Speedtest = select, 节点选择, 手动选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Speedtest.png
+Gits = select, 节点选择, 手动选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/GitHub.png
+Games = select, 节点选择, 手动选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Game.png
+CDN = select, 节点选择, 手动选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/ssLinks.png
 广告拦截 = select, REJECT, DIRECT, 节点选择, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png
-漏网之鱼 = select, 节点选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://github.com/DustinWin/ruleset_geodata/releases/download/icons/direct.png
+漏网之鱼 = select, 节点选择, 手动选择, 落地节点, 链式代理, 最低延迟, 香港优选, 台湾优选, 日本优选, 韩国优选, 新加坡优选, 美国优选, 英国优选, DIRECT, img-url=https://github.com/DustinWin/ruleset_geodata/releases/download/icons/direct.png
 # 地区和全局自动选点每 600 秒测速，切换容差为 30 毫秒，超时由 General 设置
 香港优选 = url-test, 香港节点, interval=600, tolerance=30, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png
 台湾优选 = url-test, 台湾节点, interval=600, tolerance=30, img-url=https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png
