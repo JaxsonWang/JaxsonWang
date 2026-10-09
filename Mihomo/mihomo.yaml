@@ -139,12 +139,12 @@ tun:
   udp-timeout: 600
 
 select: &select { type: select, proxies: [节点选择,手动选择,落地节点,最低延迟,香港优选,台湾优选,日本优选,韩国优选,新加坡优选,美国优选,英国优选,全球直连] }
-auto: &auto { type: url-test, expected-status: 204, interval: 600, timeout: 5000, max-failed-times: 2, lazy: false, include-all: true, tolerance: 30, empty-fallback: REJECT, hidden: false, exclude-filter: 'HomeWG|家宽|住宅' }
+auto: &auto { type: url-test, expected-status: 204, interval: 600, timeout: 5000, max-failed-times: 2, lazy: false, include-all: true, tolerance: 30, empty-fallback: REJECT, hidden: false, exclude-type: 'direct|reject', exclude-filter: 'HomeWG' }
 
 proxy-groups:
   - { name: 全球直连, type: select, proxies: [DIRECT,IPV4优先,IPV6优先,仅IPV4,仅IPV6], icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/direct.png' }
   - { name: 回家模式, type: select, proxies: [全球直连,HomeWG], icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/pass.png' }
-  - { name: 前置节点, type: select, proxies: [全球直连,香港优选,台湾优选,日本优选,韩国优选,新加坡优选,美国优选,英国优选,最低延迟], include-all-providers: true, exclude-filter: '家宽|住宅', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png' }
+  - { name: 前置节点, type: select, proxies: [全球直连,前置香港优选,前置台湾优选,前置日本优选,前置韩国优选,前置新加坡优选,前置美国优选,前置英国优选,前置最低延迟], include-all-providers: true, exclude-filter: &upstream_exclude 'HomeWG|家宽|住宅', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Final.png' }
   - { name: 落地节点, type: select, include-all: true, exclude-type: 'direct|reject', exclude-filter: '^HomeWG$', icon: 'https://cdn.jsdelivr.net/gh/Koolson/Qure@master/IconSet/Color/Airport.png' }
   - { name: 节点选择, type: select, proxies: [最低延迟,手动选择,香港优选,台湾优选,日本优选,韩国优选,新加坡优选,美国优选,英国优选,落地节点,全球直连], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available.png' }
   - { name: 代理DNS, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Unlock.png' }
@@ -165,15 +165,25 @@ proxy-groups:
   - { name: 广告拦截, type: select, proxies: [拒绝连接,全球直连,节点选择], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Advertising.png' }
   - { name: 漏网之鱼, <<: *select, icon: 'https://github.com/DustinWin/ruleset_geodata/releases/download/icons/direct.png' }
 
-  - { name: 香港优选, <<: *auto, filter: '(?i)🇭🇰|香港|\bHK\b|\bhongkong\b|\bhong\s?kong\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png' }
-  - { name: 台湾优选, <<: *auto, filter: '(?i)🇹🇼|台湾|\bTW\b|\btaiwan\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png' }
-  - { name: 日本优选, <<: *auto, filter: '(?i)🇯🇵|日本|\bJP\b|\bjapan\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png' }
-  - { name: 韩国优选, <<: *auto, filter: '(?i)🇰🇷|韩国|\bKR\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png' }
-  - { name: 新加坡优选, <<: *auto, filter: '(?i)🇸🇬|新加坡|狮城|\bSG\b|\bsingapore\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png' }
-  - { name: 美国优选, <<: *auto, filter: '(?i)🇺🇸|美国|\bUS\b|\bunitedstates\b|\bunited\s?states\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png' }
-  - { name: 英国优选, <<: *auto, filter: '(?i)🇬🇧|英国|\bUK\b|\bGB\b|\bunitedkingdom\b|\bunited\s?kingdom\b', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png' }
-  - { name: 最低延迟, <<: *auto, exclude-type: 'direct|reject', exclude-filter: 'HomeWG|家宽|住宅', icon: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/release/icon/color/auto.png' }
+  - &hk { name: 香港优选, <<: *auto, filter: '(?i)🇭🇰|香港|(^|[^a-z])(hk|hong\s?kong)([^a-z]|$)', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Hong_Kong.png' }
+  - &tw { name: 台湾优选, <<: *auto, filter: '(?i)🇹🇼|台湾|台灣|臺灣|宝岛|寶島|(^|[^a-z])(tw|taiwan)([^a-z]|$)', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Taiwan.png' }
+  - &jp { name: 日本优选, <<: *auto, filter: '(?i)🇯🇵|日本|倭国|倭國|(^|[^a-z])(jp|japan)([^a-z]|$)', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Japan.png' }
+  - &kr { name: 韩国优选, <<: *auto, filter: '(?i)🇰🇷|韩国|韓國|(^|[^a-z])kr([^a-z]|$)', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Korea.png' }
+  - &sg { name: 新加坡优选, <<: *auto, filter: '(?i)🇸🇬|新加坡|狮城|獅城|(^|[^a-z])(sg|singapore)([^a-z]|$)', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Singapore.png' }
+  - &us { name: 美国优选, <<: *auto, filter: '(?i)🇺🇸|美国|美國|(^|[^a-z])(us|united\s?states)([^a-z]|$)', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_States.png' }
+  - &uk { name: 英国优选, <<: *auto, filter: '(?i)🇬🇧|英国|英國|(^|[^a-z])(uk|gb|united\s?kingdom)([^a-z]|$)', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/United_Kingdom.png' }
+  - &fastest { name: 最低延迟, <<: *auto, icon: 'https://raw.githubusercontent.com/blackmatrix7/ios_rule_script/refs/heads/release/icon/color/auto.png' }
   - { name: 手动选择, type: select, include-all: true, exclude-type: 'direct|reject', exclude-filter: 'HomeWG|拒绝连接|IPV4|IPV6', icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Static.png' }
+
+  # 前置组只使用无需前置代理的节点，避免住宅出口经地区组返回自身。
+  - { <<: *hk, name: 前置香港优选, exclude-filter: *upstream_exclude, hidden: true }
+  - { <<: *tw, name: 前置台湾优选, exclude-filter: *upstream_exclude, hidden: true }
+  - { <<: *jp, name: 前置日本优选, exclude-filter: *upstream_exclude, hidden: true }
+  - { <<: *kr, name: 前置韩国优选, exclude-filter: *upstream_exclude, hidden: true }
+  - { <<: *sg, name: 前置新加坡优选, exclude-filter: *upstream_exclude, hidden: true }
+  - { <<: *us, name: 前置美国优选, exclude-filter: *upstream_exclude, hidden: true }
+  - { <<: *uk, name: 前置英国优选, exclude-filter: *upstream_exclude, hidden: true }
+  - { <<: *fastest, name: 前置最低延迟, exclude-filter: *upstream_exclude, hidden: true }
 
 domain_mrs: &domain_mrs { type: http, interval: 86400, proxy: Gits, behavior: domain, format: mrs }
 ip_mrs: &ip_mrs { type: http, interval: 86400, proxy: Gits, behavior: ipcidr, format: mrs }

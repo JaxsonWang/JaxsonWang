@@ -66,13 +66,13 @@ AirProxy3订阅 = https://example.com/airproxy3, parser-enable=false, enabled=fa
 # 订阅信息的过滤名单只在常规节点维护，最低延迟、手动选择及落地节点共用它
 常规节点 = NameRegex, FilterKey="(?i)^(?!.*(HomeWG|套餐|剩余|流量|到期|重置|频道|订阅|官网|禁止|客户端|有效|联系|测试|节点|日期|群组|加入|通知|维护|网址|地址|下载|更新|APP|登录|严禁|海外|恢复|处理|谢谢)).+$"
 # 地区筛选只维护地区关键词，不会自动继承常规节点的信息过滤名单
-香港节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇭🇰|香港|\bHK\b|\bhong\s?kong\b).*$"
-台湾节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇹🇼|台湾|\bTW\b|\btaiwan\b).*$"
-日本节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇯🇵|日本|\bJP\b|\bjapan\b).*$"
-韩国节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇰🇷|韩国|\bKR\b).*$"
-新加坡节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇸🇬|新加坡|狮城|\bSG\b|\bsingapore\b).*$"
-美国节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇺🇸|美国|\bUS\b|\bunited\s?states\b).*$"
-英国节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇬🇧|英国|\bUK\b|\bGB\b|\bunited\s?kingdom\b).*$"
+香港节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇭🇰|香港|(^|[^a-z])(hk|hong\s?kong)([^a-z]|$)).*$"
+台湾节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇹🇼|台湾|台灣|臺灣|宝岛|寶島|(^|[^a-z])(tw|taiwan)([^a-z]|$)).*$"
+日本节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇯🇵|日本|倭国|倭國|(^|[^a-z])(jp|japan)([^a-z]|$)).*$"
+韩国节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇰🇷|韩国|韓國|(^|[^a-z])kr([^a-z]|$)).*$"
+新加坡节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇸🇬|新加坡|狮城|獅城|(^|[^a-z])(sg|singapore)([^a-z]|$)).*$"
+美国节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇺🇸|美国|美國|(^|[^a-z])(us|united\s?states)([^a-z]|$)).*$"
+英国节点 = NameRegex, FilterKey="(?i)^(?!.*HomeWG).*(🇬🇧|英国|英國|(^|[^a-z])(uk|gb|united\s?kingdom)([^a-z]|$)).*$"
 
 [Proxy Chain]
 # 统一通过前置节点连接落地节点；前置和出口分别在对应策略组中选择
