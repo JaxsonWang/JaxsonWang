@@ -24,6 +24,12 @@ proxies: [
 
 ipv6: true
 allow-lan: false
+lan-allowed-ips:
+  - 127.0.0.0/8
+  - 192.168.50.0/24
+  - "::1/128"
+  - "fe80::/10"
+  - "2408:823c:7e12:7ec::/64"
 bind-address: '*'
 mode: rule
 log-level: info
