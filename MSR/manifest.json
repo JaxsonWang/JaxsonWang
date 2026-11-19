@@ -16,6 +16,18 @@
       }
     },
     {
+      "source": "Rules/gemini.list",
+      "sha256": "e7bbf8b8a673c435e9e9bcbd91193c3534b6e93852ff729ca83bbf25797267f2",
+      "outputs": {
+        "domain": {
+          "path": "MSR/domain/gemini.mrs",
+          "sourceRuleCount": 21,
+          "compiledRuleCount": 21,
+          "sha256": "706d446e7f1d61c6828470c2654ff6d94e671e710c8c0feffae35c9ec4d0a662"
+        }
+      }
+    },
+    {
       "source": "Rules/uk-wifi-call.list",
       "sha256": "0542931ff386f41347b893f8fefb287428cb9e5cc1ece27d783b2bf3193fa8f8",
       "outputs": {
