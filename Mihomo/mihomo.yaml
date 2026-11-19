@@ -157,7 +157,7 @@ proxy-groups:
   - { name: 节点选择, type: select, proxies: [最低延迟,机场优选,手动选择,香港优选,台湾优选,日本优选,韩国优选,新加坡优选,美国优选,英国优选,落地节点,全球直连], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available.png' }
   - { name: 人工智能, <<: *select, icon: 'https://cdn.jsdelivr.net/gh/powerfullz/override-rules@master/icons/chatgpt.png' }
   - { name: Google, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png' }
-  - { name: Gemini, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png' }
+  - { name: Gemini, <<: *select, icon: 'https://raw.githubusercontent.com/getagentseal/codeburn/main/assets/providers/gemini.png' }
   - { name: Apple, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png' }
   - { name: 国外社交, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png' }
   - { name: 国外媒体, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png' }
