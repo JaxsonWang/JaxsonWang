@@ -102,7 +102,6 @@ dns:
     - RULE-SET,ddns,real-ip
     - RULE-SET,fake-ip-filter,real-ip
     - RULE-SET,private,real-ip
-    - RULE-SET,gemini,fake-ip
     - RULE-SET,ai,fake-ip
     - RULE-SET,socialmedia,fake-ip
     - RULE-SET,gits,fake-ip
@@ -122,7 +121,6 @@ dns:
     'rule-set:private': *direct-dns
     'rule-set:ddns': *direct-dns
     # 'rule-set:adrules': [rcode://name_error]
-    'rule-set:gemini': *proxy-dns
     'rule-set:ai': *proxy-dns
     'rule-set:socialmedia': *proxy-dns
     'rule-set:gits': *proxy-dns
@@ -157,7 +155,6 @@ proxy-groups:
   - { name: 节点选择, type: select, proxies: [最低延迟,机场优选,手动选择,香港优选,台湾优选,日本优选,韩国优选,新加坡优选,美国优选,英国优选,落地节点,全球直连], icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Available.png' }
   - { name: 人工智能, <<: *select, icon: 'https://cdn.jsdelivr.net/gh/powerfullz/override-rules@master/icons/chatgpt.png' }
   - { name: Google, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Google_Search.png' }
-  - { name: Gemini, <<: *select, icon: 'https://raw.githubusercontent.com/getagentseal/codeburn/main/assets/providers/gemini.png' }
   - { name: Apple, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Apple.png' }
   - { name: 国外社交, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Telegram.png' }
   - { name: 国外媒体, <<: *select, icon: 'https://raw.githubusercontent.com/Koolson/Qure/master/IconSet/Color/Streaming.png' }
@@ -196,7 +193,6 @@ rule-providers:
 
   private: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/private.mrs', path: ./rules/private.mrs }
   adrules: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/peiyingyao/Rule-for-OCD/refs/heads/master/rule/Clash/Advertising/Advertising_OCD_Domain.mrs', path: ./rules/adrules.mrs }
-  gemini: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/JaxsonWang/JaxsonWang/master/MSR/domain/gemini.mrs', path: ./rules/gemini.mrs }
   ai: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/ai.mrs', path: ./rules/ai.mrs }
   socialmedia: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/socialmedia.mrs', path: ./rules/socialmedia.mrs }
   gits: { <<: *domain_mrs, url: 'https://raw.githubusercontent.com/QuixoticHeart/rule-set/ruleset/meta/domain/gits.mrs', path: ./rules/gits.mrs }
@@ -262,12 +258,11 @@ rules:
   - RULE-SET,private,全球直连
   - SUB-RULE,(RULE-SET,youtube),sub-media
   - RULE-SET,adrules,广告拦截
-  - SUB-RULE,(RULE-SET,gemini),sub-gemini
+  - SUB-RULE,(RULE-SET,google),sub-google
   - SUB-RULE,(RULE-SET,ai),sub-ai
   - SUB-RULE,(RULE-SET,socialmedia),sub-socialmedia
   - SUB-RULE,(RULE-SET,gits),sub-gits
   - SUB-RULE,(RULE-SET,spotify),sub-media
-  - SUB-RULE,(RULE-SET,google),sub-google
   - SUB-RULE,(RULE-SET,netflix),sub-media
   - SUB-RULE,(RULE-SET,speedtest),sub-speedtest
   - SUB-RULE,(RULE-SET,apple-tv),sub-media
@@ -318,7 +313,6 @@ rules:
   - MATCH,漏网之鱼
 
 sub-rules:
-  sub-gemini: [*quic,'MATCH,Gemini']
   sub-ai: [*quic,'MATCH,人工智能']
   sub-socialmedia: [*quic,'MATCH,国外社交']
   sub-gits: [*quic,'MATCH,Gits']
