@@ -53,7 +53,6 @@ external-ui: dashboard
 external-ui-name: zashboard
 external-ui-url: 'https://github.com/Zephyruso/zashboard/releases/latest/download/dist.zip'
 profile: { store-selected: true, store-fake-ip: true }
-experimental: { quic-go-disable-gso: false, quic-go-disable-ecn: true, dialer-ip4p-convert: false }
 port: 7888
 socks-port: 7889
 mixed-port: 7890
@@ -86,7 +85,7 @@ proxy-dns: &proxy-dns ['https://cloudflare-dns.com/dns-query#代理DNS&disable-i
 dns:
   enable: true
   ipv6: true
-  ipv6-timeout: 300
+  ipv6-timeout: 100
   prefer-h3: false
   cache-algorithm: arc
   use-hosts: true
@@ -134,7 +133,7 @@ tun:
   enable: true
   # Android dummy9 / Windows "以太网 9" / MacOS utun9
   device: dummy9
-  stack: mixed
+  stack: mips
   auto-route: true
   auto-redirect: true
   auto-detect-interface: true
